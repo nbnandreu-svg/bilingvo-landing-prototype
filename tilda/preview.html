@@ -1,0 +1,1436 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Проверка встраивания Билингво</title><style>body{margin:0;font:16px Arial;background:#fafafa}#host-sentinel{padding:20px;background:#234;color:#fff}a{color:orange}button{font-family:Arial}h2{font-size:17px}.t-rec{width:100%}</style></head><body><div id="host-sentinel">Тестовый блок вне Билингво. Его оформление не должно меняться.</div><div class="t-rec"><!-- Bilingvo: paste this entire fragment into one Tilda T123 block. -->
+<style>
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/font-0.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/font-1.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/font-2.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/font-3.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/font-4.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/font-5.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/font-6.ttf") format("truetype");
+}
+#bilingvo-site{--ink:#123b38;--muted:#5d7471;--night:#073f3b;--paper:#f6f6f6;--yellow:#fce8a6;--line:#c7d2d1;--serif:"Playfair Display",Georgia,serif;--sans:"Montserrat",Arial,sans-serif}
+#bilingvo-site *{box-sizing:border-box}
+#bilingvo-site{scroll-behavior:auto;scroll-padding-top:24px}
+#bilingvo-site{margin:0;background:var(--paper);color:var(--ink);font:400 20px/1.3 var(--sans)}
+#bilingvo-site button,#bilingvo-site input{font:inherit}
+#bilingvo-site button,#bilingvo-site a,#bilingvo-site input{-webkit-tap-highlight-color:transparent}
+#bilingvo-site a{color:inherit;text-decoration:none}
+#bilingvo-site button{cursor:pointer}
+#bilingvo-site img{display:block;max-width:100%;height:auto}
+#bilingvo-site button:focus-visible,#bilingvo-site a:focus-visible,#bilingvo-site summary:focus-visible,#bilingvo-site input:focus-visible{outline:3px solid #bb9439;outline-offset:5px}
+#bilingvo-site .wrap{width:calc(100% - 48px);max-width:1320px;margin-inline:auto}
+#bilingvo-site h1,#bilingvo-site h2,#bilingvo-site h3,#bilingvo-site p{margin:0}
+#bilingvo-site h1,#bilingvo-site h2,#bilingvo-site h3{font-family:var(--serif);font-weight:500}
+#bilingvo-site h2{font-size:50px;line-height:1.2;letter-spacing:-1.1px}
+#bilingvo-site h3{font-size:28px;line-height:1.15;letter-spacing:-.4px}
+#bilingvo-site p{color:var(--muted)}
+#bilingvo-site .button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;border:1px solid var(--night);border-radius:14px;padding:15px 27px;background:var(--night);color:white;font-size:16px;line-height:1.2;text-align:center}
+#bilingvo-site .outline{border:1px solid var(--ink);background:transparent;color:var(--ink)}
+#bilingvo-site .light{background:#fff;border-color:#fff;color:var(--night)}
+#bilingvo-site input:not([type=checkbox]){min-width:0;border:1px solid var(--muted);border-radius:32px;padding:18px 24px;background:transparent;color:var(--ink);font-size:16px;outline-offset:2px}
+#bilingvo-site input::placeholder{color:#a9b9b9;opacity:1}
+#bilingvo-site .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#bilingvo-site .eyebrow{display:inline-block;padding:9px 21px;border:1px solid #b8c9c8;border-radius:30px;font-size:18px;line-height:1.1}
+#bilingvo-site .eyebrow+h2{margin-top:25px}
+#bilingvo-site h2+p{margin-top:32px}
+#bilingvo-site .site-header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:23px;padding:10px 15px 10px 19px;border-radius:23px;background:#fff;min-height:75px}
+#bilingvo-site .brand{display:flex;align-items:center;gap:14px;white-space:nowrap;font-size:22px}
+#bilingvo-site .brand img{width:65px;height:47px;object-fit:contain}
+#bilingvo-site .site-header nav{display:flex;gap:38px;font-size:18px;color:var(--muted)}
+#bilingvo-site .header-actions{display:flex;gap:21px;align-items:center}
+#bilingvo-site .language-button{display:flex;align-items:center;gap:13px;padding:13px 19px;border-radius:14px;font-size:18px;color:var(--muted);white-space:nowrap}
+#bilingvo-site .globe{font-size:27px;line-height:1}
+#bilingvo-site .hero{margin-top:20px;background:white;border-radius:24px;padding:48px 30px 37px 37px;display:grid;grid-template-columns:minmax(0,1.29fr) minmax(0,1fr);gap:38px;align-items:end}
+#bilingvo-site .hero h1{font-size:40px;line-height:1.22;letter-spacing:-.7px;max-width:690px}
+#bilingvo-site .hero p{max-width:615px;font-size:20px;line-height:1.26;margin-top:29px}
+#bilingvo-site .hero p+p{margin-top:22px}
+#bilingvo-site .hero-actions{display:flex;gap:12px;margin-top:24px}
+#bilingvo-site .hero-actions .button{border-radius:40px;min-height:65px;padding:15px 18px;white-space:nowrap;font-size:16px}
+#bilingvo-site .audio-preview{height:380px;padding:25px;border-radius:23px;background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;color:var(--muted)}
+#bilingvo-site .audio-top{display:flex;justify-content:space-between;align-items:flex-start;font-size:22px;line-height:1.4}
+#bilingvo-site .audio-top small{display:block;font-size:13.6px;margin-top:4px}
+#bilingvo-site .pause{width:49px;height:49px;border-radius:50%;background:#fff;text-align:center;font-size:25px;line-height:49px;font-weight:300}
+#bilingvo-site .wave{width:100%;height:auto;mix-blend-mode:normal}
+#bilingvo-site .audio-bottom{display:flex;align-items:center;gap:13px;font-size:18px}
+#bilingvo-site .audio-bottom>span{border:1px solid var(--muted);border-radius:24px;padding:5px 16px}
+#bilingvo-site .audio-bottom time{margin-left:auto;font-size:22px}
+#bilingvo-site .room-strip{margin-top:30px;background:#fff;border-radius:32px;padding:23px 28px 24px 32px;display:flex;justify-content:space-between;gap:30px;align-items:center}
+#bilingvo-site .room-strip h2{font-size:30px;letter-spacing:0}
+#bilingvo-site .room-strip p{margin-top:7px}
+#bilingvo-site .room-form{display:flex;gap:16px}
+#bilingvo-site .room-form input{width:201px}
+#bilingvo-site .room-form .button{border-radius:35px;min-height:65px;padding-inline:30px}
+#bilingvo-site .participant{display:grid;grid-template-columns:480px 1fr;gap:43px;align-items:center;padding-top:60px}
+#bilingvo-site .phone-demo{width:500px;max-width:none;margin-left:18px}
+#bilingvo-site .participant h2{font-size:50px}
+#bilingvo-site .participant-copy{padding:0 0 0 0}
+#bilingvo-site .participant-copy>p{margin-top:34px}
+#bilingvo-site .compact-form{margin-top:43px;background:white;border-radius:22px;padding:33px}
+#bilingvo-site .compact-fields{display:flex;gap:14px}
+#bilingvo-site .compact-fields input{width:0;flex:1;padding:16px 23px}
+#bilingvo-site .compact-fields .button{border-radius:34px;white-space:nowrap;padding-inline:27px}
+#bilingvo-site .consent{display:flex;align-items:flex-start;gap:14px;font-size:16px;line-height:1.3;margin-top:40px}
+#bilingvo-site .consent input{flex:0 0 auto;width:17px;height:17px;accent-color:var(--night);margin:3px 0 0}
+#bilingvo-site .text-link{display:inline;padding:0;border:0;background:none;color:inherit;text-decoration:underline;font:inherit;text-align:left}
+#bilingvo-site .proof-strip{margin-top:74px;margin-bottom:96px;padding:33px 54px;background:var(--night);color:white;display:grid;grid-template-columns:.8fr 1.25fr 1.3fr;border-radius:24px}
+#bilingvo-site .proof-strip>div{padding-inline:40px;border-right:1px solid #38605d}
+#bilingvo-site .proof-strip>div:first-child{padding-left:25px}
+#bilingvo-site .proof-strip>div:last-child{border:0;padding-right:0}
+#bilingvo-site .proof-strip strong{display:block;font:400 32px/1.2 var(--serif);white-space:nowrap}
+#bilingvo-site .proof-strip span{display:block;font-size:18px;margin-top:10px}
+#bilingvo-site .white-section{background:#fff}
+#bilingvo-site .two-columns{display:grid;grid-template-columns:1fr 1.05fr;gap:18px;align-items:center}
+#bilingvo-site .how{padding:60px 0 114px}
+#bilingvo-site .how h2{margin-top:29px}
+#bilingvo-site .how p{margin-top:28px}
+#bilingvo-site .steps{display:grid;gap:12px;margin-top:32px}
+#bilingvo-site .steps>div{background:var(--paper);border-radius:30px;padding:27px 34px;font:500 28px/1.25 var(--serif)}
+#bilingvo-site .steps .selected{background:var(--yellow)}
+#bilingvo-site .join-illustration{width:100%;align-self:end}
+#bilingvo-site .audiences{padding-top:112px}
+#bilingvo-site .audiences>p{margin-top:42px}
+#bilingvo-site .audience-grid{display:grid;grid-template-columns:1fr 325px;gap:16px;margin-top:54px}
+#bilingvo-site .audience-cards{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
+#bilingvo-site .audience-cards article{background:#fff;border-radius:24px;padding:25px;grid-column:span 2}
+#bilingvo-site .audience-cards article:nth-child(-n/**/+2){grid-column:span 3}
+#bilingvo-site .check{display:inline-flex;align-items:center;justify-content:center;width:43px;height:43px;background:var(--yellow);border-radius:50%;font-size:27px;font-family:Arial,sans-serif}
+#bilingvo-site .audience-cards h3{margin-top:28px}
+#bilingvo-site .audience-cards p{margin-top:20px;font-size:19px;line-height:1.3;color:#38504e}
+#bilingvo-site .audience-cards article:nth-child(n/**/+3) h3{margin-top:48px}
+#bilingvo-site .audience-photo{width:100%;height:100%;object-fit:cover;border-radius:24px}
+#bilingvo-site .devices{padding-top:218px;padding-bottom:110px;gap:42px;grid-template-columns:1fr 1fr}
+#bilingvo-site .devices h2{margin-top:36px}
+#bilingvo-site .devices p{margin-top:44px}
+#bilingvo-site .language-demo{padding:24px 27px;margin-top:45px;background:white;border:1px solid #dedede;border-radius:20px}
+#bilingvo-site .language-options{display:flex;gap:13px;font-size:14px}
+#bilingvo-site .language-options>span{display:flex;align-items:center;justify-content:center;gap:13px;padding:14px 16px;border:1px solid #d4dddc;border-radius:30px;flex:1;white-space:nowrap}
+#bilingvo-site .language-options small{font-size:10px}
+#bilingvo-site .language-options .active{background:var(--yellow);border-color:var(--yellow)}
+#bilingvo-site .language-demo>.button{width:100%;border-radius:30px;min-height:48px;margin-top:24px}
+#bilingvo-site .devices-image{width:100%}
+#bilingvo-site .evidence-section{padding:113px 0 120px}
+#bilingvo-site .universities{display:grid;grid-template-columns:510px 1fr;gap:50px;align-items:end}
+#bilingvo-site .universities h2{margin-top:46px}
+#bilingvo-site .universities p{margin-top:48px;max-width:445px}
+#bilingvo-site .universities>img{width:100%;border-radius:25px}
+#bilingvo-site .arrows{display:flex;gap:14px;margin-top:73px;margin-bottom:38px}
+#bilingvo-site .arrows span{display:flex;align-items:center;justify-content:center;border-radius:50%;width:60px;height:60px;background:var(--paper);color:#abb7b5;font-size:25px}
+#bilingvo-site .arrows span+span{background:var(--yellow);color:var(--muted)}
+#bilingvo-site .reviews{margin-top:80px}
+#bilingvo-site .reviews>h2{margin-top:26px}
+#bilingvo-site .reviews>p{margin-top:19px;color:var(--night)}
+#bilingvo-site .review-collage{position:relative;display:grid;grid-template-columns:1fr 545px 1fr;align-items:center;margin-top:62px;gap:0;padding:0 12px}
+#bilingvo-site .review-side{width:100%;height:548px;object-fit:cover}
+#bilingvo-site .review-left{object-position:left}
+#bilingvo-site .review-right{object-position:right}
+#bilingvo-site .review-card{position:relative;background:white;padding:20px;border-radius:23px;box-shadow:0 16px 30px #0000000d;z-index:1}
+#bilingvo-site .review-cover{position:relative;overflow:hidden;border-radius:23px}
+#bilingvo-site .review-cover img{width:100%;height:auto}
+#bilingvo-site .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:62px;height:62px;border:0;border-radius:50%;background:#dbeaba;color:var(--night);font-size:28px;padding-left:10px}
+#bilingvo-site .review-copy{padding:40px 14px 30px}
+#bilingvo-site .review-copy p{color:var(--night);margin-top:32px}
+#bilingvo-site .review-copy p:last-child{margin-top:45px}
+#bilingvo-site .demo-panel{margin-top:75px;padding:58px 83px 75px;border-radius:24px;background:var(--night);color:white}
+#bilingvo-site .demo-panel p{color:white;margin-top:16px}
+#bilingvo-site .demo-panel form{margin-top:40px}
+#bilingvo-site .demo-fields{display:grid;grid-template-columns:1fr 1fr 244px;gap:12px}
+#bilingvo-site .demo-fields input:not([type=checkbox]){border-radius:14px;border-color:#416461;color:white;padding:19px 23px}
+#bilingvo-site .demo-fields input::placeholder{color:#7b9c98}
+#bilingvo-site .demo-fields .full-width{grid-column:1/-1}
+#bilingvo-site .demo-fields .button{border-radius:13px}
+#bilingvo-site .demo-panel .consent{margin-top:22px;font-size:16px;padding-left:23px}
+#bilingvo-site .demo-panel .consent input{accent-color:#305954}
+#bilingvo-site .features{margin-top:90px}
+#bilingvo-site .features-heading{display:grid;grid-template-columns:2fr 1fr;gap:50px;align-items:center}
+#bilingvo-site .features-heading>div p{margin-top:25px}
+#bilingvo-site .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:74px}
+#bilingvo-site .feature-grid article{background:var(--yellow);border-radius:26px;padding:30px;min-height:416px}
+#bilingvo-site .feature-icon{display:flex;align-items:center;justify-content:center;width:51px;height:51px;border-radius:50%;background:var(--paper);font:28px var(--serif);margin-bottom:77px}
+#bilingvo-site .feature-tag{display:inline-block;padding:7px 18px;background:#fff5d4;border-radius:30px;font-size:16px;white-space:nowrap}
+#bilingvo-site .feature-grid h3{margin-top:24px}
+#bilingvo-site .feature-grid p{margin-top:26px;color:var(--night)}
+#bilingvo-site .benefits{margin-top:93px}
+#bilingvo-site .benefits>h2{margin-top:32px}
+#bilingvo-site .benefits>p{margin-top:28px}
+#bilingvo-site .benefit-list{list-style:none;padding:0;margin:68px 0 0;counter-reset:benefits;display:grid;gap:13px}
+#bilingvo-site .benefit-list li{display:grid;grid-template-columns:48px 238px 1fr;gap:27px;align-items:center;background:white;border-radius:21px;padding:20px 32px;min-height:104px;counter-increment:benefits}
+#bilingvo-site .benefit-list li::before{content:counter(benefits);display:flex;align-items:center;justify-content:center;width:41px;height:41px;border-radius:50%;background:var(--yellow);font:20px var(--serif)}
+#bilingvo-site .benefit-list h3{font-size:26px}
+#bilingvo-site .benefit-list p{font-size:19px;color:var(--night)}
+#bilingvo-site .data-section{margin-top:125px}
+#bilingvo-site .data-section h2{margin-top:26px;font-size:48px}
+#bilingvo-site .data-section>p{margin-top:28px}
+#bilingvo-site .data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:70px}
+#bilingvo-site .data-grid article{background:white;padding:24px 32px 48px;border-radius:28px}
+#bilingvo-site .data-grid h3{margin-top:55px}
+#bilingvo-site .data-grid p{margin-top:24px}
+#bilingvo-site .second-demo{margin-top:75px}
+#bilingvo-site .faq{margin-top:128px}
+#bilingvo-site .faq h2{margin-top:23px}
+#bilingvo-site .faq>p{margin-top:25px}
+#bilingvo-site .faq-list{margin-top:85px;display:grid;gap:13px}
+#bilingvo-site .faq details{background:white;border-radius:21px;padding:0 28px}
+#bilingvo-site .faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;list-style:none;padding:29px 0;font:500 27px/1.2 var(--serif)}
+#bilingvo-site .faq summary::-webkit-details-marker{display:none}
+#bilingvo-site .faq summary::after{content:"+";font:300 31px var(--sans);flex-shrink:0}
+#bilingvo-site .faq details[open] summary::after{content:"×"}
+#bilingvo-site .faq details p{font-size:19px;padding:0 0 37px}
+#bilingvo-site .faq details a{text-decoration:underline}
+#bilingvo-site .next-step{margin-top:128px;margin-bottom:135px;padding:45px 55px 57px;border-radius:24px;background:var(--night);color:white}
+#bilingvo-site .next-step .eyebrow{border-color:#547570}
+#bilingvo-site .next-step h2{margin-top:24px}
+#bilingvo-site .next-tags{display:flex;gap:21px;margin-top:26px}
+#bilingvo-site .next-tags span{padding:8px 28px;border-radius:30px;background:#285854;font-size:18px;line-height:1.1;white-space:nowrap}
+#bilingvo-site .next-intro{margin:32px 10px}
+#bilingvo-site .next-intro p{color:white;margin-top:16px}
+#bilingvo-site .next-list{display:grid;grid-template-columns:.9fr 1.5fr;gap:115px;border:1px solid #315953;border-radius:22px;padding:0 25px;width:100%}
+#bilingvo-site .next-list p{padding:19px 0;border-bottom:1px solid #255551;color:white;width:fit-content}
+#bilingvo-site .next-list p:last-child{border:0}
+#bilingvo-site .next-actions{display:flex;gap:20px;margin-top:47px}
+#bilingvo-site .next-actions .button{border-radius:30px;min-width:220px}
+#bilingvo-site .next-actions .outline{border-color:white;color:white}
+#bilingvo-site footer{background:white;font-size:19px}
+#bilingvo-site .footer-top{display:grid;grid-template-columns:210px 1.4fr 1.1fr .5fr;gap:24px;padding-block:38px}
+#bilingvo-site .footer-top>div{display:flex;flex-direction:column;gap:12px}
+#bilingvo-site .footer-link{padding:0;border:0;background:none;color:var(--night);font:inherit;text-align:left;width:fit-content}
+#bilingvo-site .footer-bottom{border-top:1px solid #e4e4e4;display:flex;justify-content:space-between;gap:20px;padding-block:38px;color:#808080}
+#bilingvo-site .footer-bottom a,#bilingvo-site .footer-bottom span{white-space:nowrap}
+#bilingvo-site dialog{border:0;border-radius:24px;padding:36px;width:min(530px,calc(100% - 40px));color:var(--ink);box-shadow:0 20px 80px #0003}
+#bilingvo-site dialog::backdrop{background:#073f3b80}
+#bilingvo-site dialog h2{font-size:30px}
+#bilingvo-site dialog p{margin-top:22px;font-size:18px}
+#bilingvo-site dialog form{margin-top:30px}
+@media (min-width:1500px){#bilingvo-site .participant{grid-template-columns:480px 1fr}
+#bilingvo-site .phone-demo{width:500px}
+#bilingvo-site .hero-actions .button:first-child{flex:1}
+#bilingvo-site .hero-actions .button:last-child{flex:1}}
+@media (max-width:1400px){#bilingvo-site{font-size:18px}
+#bilingvo-site .site-header{gap:16px}
+#bilingvo-site .site-header nav{gap:20px;font-size:15px}
+#bilingvo-site .header-actions{gap:10px}
+#bilingvo-site .language-button{font-size:15px;padding:13px}
+#bilingvo-site .brand{font-size:20px}
+#bilingvo-site .brand img{width:50px;height:38px}
+#bilingvo-site .header-actions>.button{padding-inline:18px}
+#bilingvo-site .hero{gap:26px;padding:35px 26px}
+#bilingvo-site .hero h1{font-size:36px}
+#bilingvo-site .hero p{font-size:18px}
+#bilingvo-site .hero-actions{flex-wrap:wrap}
+#bilingvo-site .hero-actions .button{min-height:54px;font-size:14px}
+#bilingvo-site .audio-preview{height:350px}
+#bilingvo-site .participant{grid-template-columns:38% 1fr;gap:16px}
+#bilingvo-site .phone-demo{width:100%;margin-left:0}
+#bilingvo-site .participant h2{font-size:40px}
+#bilingvo-site .compact-form{padding:24px}
+#bilingvo-site .compact-fields{flex-wrap:wrap}
+#bilingvo-site .compact-fields input{flex-basis:42%}
+#bilingvo-site .compact-fields .button{width:100%}
+#bilingvo-site .consent{font-size:14px;margin-top:22px}
+#bilingvo-site h2{font-size:43px}
+#bilingvo-site h3{font-size:25px}
+#bilingvo-site .proof-strip{padding:30px}
+#bilingvo-site .proof-strip>div{padding-inline:22px}
+#bilingvo-site .proof-strip strong{font-size:26px}
+#bilingvo-site .proof-strip span{font-size:16px}
+#bilingvo-site .audience-grid{grid-template-columns:1fr 26%}
+#bilingvo-site .audience-cards article{padding:20px}
+#bilingvo-site .audience-cards p{font-size:17px}
+#bilingvo-site .universities{grid-template-columns:39% 1fr;gap:32px}
+#bilingvo-site .universities h2{font-size:40px}
+#bilingvo-site .review-collage{grid-template-columns:1fr 44% 1fr}
+#bilingvo-site .review-copy{padding:30px 7px 20px}
+#bilingvo-site .review-side{height:450px}
+#bilingvo-site .demo-panel{padding:50px 60px}
+#bilingvo-site .features-heading{gap:32px}
+#bilingvo-site .feature-grid article{padding:23px}
+#bilingvo-site .feature-tag{font-size:13px;padding-inline:13px}
+#bilingvo-site .feature-grid p{font-size:18px}
+#bilingvo-site .benefit-list li{grid-template-columns:43px 220px 1fr;gap:20px}
+#bilingvo-site .data-section h2{font-size:41px}
+#bilingvo-site .next-tags{gap:12px}
+#bilingvo-site .next-tags span{font-size:14px;padding-inline:17px}
+#bilingvo-site .next-list{gap:60px}
+#bilingvo-site .footer-top{grid-template-columns:165px 1.4fr 1fr .6fr;font-size:15px}
+#bilingvo-site .footer-bottom{font-size:15px}}
+@media (max-width:900px){#bilingvo-site .site-header nav{display:none}
+#bilingvo-site .wrap{width:calc(100% - 40px)}
+#bilingvo-site .hero{grid-template-columns:1fr 42%}
+#bilingvo-site .hero h1{font-size:32px}
+#bilingvo-site .audio-preview{height:310px;padding:20px}
+#bilingvo-site .audio-top{font-size:18px}
+#bilingvo-site .audio-bottom{font-size:14px;gap:7px}
+#bilingvo-site .audio-bottom>span{padding:5px 10px}
+#bilingvo-site .audio-bottom time{font-size:18px}
+#bilingvo-site .room-strip{padding:24px}
+#bilingvo-site .room-strip h2{font-size:25px}
+#bilingvo-site .room-strip p{font-size:16px}
+#bilingvo-site .room-form input{width:145px}
+#bilingvo-site .room-form .button{padding-inline:18px;font-size:14px}
+#bilingvo-site .participant h2{font-size:35px}
+#bilingvo-site .proof-strip{padding:24px 10px}
+#bilingvo-site .proof-strip strong{font-size:22px}
+#bilingvo-site .proof-strip>div{padding-inline:15px}
+#bilingvo-site .proof-strip span{font-size:14px}
+#bilingvo-site h2{font-size:38px}
+#bilingvo-site .how h2{font-size:38px}
+#bilingvo-site .eyebrow{font-size:14px;padding:8px 15px}
+#bilingvo-site .steps>div{font-size:24px;padding:22px}
+#bilingvo-site .audience-grid{grid-template-columns:1fr 29%;gap:12px}
+#bilingvo-site .audience-cards{grid-template-columns:1fr 1fr}
+#bilingvo-site .audience-cards article,#bilingvo-site .audience-cards article:nth-child(-n/**/+2){grid-column:auto}
+#bilingvo-site .audience-cards article:last-child{grid-column:span 2}
+#bilingvo-site .audience-cards h3,#bilingvo-site .audience-cards article:nth-child(n/**/+3) h3{margin-top:24px}
+#bilingvo-site .devices{padding-top:120px;gap:24px}
+#bilingvo-site .devices h2{font-size:35px}
+#bilingvo-site .language-options{flex-wrap:wrap}
+#bilingvo-site .language-options>span{flex-basis:40%}
+#bilingvo-site .universities h2{font-size:32px}
+#bilingvo-site .universities p{margin-top:30px}
+#bilingvo-site .arrows{margin-top:35px}
+#bilingvo-site .review-collage{grid-template-columns:1fr 54% 1fr}
+#bilingvo-site .review-side{height:380px}
+#bilingvo-site .review-copy h3{font-size:24px}
+#bilingvo-site .review-copy p{font-size:16px}
+#bilingvo-site .demo-panel{padding:45px 40px}
+#bilingvo-site .demo-fields{grid-template-columns:1fr 1fr 170px}
+#bilingvo-site .features-heading{grid-template-columns:1.5fr 1fr}
+#bilingvo-site .feature-grid{grid-template-columns:repeat(2,1fr);gap:15px}
+#bilingvo-site .feature-grid article{min-height:310px}
+#bilingvo-site .feature-icon{margin-bottom:40px}
+#bilingvo-site .benefit-list li{grid-template-columns:40px 185px 1fr;padding:20px;gap:15px}
+#bilingvo-site .benefit-list h3{font-size:23px}
+#bilingvo-site .benefit-list p{font-size:17px}
+#bilingvo-site .data-grid article{padding:22px}
+#bilingvo-site .data-grid h3{font-size:23px;margin-top:32px}
+#bilingvo-site .data-grid p{font-size:16px}
+#bilingvo-site .data-section h2{font-size:38px}
+#bilingvo-site .next-step{padding:35px}
+#bilingvo-site .next-tags{flex-wrap:wrap}
+#bilingvo-site .next-list{gap:25px;font-size:17px}
+#bilingvo-site .footer-top{grid-template-columns:1fr 1fr}
+#bilingvo-site .footer-bottom{flex-wrap:wrap}
+#bilingvo-site .desktop-break{display:none}}
+@media (max-width:600px){#bilingvo-site{font-size:16px}
+#bilingvo-site .wrap{width:calc(100% - 28px)}
+#bilingvo-site .site-header{margin-top:14px;padding:10px 12px;min-height:64px;border-radius:18px}
+#bilingvo-site .brand{gap:7px;font-size:18px}
+#bilingvo-site .brand img{width:42px;height:33px}
+#bilingvo-site .language-button{display:none}
+#bilingvo-site .header-actions>.button{min-height:42px;font-size:13px;padding:10px 14px;border-radius:12px}
+#bilingvo-site .hero{margin-top:14px;grid-template-columns:1fr;gap:30px;padding:28px 22px;border-radius:22px}
+#bilingvo-site .hero h1{font-size:33px;line-height:1.17;letter-spacing:-.7px}
+#bilingvo-site .hero p{font-size:16px;line-height:1.45;margin-top:24px}
+#bilingvo-site .hero p+p{margin-top:18px}
+#bilingvo-site .hero-actions{display:grid;gap:10px;margin-top:24px}
+#bilingvo-site .hero-actions .button{white-space:normal;font-size:13px;min-height:54px;padding:14px 12px}
+#bilingvo-site .audio-preview{height:265px;padding:21px}
+#bilingvo-site .audio-top{font-size:18px}
+#bilingvo-site .audio-top small{font-size:10px}
+#bilingvo-site .pause{width:37px;height:37px;font-size:22px;line-height:37px}
+#bilingvo-site .wave{margin-block:25px}
+#bilingvo-site .audio-bottom{font-size:14px}
+#bilingvo-site .audio-bottom time{font-size:19px}
+#bilingvo-site .room-strip{margin-top:16px;display:block;border-radius:22px;padding:25px 22px}
+#bilingvo-site .room-strip h2{font-size:26px;letter-spacing:-.3px}
+#bilingvo-site .room-strip p{font-size:15px;margin-top:10px}
+#bilingvo-site .room-form{margin-top:22px;gap:9px}
+#bilingvo-site .room-form input{width:0;flex:1;font-size:13px;padding:13px 16px}
+#bilingvo-site .room-form .button{min-height:49px;font-size:12px;padding:12px 16px}
+#bilingvo-site .participant{display:flex;flex-direction:column-reverse;gap:35px;padding-top:60px}
+#bilingvo-site .participant-copy{width:100%;padding:0 8px}
+#bilingvo-site .participant h2{font-size:33px}
+#bilingvo-site .participant-copy>p{font-size:16px;margin-top:22px}
+#bilingvo-site .compact-form{margin-top:28px;padding:22px 18px}
+#bilingvo-site .compact-fields{display:grid;gap:12px}
+#bilingvo-site .compact-fields input{width:100%;font-size:14px}
+#bilingvo-site .compact-fields .button{min-height:48px;font-size:14px}
+#bilingvo-site .consent{font-size:12px;gap:10px}
+#bilingvo-site .consent input{width:15px;height:15px}
+#bilingvo-site .phone-demo{width:min(100%,400px);align-self:center}
+#bilingvo-site .proof-strip{margin-top:38px;margin-bottom:60px;grid-template-columns:1fr;padding:12px 28px;border-radius:20px}
+#bilingvo-site .proof-strip>div,#bilingvo-site .proof-strip>div:first-child,#bilingvo-site .proof-strip>div:last-child{border:0;padding:21px 0}
+#bilingvo-site .proof-strip>div+div{border-top:1px solid #38605d}
+#bilingvo-site .proof-strip strong{font-size:28px;white-space:normal}
+#bilingvo-site .proof-strip span{font-size:15px;margin-top:7px}
+#bilingvo-site h2{font-size:33px;line-height:1.18;letter-spacing:-.6px}
+#bilingvo-site h3{font-size:25px}
+#bilingvo-site h2+p{margin-top:22px}
+#bilingvo-site .eyebrow{font-size:12px;padding:8px 13px}
+#bilingvo-site .eyebrow+h2{margin-top:23px}
+#bilingvo-site .two-columns{grid-template-columns:1fr;gap:28px}
+#bilingvo-site .how{padding:45px 0 55px}
+#bilingvo-site .how h2{font-size:34px}
+#bilingvo-site .how p{margin-top:22px;font-size:15px}
+#bilingvo-site .steps{margin-top:25px;gap:9px}
+#bilingvo-site .steps>div{font-size:23px;padding:21px 24px;border-radius:24px}
+#bilingvo-site .join-illustration{border-radius:22px}
+#bilingvo-site .audiences{padding-top:60px}
+#bilingvo-site .audiences>p{margin-top:24px}
+#bilingvo-site .audience-grid{grid-template-columns:1fr;margin-top:30px;gap:13px}
+#bilingvo-site .audience-cards{gap:12px;grid-template-columns:1fr}
+#bilingvo-site .audience-cards article,#bilingvo-site .audience-cards article:nth-child(-n/**/+2),#bilingvo-site .audience-cards article:last-child{grid-column:auto;padding:25px}
+#bilingvo-site .audience-cards h3,#bilingvo-site .audience-cards article:nth-child(n/**/+3) h3{margin-top:22px}
+#bilingvo-site .audience-cards p{font-size:16px;margin-top:14px}
+#bilingvo-site .check{width:36px;height:36px;font-size:23px}
+#bilingvo-site .audience-photo{width:100%;height:430px;object-position:center 65%}
+#bilingvo-site .devices{padding-top:68px;padding-bottom:60px;gap:38px}
+#bilingvo-site .devices h2{font-size:33px;margin-top:26px}
+#bilingvo-site .devices p{font-size:16px;margin-top:25px}
+#bilingvo-site .language-demo{margin-top:26px;padding:20px}
+#bilingvo-site .language-options{gap:8px}
+#bilingvo-site .language-options>span{font-size:13px;padding:10px 13px}
+#bilingvo-site .language-demo>.button{font-size:14px;margin-top:16px}
+#bilingvo-site .devices-image{width:100%}
+#bilingvo-site .evidence-section{padding:60px 0}
+#bilingvo-site .universities{grid-template-columns:1fr;gap:20px}
+#bilingvo-site .universities h2{font-size:33px;margin-top:26px}
+#bilingvo-site .universities p{margin-top:24px}
+#bilingvo-site .universities>img{order:1}
+#bilingvo-site .arrows{margin-top:24px;margin-bottom:10px}
+#bilingvo-site .arrows span{width:45px;height:45px;font-size:22px}
+#bilingvo-site .reviews{margin-top:50px}
+#bilingvo-site .reviews>h2{margin-top:20px}
+#bilingvo-site .reviews>p{font-size:15px;line-height:1.4}
+#bilingvo-site .review-collage{display:flex;flex-wrap:wrap;gap:12px;padding:0;margin-top:30px}
+#bilingvo-site .review-card{order:-1;width:100%;padding:12px;border-radius:22px}
+#bilingvo-site .review-copy{padding:25px 13px 20px}
+#bilingvo-site .review-copy h3{font-size:25px}
+#bilingvo-site .review-copy p{margin-top:22px}
+#bilingvo-site .review-copy p:last-child{margin-top:25px;font-size:14px}
+#bilingvo-site .review-side{width:calc(50% - 6px);height:240px;border-radius:16px;object-fit:cover}
+#bilingvo-site .review-cover{border-radius:16px}
+#bilingvo-site .play{width:50px;height:50px;font-size:23px}
+#bilingvo-site .demo-panel{margin-top:45px;padding:32px 23px 35px;border-radius:21px}
+#bilingvo-site .demo-panel h2{font-size:31px}
+#bilingvo-site .demo-panel>p{font-size:15px;line-height:1.4;margin-top:17px}
+#bilingvo-site .demo-panel form{margin-top:25px}
+#bilingvo-site .demo-fields{display:flex;flex-direction:column;gap:11px}
+#bilingvo-site .demo-fields input:not([type=checkbox]){font-size:14px;padding:16px;min-height:51px}
+#bilingvo-site .demo-fields .full-width{order:1}
+#bilingvo-site .demo-fields .button{order:2;min-height:48px;font-size:14px}
+#bilingvo-site .demo-panel .consent{padding-left:0;font-size:12px;margin-top:20px}
+#bilingvo-site .features{margin-top:60px}
+#bilingvo-site .features-heading{display:flex;flex-direction:column;align-items:flex-start;gap:27px}
+#bilingvo-site .features-heading>div p{margin-top:17px}
+#bilingvo-site .feature-grid{margin-top:30px;gap:12px;grid-template-columns:1fr 1fr}
+#bilingvo-site .feature-grid article{padding:20px 16px;border-radius:20px;min-height:320px}
+#bilingvo-site .feature-icon{width:42px;height:42px;font-size:23px;margin-bottom:35px}
+#bilingvo-site .feature-tag{font-size:10px;padding:6px 8px;white-space:normal}
+#bilingvo-site .feature-grid h3{font-size:24px;margin-top:20px}
+#bilingvo-site .feature-grid p{font-size:14px;line-height:1.35;margin-top:18px}
+#bilingvo-site .benefits{margin-top:60px}
+#bilingvo-site .benefits>h2{margin-top:23px}
+#bilingvo-site .benefits>p{margin-top:22px}
+#bilingvo-site .benefit-list{margin-top:30px;gap:12px}
+#bilingvo-site .benefit-list li{grid-template-columns:33px 1fr;gap:12px 14px;padding:22px 18px}
+#bilingvo-site .benefit-list li::before{width:32px;height:32px;font-size:18px}
+#bilingvo-site .benefit-list h3{font-size:24px}
+#bilingvo-site .benefit-list p{grid-column:2;font-size:15px;line-height:1.4}
+#bilingvo-site .benefit-list h3 br{display:none}
+#bilingvo-site .data-section{margin-top:60px}
+#bilingvo-site .data-section h2{font-size:33px;margin-top:24px}
+#bilingvo-site .data-section>p{margin-top:22px}
+#bilingvo-site .data-grid{grid-template-columns:1fr;margin-top:30px;gap:12px}
+#bilingvo-site .data-grid article{padding:25px}
+#bilingvo-site .data-grid h3{margin-top:28px;font-size:25px}
+#bilingvo-site .data-grid p{margin-top:17px;font-size:16px}
+#bilingvo-site .second-demo{margin-top:45px}
+#bilingvo-site .faq{margin-top:60px}
+#bilingvo-site .faq h2{margin-top:23px}
+#bilingvo-site .faq>p{font-size:15px;margin-top:20px}
+#bilingvo-site .faq-list{margin-top:30px;gap:10px}
+#bilingvo-site .faq details{padding:0 20px;border-radius:17px}
+#bilingvo-site .faq summary{font-size:22px;padding:23px 0}
+#bilingvo-site .faq summary::after{font-size:26px}
+#bilingvo-site .faq details p{font-size:15px;line-height:1.4;padding-bottom:25px}
+#bilingvo-site .next-step{margin-top:60px;margin-bottom:60px;padding:30px 22px;border-radius:21px}
+#bilingvo-site .next-step h2{font-size:32px}
+#bilingvo-site .next-step h2 br{display:none}
+#bilingvo-site .next-tags{margin-top:25px;gap:9px}
+#bilingvo-site .next-tags span{font-size:12px;padding:9px 13px;white-space:normal;line-height:1.2}
+#bilingvo-site .next-intro{margin:27px 0}
+#bilingvo-site .next-intro h3{font-size:23px}
+#bilingvo-site .next-intro p{font-size:15px}
+#bilingvo-site .next-list{grid-template-columns:1fr;gap:0;font-size:14px;padding:4px 17px;border-radius:17px}
+#bilingvo-site .next-list p{width:100%;padding:16px 0}
+#bilingvo-site .next-list>div:first-child p:last-child{border-bottom:1px solid #255551}
+#bilingvo-site .next-actions{flex-direction:column;gap:12px;margin-top:26px}
+#bilingvo-site .next-actions .button{min-height:48px;font-size:14px}
+#bilingvo-site .footer-top{grid-template-columns:1fr;gap:26px;padding:30px 8px}
+#bilingvo-site .footer-top .brand{font-size:20px}
+#bilingvo-site .footer-top>div{gap:14px;font-size:15px}
+#bilingvo-site .footer-bottom{display:flex;flex-direction:column;gap:16px;padding:28px 8px;font-size:14px}
+#bilingvo-site .footer-bottom a,#bilingvo-site .footer-bottom span{white-space:normal}}
+@media (prefers-reduced-motion:reduce){#bilingvo-site *,#bilingvo-site *::before,#bilingvo-site *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+#bilingvo-site .globe{display:inline-block;width:25px;height:26px;object-fit:contain}
+#bilingvo-site .listeners{display:inline-flex;align-items:center;gap:5px}
+#bilingvo-site .listeners img{width:17px;height:18px}
+#bilingvo-site .play{background:transparent;color:transparent}
+#bilingvo-site .hero-actions .button{font-size:15px;padding-inline:16px}
+#bilingvo-site .site-header nav a,#bilingvo-site .header-actions>.button{white-space:nowrap}
+#bilingvo-site .hero-break{display:none}
+@media (min-width:1401px){#bilingvo-site .hero-break{display:block}}
+@media (max-width:1400px){#bilingvo-site .hero-actions .button{font-size:14px}}
+@media (max-width:600px){#bilingvo-site .hero-actions .button{font-size:13px}}
+@font-face {font-family:Geologica;src:url("../assets/geologica.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+#bilingvo-site{--sans:Geologica,Arial,sans-serif;--yellow:#dff5c8;--mint:#dff5c8;--ink:#193f3c;--muted:#647774;--night:#073f3b;font-family:var(--sans);font-weight:300;background:#f7f7f7;color:var(--ink);overflow:clip;isolation:isolate}
+#bilingvo-site [hidden]{display:none!important}
+#bilingvo-site h1,#bilingvo-site h2,#bilingvo-site h3{font-family:"Playfair Display",Georgia,serif;font-weight:500}
+#bilingvo-site .site-header{margin-top:40px;min-height:76px}
+#bilingvo-site .brand{font-family:Manrope,Arial,sans-serif}
+#bilingvo-site .hero{margin-top:23px;min-height:561px;padding:46px 63px 56px;grid-template-columns:minmax(0,631px) minmax(0,472px);gap:70px;align-items:center}
+#bilingvo-site .hero h1{font-size:36px;line-height:1.32;letter-spacing:-.45px;max-width:590px}
+#bilingvo-site .hero p{font-size:20px;line-height:1.25;max-width:610px;margin-top:26px}
+#bilingvo-site .hero p+p{max-width:578px;margin-top:27px}
+#bilingvo-site .hero-actions{margin-top:56px;gap:28px}
+#bilingvo-site .hero-actions .button{font-size:16px;flex:initial;padding-inline:26px;min-height:65px;white-space:nowrap}
+#bilingvo-site .hero-actions .button:first-child{flex:1}
+#bilingvo-site .room-strip{margin-top:23px;min-height:113px;padding:18px 28px 18px 63px}
+#bilingvo-site .room-strip h2{font-size:28px}
+#bilingvo-site .participant{padding-top:49px;grid-template-columns:480px 1fr;gap:43px;min-height:667px}
+#bilingvo-site .participant h2{font-size:52px;line-height:1.17}
+#bilingvo-site .participant-copy>p{margin-top:30px;font-size:20px;line-height:1.25}
+#bilingvo-site .compact-form{margin-top:46px;padding:33px 34px 26px}
+#bilingvo-site .compact-fields{gap:13px}
+#bilingvo-site .compact-fields .button{padding-inline:26px;min-width:209px}
+#bilingvo-site .compact-fields input{padding-inline:22px}
+#bilingvo-site .proof-strip{margin-top:66px;margin-bottom:97px;min-height:136px}
+#bilingvo-site .proof-strip strong{font-size:30px}
+#bilingvo-site .proof-strip>div:first-child strong{font-size:38px}
+#bilingvo-site .button,#bilingvo-site input:not([type=checkbox]),#bilingvo-site textarea{font-family:var(--sans);font-weight:300}
+#bilingvo-site .button{border-radius:30px}
+#bilingvo-site .button:hover{filter:brightness(1.07)}
+#bilingvo-site .outline:hover{background:#eaf5e5}
+#bilingvo-site .globe-demo{position:relative;width:100%;aspect-ratio:472/459;align-self:center;touch-action:pan-y}
+#bilingvo-site .globe-world{position:absolute;top:0;left:2.8%;width:97.2%;aspect-ratio:1;cursor:grab;transform:perspective(900px) rotateX(var(--globe-x,0deg)) rotateY(var(--globe-y,0deg));transform-style:preserve-3d;transition:transform .9s ease-out;will-change:transform;border-radius:50%;touch-action:pan-y}
+#bilingvo-site .globe-world.is-dragging{cursor:grabbing;transition:none}
+#bilingvo-site .globe-map{width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+#bilingvo-site .globe-connections{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#bilingvo-site .globe-points{position:absolute;inset:0;pointer-events:none}
+#bilingvo-site .globe-point{position:absolute;left:var(--point-x);top:var(--point-y);width:12px;height:12px;background:#fff;border-radius:50%;box-shadow:0 3px 6px #173d3b18;transform:translate(-50%,-50%);animation:bl-point-pulse 4.8s ease-in-out var(--point-delay) infinite}
+#bilingvo-site .globe-point:after{content:"";position:absolute;inset:4px;background:#19855d;border-radius:50%}
+#bilingvo-site .globe-language{position:absolute;display:flex;align-items:center;gap:11px;border:1px solid transparent;border-radius:50px;background:#fff;padding:10px 16px;font:400 12px/1.2 var(--sans);color:var(--night);box-shadow:0 4px 14px #173d3b14;z-index:2;transition:transform .25s,border-color .25s,box-shadow .25s;animation:bl-label-float 7s ease-in-out infinite;white-space:nowrap}
+#bilingvo-site .globe-language small{font-size:9px;color:#93aaa6;font-weight:300}
+#bilingvo-site .globe-language:hover,#bilingvo-site .globe-language[aria-pressed=true]{border-color:#bad6c1;box-shadow:0 5px 18px #173d3b1a}
+#bilingvo-site .globe-en{left:68%;top:39%;animation-delay:-1s}
+#bilingvo-site .globe-ar{left:53%;top:16%;animation-delay:-3s}
+#bilingvo-site .globe-zh{left:-1%;top:40%;animation-delay:-5s}
+#bilingvo-site .globe-fr{left:38%;top:62%;animation-delay:-2s}
+#bilingvo-site .mini-levels{display:none;align-items:center;gap:2px;height:13px;width:20px;font-style:normal}
+#bilingvo-site .mini-levels b{background:#238a66;width:2px;height:5px;border-radius:1px;animation:bl-level .8s ease-in-out infinite alternate}
+#bilingvo-site .mini-levels b:nth-child(2n){animation-delay:-.4s;height:10px}
+#bilingvo-site .mini-levels b:nth-child(3n){animation-delay:-.2s;height:13px}
+#bilingvo-site.is-audio-playing .globe-language[aria-pressed=true] .mini-levels{display:flex}
+#bilingvo-site .phone-stage{position:relative;margin-left:18px;width:480px;height:619px}
+#bilingvo-site .phone{position:relative;width:312px;height:619px;font-family:var(--sans);font-size:10px}
+#bilingvo-site .phone-shell{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;user-select:none}
+#bilingvo-site .phone-display{position:absolute;inset:5% 8.45% 4.06%;background:#f5f5f5;border-radius:35px;overflow:hidden;display:flex;flex-direction:column;padding:0 12px}
+#bilingvo-site .phone-status{height:36px;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;padding:0 9px 0 10px;font:500 10px var(--sans);color:#17212d}
+#bilingvo-site .phone-status>div{display:flex;gap:3px;align-items:center}
+#bilingvo-site .phone-status img{height:8px;width:auto}
+#bilingvo-site .phone-brand{display:flex;align-items:center;gap:8px;height:31px;margin-left:-4px;font:400 14.5px "Playfair Display",serif;white-space:nowrap;color:var(--night)}
+#bilingvo-site .phone-back{width:16px;height:17px;object-fit:contain}
+#bilingvo-site .phone-logo{width:35px;height:25px;object-fit:contain}
+#bilingvo-site .phone-live{display:flex;align-items:center;gap:8px;min-height:31px;color:#889997;font-size:10px;margin:0 0 5px;padding-left:3px}
+#bilingvo-site .phone-live i{display:block;flex:0 0 9px;height:9px;border-radius:50%;background:#78d7ca;box-shadow:0 0 0 5px #e0f5ef}
+#bilingvo-site.is-audio-playing .phone-live i{animation:bl-live-pulse 1.3s ease-in-out infinite}
+#bilingvo-site .caption-feed{display:flex;flex-direction:column;gap:9px;overflow:hidden;min-height:0;padding:2px 1px 6px;flex:1}
+#bilingvo-site .caption-card{position:relative;flex:0 0 auto;background:white;border:1px solid #eaecf1;border-radius:14px;box-shadow:0 1px 5px #1f334007;padding:12px 12px 22px;min-height:106px;color:#073f3b;transition:background .25s,border-color .25s;overflow:hidden}
+#bilingvo-site .caption-card small{display:block;font-size:7.5px;letter-spacing:.65px;color:#63817d;white-space:nowrap;margin-bottom:12px}
+#bilingvo-site .caption-card p{margin:0;line-height:1.27;letter-spacing:0;overflow-wrap:anywhere}
+#bilingvo-site .caption-card .source-caption{font-size:8.5px;color:#8a9895;font-weight:300;margin-bottom:7px}
+#bilingvo-site .caption-card .target-caption{font-size:9.7px;font-weight:500;color:#073f3b}
+#bilingvo-site .caption-card .target-caption[lang=ar]{font-size:12px;line-height:1.25}
+#bilingvo-site .caption-card time{position:absolute;bottom:9px;right:12px;font-size:8px;color:#8faaa3;font-weight:300}
+#bilingvo-site .caption-card.is-current{border-color:#b5d7c6;background:#fcfffa}
+#bilingvo-site .caption-card.is-typing .target-caption:after{content:"";display:inline-block;width:3px;height:1em;vertical-align:-.1em;margin-left:3px;background:#518777;animation:bl-caret .7s steps(1) infinite}
+#bilingvo-site .phone-controls{display:flex;gap:5px;align-items:center;margin:10px 0 19px;padding:0 1px;flex:0 0 auto;height:42px}
+#bilingvo-site .phone-controls label{background:#fff;border:1px solid #eaecf1;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 9px;height:100%;min-width:0;flex:1;box-shadow:0 1px 5px #172e3605}
+#bilingvo-site .phone-controls label>span{font-size:8.5px;color:#7b9993;white-space:nowrap}
+#bilingvo-site .phone-controls select{appearance:none;background:url("../assets/chevron.svg") right 2px center/8px 6px no-repeat;border:0;font:300 9px var(--sans);color:#273239;min-width:66px;width:70px;padding:6px 12px 6px 3px;outline-offset:2px}
+#bilingvo-site .phone-audio{position:relative;background:#fff;border:1px solid #eaecf1;border-radius:12px;width:40px;height:40px;flex:0 0 40px;display:flex;align-items:center;justify-content:center;color:var(--night)}
+#bilingvo-site .phone-audio img{width:20px;height:18px;object-fit:contain}
+#bilingvo-site .phone-audio[aria-pressed=true]{background:#dff5c8}
+#bilingvo-site .phone-audio[aria-pressed=true] img{display:none}
+#bilingvo-site .pause-bars{display:none;width:10px;height:15px;border-left:3px solid var(--night);border-right:3px solid var(--night)}
+#bilingvo-site .phone-audio[aria-pressed=true] .pause-bars{display:block}
+#bilingvo-site .phone-island{position:absolute;top:5.55%;left:34.3%;width:31.1%;height:auto;pointer-events:none}
+#bilingvo-site .phone-home{position:absolute;bottom:9px;left:35%;width:30%;height:3px;border-radius:3px;background:#202a37}
+#bilingvo-site .phone-hints{position:absolute;left:278px;bottom:90px;display:grid;gap:13px;font-size:14px;font-weight:300;width:184px}
+#bilingvo-site .phone-hints span{border:1px solid #e8eceb;border-radius:26px;padding:15px;background:#fff;box-shadow:0 5px 18px #173d3b06}
+#bilingvo-site .how{padding:59px 0 115px}
+#bilingvo-site .how h2{max-width:500px;font-size:52px;line-height:1.28;margin-top:19px}
+#bilingvo-site .how p{font-size:20px;line-height:1.3;margin-top:22px}
+#bilingvo-site .how .two-columns{gap:17px;grid-template-columns:626px 1fr}
+#bilingvo-site .steps{margin-top:28px;gap:12px}
+#bilingvo-site .steps>button{position:relative;overflow:hidden;display:flex;align-items:center;text-align:left;min-height:92px;padding:23px 35px;background:#f6f6f6;border:0;border-radius:30px;color:var(--night);font:500 28px/1.4 "Playfair Display",serif;transition:background .3s}
+#bilingvo-site .steps>button[aria-selected=true]{background:var(--mint)}
+#bilingvo-site .steps>button[aria-selected=true]:after{content:"";position:absolute;bottom:0;height:3px;left:0;width:100%;background:#8dcf73;transform-origin:left;animation:bl-step-progress 8s linear forwards}
+#bilingvo-site .how-panel{position:relative;min-height:519px;background:#f7f7f7;border-radius:26px;display:flex;align-items:center;justify-content:center;overflow:hidden;align-self:end}
+#bilingvo-site .how-screen{width:100%;padding:40px;text-align:center;animation:bl-panel-in .35s ease-out}
+#bilingvo-site .demo-qr{width:105px;height:105px;margin:0 auto 28px;border-radius:16px;padding:9px;background:#fff}
+#bilingvo-site .how-screen h3{font:300 20px/1.35 var(--sans);color:var(--muted)}
+#bilingvo-site .how-screen .room-code-example{border:1px solid #d5ddda;border-radius:28px;padding:15px 22px;text-align:left;color:#bdc8c5;font-size:16px;max-width:309px;margin:31px auto 12px}
+#bilingvo-site .how-screen>.button{width:min(100%,309px);min-height:55px;font-size:16px}
+#bilingvo-site .how-screen>p{font-size:18px;line-height:1.3;margin:25px auto 0;max-width:430px}
+#bilingvo-site .how-step-number{display:inline-flex;align-items:center;justify-content:center;width:65px;height:65px;border-radius:50%;background:var(--mint);font:500 24px "Playfair Display",serif;margin-bottom:28px}
+#bilingvo-site .hall-option{width:100%;border:1px solid #dce5df;border-radius:20px;background:white;color:var(--night);padding:23px 24px;display:flex;align-items:center;justify-content:space-between;text-align:left;margin-top:18px}
+#bilingvo-site .hall-option:first-of-type{margin-top:30px}
+#bilingvo-site .hall-option b{display:block;font-size:18px;font-weight:400}
+#bilingvo-site .hall-option small{display:block;font-size:14px;color:var(--muted);margin-top:8px}
+#bilingvo-site .how-languages{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:30px 0}
+#bilingvo-site .how-languages button{padding:12px 18px;border:1px solid #d5dfd8;border-radius:24px;background:#fff;font-size:14px;color:var(--night)}
+#bilingvo-site .how-languages button[aria-pressed=true]{background:var(--mint);border-color:var(--mint)}
+#bilingvo-site .how-screen .demo-note{font-size:12px;color:#879791}
+#bilingvo-site .audiences{padding-top:112px}
+#bilingvo-site .audiences h2{font-size:52px;max-width:1060px;line-height:1.28}
+#bilingvo-site .audiences>p{max-width:1080px;margin-top:38px}
+#bilingvo-site .audience-grid{grid-template-columns:1fr 325px}
+#bilingvo-site .audience-photo-card{margin:0;position:relative;overflow:hidden;border-radius:24px}
+#bilingvo-site .audience-photo-card>img{width:100%;height:100%;object-fit:cover;object-position:55% center}
+#bilingvo-site .audience-photo-card:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#0009)}
+#bilingvo-site .audience-photo-card figcaption{position:absolute;bottom:28px;left:24px;right:16px;color:#fff;z-index:1}
+#bilingvo-site .audience-photo-card p{font-size:19px;line-height:1.3;color:#fff;margin-top:17px}
+#bilingvo-site .audience-cards article{min-height:230px}
+#bilingvo-site .devices{grid-template-columns:649px 1fr;gap:47px;padding-top:217px;padding-bottom:111px}
+#bilingvo-site .devices h2{font-size:52px;line-height:1.28;margin-top:26px}
+#bilingvo-site .devices p{margin-top:42px;font-size:20px}
+#bilingvo-site .language-demo{margin-top:46px;padding:24px 28px}
+#bilingvo-site .language-options{display:flex;gap:13px;flex-wrap:nowrap}
+#bilingvo-site .language-options button{border:1px solid #d6dedd;border-radius:30px;background:white;color:var(--ink);display:flex;align-items:center;justify-content:center;gap:17px;padding:14px 16px;font:400 14px/1.2 var(--sans);flex:1;min-width:0;white-space:nowrap;transition:background .2s}
+#bilingvo-site .language-options button small{font-size:10px;font-weight:300;color:#498e83}
+#bilingvo-site .language-options button[aria-pressed=true]{background:var(--mint);border-color:var(--mint)}
+#bilingvo-site .language-demo>.button{position:relative;display:flex;gap:16px;margin-top:25px;min-height:49px}
+#bilingvo-site .audio-status:empty{display:none}
+#bilingvo-site .language-demo .audio-status{font-size:12px;margin:12px 0 0;color:var(--muted)}
+#bilingvo-site .playback-levels{display:none;height:15px;gap:3px;align-items:center}
+#bilingvo-site .button[aria-pressed=true] .playback-levels{display:flex}
+#bilingvo-site .playback-levels i{display:block;background:#fff;width:3px;height:8px;border-radius:2px;animation:bl-level .6s ease-in-out infinite alternate}
+#bilingvo-site .playback-levels i:nth-child(2n){height:14px;animation-delay:-.3s}
+#bilingvo-site .devices-stage{position:relative;width:100%;height:596px}
+#bilingvo-site .tablet{position:absolute;top:9px;left:0;width:100%;aspect-ratio:624/480;overflow:hidden}
+#bilingvo-site .tablet>img{width:100%;height:100%;object-fit:fill}
+#bilingvo-site .tablet-captions{position:absolute;top:26%;left:5.7%;width:88.5%;height:57%;display:flex;flex-direction:column;gap:10px;background:#f7f8f8;border-radius:7px;overflow:hidden;padding:0 1px}
+#bilingvo-site .tablet-captions .caption-card{border:0;border-radius:6px;box-shadow:none;background:linear-gradient(100deg,#eef1f2,#f7f8f8);padding:15px 17px;min-height:0;flex:1}
+#bilingvo-site .tablet-captions .caption-card small{display:none}
+#bilingvo-site .tablet-captions .source-caption{font-size:10px;margin-bottom:10px}
+#bilingvo-site .tablet-captions .target-caption{font-size:12px}
+#bilingvo-site .tablet-captions .target-caption[lang=ar]{font-size:15px}
+#bilingvo-site .tablet-captions time{bottom:auto;top:12px;right:12px;font-size:8px}
+#bilingvo-site .devices-stage>.phone{position:absolute;right:15px;top:137px;transform:scale(.735);transform-origin:top right}
+#bilingvo-site .evidence-section{padding:114px 0 121px}
+#bilingvo-site .universities{grid-template-columns:510px 1fr;gap:52px;align-items:start}
+#bilingvo-site .universities h2{font-size:52px;line-height:1.2;max-width:465px;margin-top:41px}
+#bilingvo-site .universities p{margin-top:46px;max-width:450px;font-size:20px;line-height:1.25}
+#bilingvo-site .universities p+p{margin-top:22px}
+#bilingvo-site .gallery-controls{display:flex;gap:14px;align-items:center;margin-top:157px}
+#bilingvo-site .gallery-controls button{border:0;border-radius:50%;width:59px;height:59px;display:flex;align-items:center;justify-content:center;color:#647c70;background:var(--mint);font:300 25px var(--sans)}
+#bilingvo-site .gallery-controls button:first-child{background:#f6f6f6;color:#a3b0a8}
+#bilingvo-site .gallery-controls .gallery-pause{width:35px;height:35px;background:transparent;font-size:17px;opacity:.5}
+#bilingvo-site .gallery-controls .gallery-pause:hover,#bilingvo-site .gallery-controls .gallery-pause:focus-visible{opacity:1}
+#bilingvo-site .photo-carousel{margin-top:84px;width:100%;height:602px;overflow:hidden;border-radius:24px;touch-action:pan-y}
+#bilingvo-site .photo-track{display:flex;height:100%;transition:transform .8s cubic-bezier(.22,.61,.36,1);will-change:transform}
+#bilingvo-site .photo-slide{display:grid;grid-template-columns:1fr 1fr;gap:18px;flex:0 0 100%;width:100%;min-width:0;height:100%}
+#bilingvo-site .photo-slide>div{min-width:0;display:grid;grid-template-rows:320fr 264fr;gap:18px;overflow:hidden}
+#bilingvo-site .photo-slide img{width:100%;height:100%;min-height:0;min-width:0;object-fit:cover;border-radius:24px}
+#bilingvo-site .reviews{margin-top:86px}
+#bilingvo-site .reviews h2{font-size:52px;margin-top:27px}
+#bilingvo-site .reviews>p{margin-top:23px}
+#bilingvo-site .review-collage{grid-template-columns:1fr 550px 1fr;margin-top:86px;padding-inline:12px}
+#bilingvo-site .review-side{height:548px;display:flex;flex-direction:column;gap:13px;overflow:hidden;border-radius:22px}
+#bilingvo-site .review-left{margin-right:-24px}
+#bilingvo-site .review-right{margin-left:-24px}
+#bilingvo-site .review-small-photos{display:flex;gap:12px;height:207px;min-height:0}
+#bilingvo-site .review-small-photos>img{width:50%;height:100%;object-fit:cover;border-radius:22px;min-width:0}
+#bilingvo-site .event-video-tile{position:relative;display:block;border:0;background:none;padding:0;flex:1;min-height:0;border-radius:22px;overflow:hidden;width:100%}
+#bilingvo-site .event-video-tile>img{width:100%;height:100%;object-fit:cover;object-position:center}
+#bilingvo-site .small-video-play{position:absolute;left:20px;bottom:20px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:#dff5c8ed;color:var(--night);border-radius:50%;font-size:16px;padding-left:3px;box-shadow:0 3px 12px #0001}
+#bilingvo-site .review-cover video{display:block;width:100%;aspect-ratio:505/323;object-fit:cover;background:#072624;border-radius:22px}
+#bilingvo-site .review-cover video.is-playing{object-fit:contain}
+#bilingvo-site .video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border:0;border-radius:50%;background:#dff5c8;color:var(--night);font-size:27px;display:flex;align-items:center;justify-content:center;padding-left:6px}
+#bilingvo-site .video-play:hover{background:#e9ffda;transform:translate(-50%,-50%) scale(1.07)}
+#bilingvo-site .review-copy h3{font-size:28px;line-height:1.3}
+#bilingvo-site .review-copy p{font-size:20px;line-height:1.3;margin-top:32px}
+#bilingvo-site .review-copy p:last-child{margin-top:46px}
+#bilingvo-site .demo-panel{margin-top:141px;border-radius:25px;padding:48px 83px 89px}
+#bilingvo-site .demo-panel h2{font-size:52px;line-height:1.3;max-width:990px}
+#bilingvo-site .demo-panel>p{max-width:870px;margin-top:23px;font-size:20px;line-height:1.3}
+#bilingvo-site .demo-panel form{margin-top:62px}
+#bilingvo-site .demo-fields input:not([type=checkbox]),#bilingvo-site .demo-fields .button{border-radius:32px}
+#bilingvo-site .features{margin-top:150px}
+#bilingvo-site .features h2{font-size:52px;line-height:1.28;max-width:745px}
+#bilingvo-site .feature-grid{margin-top:65px}
+#bilingvo-site .feature-grid article{background:var(--mint);min-height:431px}
+#bilingvo-site .feature-tag{background:#f1fbe8}
+#bilingvo-site .feature-grid p{font-size:20px;line-height:1.3}
+#bilingvo-site .feature-icon{background:#f7f7f7}
+#bilingvo-site .benefits{margin-top:132px}
+#bilingvo-site .benefits h2{font-size:52px}
+#bilingvo-site .benefits>p{margin-top:32px}
+#bilingvo-site .benefit-list{margin-top:78px;gap:12px}
+#bilingvo-site .benefit-list li{min-height:105px;grid-template-columns:49px 260px 1fr;gap:28px}
+#bilingvo-site .benefit-list p{font-size:20px;line-height:1.3}
+#bilingvo-site .data-section{margin-top:132px}
+#bilingvo-site .data-section h2{font-size:52px;line-height:1.3}
+#bilingvo-site .data-grid{margin-top:71px}
+#bilingvo-site .data-grid article{min-height:341px;padding:23px 36px 38px}
+#bilingvo-site .data-grid h3{margin-top:62px;font-size:28px}
+#bilingvo-site .second-demo{margin-top:178px;padding-bottom:73px}
+#bilingvo-site .second-demo h2{font-size:50px;max-width:1100px}
+#bilingvo-site .second-demo form{margin-top:40px}
+#bilingvo-site .faq{margin-top:130px}
+#bilingvo-site .faq h2{font-size:52px;line-height:1.3}
+#bilingvo-site .faq-list{margin-top:86px}
+#bilingvo-site .faq summary{font-size:28px;padding:28px 0}
+#bilingvo-site .faq details p{font-size:20px;line-height:1.35;max-width:1200px}
+#bilingvo-site .next-step{margin-top:135px;margin-bottom:135px;padding:45px 57px 48px;min-height:680px}
+#bilingvo-site .next-step h2{font-size:52px;margin-top:28px}
+#bilingvo-site .next-intro{margin:27px 0 35px}
+#bilingvo-site .next-intro>p{max-width:820px;font-size:20px;line-height:1.3;margin:0}
+#bilingvo-site .next-intro>h3{margin-top:54px;font-size:28px}
+#bilingvo-site .next-list{border:0;padding:0 10px;grid-template-columns:375px 1fr;gap:60px}
+#bilingvo-site .next-list p{padding:18px 0;font-size:20px}
+#bilingvo-site .next-actions{margin-top:74px}
+#bilingvo-site .bilingvo-dialog{border:0;border-radius:24px;width:min(1320px,calc(100vw - 44px));max-height:calc(100dvh - 56px);padding:50px 83px;overflow:auto;background:#fff;color:var(--night);box-shadow:0 8px 0 #dddddd80}
+#bilingvo-site .bilingvo-dialog::backdrop{background:#0007}
+#bilingvo-site .bilingvo-dialog h2{font-size:52px;line-height:1.25}
+#bilingvo-site .bilingvo-dialog>p{font-size:20px;color:var(--night);margin-top:24px;line-height:1.4}
+#bilingvo-site .dialog-close{position:absolute;right:20px;top:16px;width:32px;height:32px;border:0;background:transparent;color:#15242d;font:300 27px/1 var(--sans);display:flex;align-items:center;justify-content:center;border-radius:50%}
+#bilingvo-site .dialog-close:hover{background:#f1f4ef}
+#bilingvo-site .bilingvo-dialog form{margin-top:40px}
+#bilingvo-site .bilingvo-dialog input:not([type=checkbox]),#bilingvo-site .bilingvo-dialog textarea{border:1px solid #cedbd7;border-radius:26px;font-size:16px;padding:17px 22px;color:var(--night);width:100%;background:#fff;resize:vertical}
+#bilingvo-site .bilingvo-dialog input::placeholder,#bilingvo-site .bilingvo-dialog textarea::placeholder{color:#a9b9b5}
+#bilingvo-site .project-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+#bilingvo-site .project-fields textarea{grid-column:1/-1;min-height:158px}
+#bilingvo-site .bilingvo-dialog .consent{font-size:16px;margin-top:26px}
+#bilingvo-site .bilingvo-dialog .button[type=submit]{width:100%;margin-top:35px;min-height:56px}
+#bilingvo-site .sample-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#bilingvo-site .sample-note{font-size:16px;margin-top:25px;color:var(--night)}
+#bilingvo-site .success-dialog{width:min(720px,calc(100vw - 44px));padding:70px 56px}
+#bilingvo-site .success-dialog h2{font-size:44px;display:flex;align-items:center;gap:20px}
+#bilingvo-site .success-dialog>p{font-size:20px;max-width:420px}
+#bilingvo-site .success-dialog>.button{margin-top:50px}
+#bilingvo-site .form-status{margin:14px 0 0;font-size:15px;line-height:1.4;color:inherit}
+#bilingvo-site .form-status:empty{display:none}
+#bilingvo-site .video-dialog{width:min(1200px,calc(100vw - 44px));padding:50px 15px 15px;background:#fff}
+#bilingvo-site .video-dialog video{display:block;width:100%;height:auto;max-height:calc(100dvh - 140px);background:#092a27;border-radius:14px}
+#bilingvo-site .info-dialog{width:min(620px,calc(100vw - 44px));padding:45px}
+#bilingvo-site .info-dialog h2{font-size:34px}
+#bilingvo-site .info-dialog>p{font-size:17px}
+#bilingvo-site .info-dialog>.button{margin-top:30px}
+#bilingvo-site .button[disabled]{cursor:wait;opacity:.7}
+@keyframes bl-point-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.9}50%{transform:translate(-50%,-50%) scale(1.23);opacity:1}}
+@keyframes bl-label-float{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes bl-level{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+@keyframes bl-live-pulse{50%{box-shadow:0 0 0 5px #d5f1e3;opacity:.65}}
+@keyframes bl-caret{50%{opacity:0}}
+@keyframes bl-step-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes bl-panel-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:1450px){#bilingvo-site .hero{grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:38px;padding:40px}
+#bilingvo-site .hero h1{font-size:34px}
+#bilingvo-site .hero p{font-size:18px}
+#bilingvo-site .hero-actions{gap:15px;margin-top:40px;flex-wrap:wrap}
+#bilingvo-site .hero-actions .button{font-size:14px;padding-inline:22px;white-space:normal;min-height:57px}
+#bilingvo-site .participant{grid-template-columns:39% 1fr;gap:25px}
+#bilingvo-site .phone-stage{width:100%;margin-left:0}
+#bilingvo-site .phone-hints{left:260px;width:165px;font-size:12px}
+#bilingvo-site .participant h2{font-size:46px}
+#bilingvo-site .compact-form{padding:28px}
+#bilingvo-site .compact-fields{flex-wrap:wrap}
+#bilingvo-site .compact-fields input{flex-basis:42%}
+#bilingvo-site .compact-fields .button{min-width:0;width:100%}
+#bilingvo-site .compact-form .consent{font-size:14px}
+#bilingvo-site .how .two-columns{grid-template-columns:1fr 1.05fr}
+#bilingvo-site .how h2{font-size:46px}
+#bilingvo-site .devices{grid-template-columns:1fr 1fr;gap:38px}
+#bilingvo-site .devices h2{font-size:46px}
+#bilingvo-site .devices-stage{height:560px}
+#bilingvo-site .devices-stage>.phone{right:10px;top:130px;transform:scale(.68)}
+#bilingvo-site .universities{grid-template-columns:39% 1fr;gap:35px}
+#bilingvo-site .universities h2{font-size:46px}
+#bilingvo-site .photo-carousel{height:560px}
+#bilingvo-site .gallery-controls{margin-top:115px}
+#bilingvo-site .benefit-list li{grid-template-columns:45px 230px 1fr}
+#bilingvo-site .data-grid article{padding-inline:28px}
+#bilingvo-site .data-grid h3{font-size:26px}}
+@media (max-width:1100px){#bilingvo-site .hero h1{font-size:31px}
+#bilingvo-site .hero p{font-size:17px}
+#bilingvo-site .hero{padding:32px;gap:27px;min-height:530px}
+#bilingvo-site .hero-actions{gap:10px;margin-top:28px}
+#bilingvo-site .hero-actions .button{font-size:13px;padding-inline:17px}
+#bilingvo-site .room-strip{padding-left:32px}
+#bilingvo-site .phone-stage{width:335px}
+#bilingvo-site .phone-hints{left:220px;bottom:65px;width:143px}
+#bilingvo-site .participant{grid-template-columns:37% 1fr;gap:18px}
+#bilingvo-site .participant h2{font-size:40px}
+#bilingvo-site .participant-copy>p{font-size:18px}
+#bilingvo-site .proof-strip strong{font-size:25px}
+#bilingvo-site .proof-strip>div:first-child strong{font-size:31px}
+#bilingvo-site .audiences h2,#bilingvo-site .devices h2,#bilingvo-site .universities h2,#bilingvo-site .reviews h2,#bilingvo-site .features h2,#bilingvo-site .benefits h2,#bilingvo-site .data-section h2,#bilingvo-site .faq h2,#bilingvo-site .next-step h2{font-size:42px}
+#bilingvo-site .audience-grid{grid-template-columns:1fr 26%}
+#bilingvo-site .devices p{font-size:18px}
+#bilingvo-site .devices-stage{height:465px}
+#bilingvo-site .devices-stage>.phone{transform:scale(.56);top:110px;right:4px}
+#bilingvo-site .tablet-captions{gap:6px}
+#bilingvo-site .tablet-captions .caption-card{padding:11px 12px}
+#bilingvo-site .tablet-captions .source-caption{font-size:8px;margin-bottom:6px}
+#bilingvo-site .tablet-captions .target-caption{font-size:10px}
+#bilingvo-site .tablet-captions .target-caption[lang=ar]{font-size:12px}
+#bilingvo-site .language-demo{padding:22px 20px}
+#bilingvo-site .language-options{gap:7px}
+#bilingvo-site .language-options button{gap:8px;padding:12px 9px;font-size:12px}
+#bilingvo-site .universities p{font-size:18px;margin-top:28px}
+#bilingvo-site .photo-carousel{height:480px}
+#bilingvo-site .gallery-controls{margin-top:80px}
+#bilingvo-site .review-collage{grid-template-columns:1fr 48% 1fr}
+#bilingvo-site .review-side{height:460px}
+#bilingvo-site .review-small-photos{height:175px}
+#bilingvo-site .review-copy h3{font-size:25px}
+#bilingvo-site .review-copy p{font-size:17px}
+#bilingvo-site .demo-panel{padding:45px 60px 60px}
+#bilingvo-site .demo-panel h2{font-size:43px}
+#bilingvo-site .feature-grid p{font-size:18px}
+#bilingvo-site .benefit-list p{font-size:18px}
+#bilingvo-site .data-grid h3{font-size:23px}
+#bilingvo-site .data-grid p{font-size:17px}
+#bilingvo-site .next-list{grid-template-columns:1fr 1.2fr;gap:50px}
+#bilingvo-site .next-list p{font-size:18px}}
+@media (max-width:800px){#bilingvo-site .hero{grid-template-columns:1fr;gap:38px;padding:35px}
+#bilingvo-site .hero h1{font-size:39px;max-width:650px}
+#bilingvo-site .hero p{font-size:18px}
+#bilingvo-site .hero-actions .button{flex:1;font-size:14px}
+#bilingvo-site .globe-demo{width:75%;max-width:430px;justify-self:center}
+#bilingvo-site .room-strip{gap:18px}
+#bilingvo-site .room-form{gap:9px}
+#bilingvo-site .room-form input{width:125px}
+#bilingvo-site .room-form .button{font-size:12px;padding-inline:12px}
+#bilingvo-site .participant{grid-template-columns:1fr;display:flex;flex-direction:column-reverse;gap:40px;padding-top:60px}
+#bilingvo-site .participant-copy{width:100%;padding-inline:14px}
+#bilingvo-site .participant h2{font-size:40px}
+#bilingvo-site .compact-fields .button{width:auto;flex:1}
+#bilingvo-site .compact-fields input{flex-basis:30%}
+#bilingvo-site .phone-stage{width:440px;max-width:100%;align-self:center;margin-left:0}
+#bilingvo-site .phone-hints{left:275px;width:165px;bottom:90px;font-size:13px}
+#bilingvo-site .how .two-columns{grid-template-columns:1fr;gap:35px}
+#bilingvo-site .how h2{max-width:650px;font-size:42px}
+#bilingvo-site .how-panel{min-height:480px}
+#bilingvo-site .how-screen{padding:35px}
+#bilingvo-site .steps>button{min-height:76px;font-size:26px;padding:17px 27px}
+#bilingvo-site .audience-grid{grid-template-columns:1fr 29%}
+#bilingvo-site .audience-cards article{min-height:initial}
+#bilingvo-site .audience-photo-card figcaption{left:17px;bottom:24px}
+#bilingvo-site .audience-photo-card h3{font-size:23px}
+#bilingvo-site .audience-photo-card p{font-size:16px}
+#bilingvo-site .devices{grid-template-columns:1fr;gap:40px;padding-top:110px;padding-bottom:85px}
+#bilingvo-site .devices-stage{width:95%;max-width:610px;height:580px;margin:auto}
+#bilingvo-site .devices-stage>.phone{transform:scale(.7);top:130px}
+#bilingvo-site .tablet-captions .source-caption{font-size:10px}
+#bilingvo-site .tablet-captions .target-caption{font-size:12px}
+#bilingvo-site .tablet-captions .target-caption[lang=ar]{font-size:15px}
+#bilingvo-site .devices p{margin-top:25px}
+#bilingvo-site .language-demo{max-width:650px;margin-top:32px}
+#bilingvo-site .language-options button{font-size:14px;padding:14px}
+#bilingvo-site .universities{grid-template-columns:1fr;gap:35px}
+#bilingvo-site .universities h2{max-width:600px;margin-top:27px}
+#bilingvo-site .universities p{max-width:600px}
+#bilingvo-site .gallery-controls{margin-top:35px}
+#bilingvo-site .photo-carousel{margin-top:0;height:540px}
+#bilingvo-site .reviews{margin-top:80px}
+#bilingvo-site .review-collage{grid-template-columns:1fr 60% 1fr;margin-top:50px}
+#bilingvo-site .review-copy p{font-size:16px}
+#bilingvo-site .demo-panel{margin-top:80px;padding:40px 35px 50px}
+#bilingvo-site .demo-panel h2{font-size:39px}
+#bilingvo-site .demo-fields{grid-template-columns:1fr 1fr}
+#bilingvo-site .demo-fields .button{grid-column:1/-1;order:3}
+#bilingvo-site .features{margin-top:90px}
+#bilingvo-site .features-heading{grid-template-columns:1.5fr 1fr}
+#bilingvo-site .feature-grid article{min-height:330px}
+#bilingvo-site .benefit-list li{grid-template-columns:38px 175px 1fr;padding:20px 18px;gap:15px}
+#bilingvo-site .benefit-list h3{font-size:23px}
+#bilingvo-site .benefit-list p{font-size:16px}
+#bilingvo-site .data-grid{gap:12px}
+#bilingvo-site .data-grid article{padding:22px;min-height:330px}
+#bilingvo-site .data-grid h3{margin-top:34px;font-size:22px}
+#bilingvo-site .data-grid p{font-size:15px}
+#bilingvo-site .faq summary{font-size:25px}
+#bilingvo-site .faq details p{font-size:18px}
+#bilingvo-site .bilingvo-dialog{padding:40px 35px}
+#bilingvo-site .bilingvo-dialog h2{font-size:38px}
+#bilingvo-site .bilingvo-dialog>p{font-size:17px}
+#bilingvo-site .project-fields{grid-template-columns:1fr 1fr}
+#bilingvo-site .project-fields input:nth-of-type(3){grid-column:1/-1}}
+@media (max-width:600px){#bilingvo-site .site-header{margin-top:14px;min-height:64px}
+#bilingvo-site .hero{margin-top:14px;padding:29px 23px 28px;gap:34px;min-height:0}
+#bilingvo-site .hero h1{font-size:31px;line-height:1.22;letter-spacing:-.5px}
+#bilingvo-site .hero p{font-size:16px;line-height:1.42;margin-top:24px}
+#bilingvo-site .hero p+p{font-size:15px;margin-top:21px}
+#bilingvo-site .hero-actions{display:flex;flex-direction:column;gap:11px;margin-top:28px}
+#bilingvo-site .hero-actions .button{min-height:53px;font-size:13px;padding:13px 17px;width:100%}
+#bilingvo-site .globe-demo{width:100%;max-width:350px}
+#bilingvo-site .globe-language{font-size:11px;padding:8px 10px;gap:7px}
+#bilingvo-site .globe-language small{font-size:8px}
+#bilingvo-site .globe-point{width:9px;height:9px}
+#bilingvo-site .globe-point:after{inset:3px}
+#bilingvo-site .globe-en{left:65%}
+#bilingvo-site .globe-ar{left:52%}
+#bilingvo-site .globe-zh{left:0}
+#bilingvo-site .room-strip{padding:24px 23px;margin-top:16px;min-height:0}
+#bilingvo-site .room-strip h2{font-size:25px}
+#bilingvo-site .room-form input{width:0}
+#bilingvo-site .room-form .button{font-size:12px;padding-inline:14px}
+#bilingvo-site .participant{padding-top:58px;gap:32px}
+#bilingvo-site .participant-copy{padding-inline:7px}
+#bilingvo-site .participant h2{font-size:32px;line-height:1.2}
+#bilingvo-site .participant-copy>p{font-size:16px;line-height:1.4;margin-top:24px}
+#bilingvo-site .compact-form{margin-top:28px;padding:22px 18px}
+#bilingvo-site .compact-fields{display:grid}
+#bilingvo-site .compact-fields input{width:100%}
+#bilingvo-site .compact-fields .button{min-height:48px;width:100%;font-size:14px}
+#bilingvo-site .compact-form .consent{font-size:12px}
+#bilingvo-site .phone-stage{width:312px;height:695px;max-width:100%}
+#bilingvo-site .phone-hints{left:0;bottom:0;display:flex;gap:8px;width:100%;font-size:11px}
+#bilingvo-site .phone-hints span{padding:12px;border-radius:18px;flex:1}
+#bilingvo-site .phone-hints br{display:none}
+#bilingvo-site .proof-strip{margin-top:38px;margin-bottom:60px;padding:10px 27px;min-height:0}
+#bilingvo-site .proof-strip strong{font-size:27px}
+#bilingvo-site .proof-strip>div:first-child strong{font-size:34px}
+#bilingvo-site .how{padding:45px 0 55px}
+#bilingvo-site .how h2{font-size:33px;line-height:1.23;margin-top:22px}
+#bilingvo-site .how p{font-size:16px;line-height:1.4;margin-top:22px}
+#bilingvo-site .steps{margin-top:25px;gap:10px}
+#bilingvo-site .steps>button{font-size:23px;min-height:73px;padding:19px 24px;border-radius:24px}
+#bilingvo-site .how-panel{min-height:451px;border-radius:22px}
+#bilingvo-site .how-screen{padding:30px 20px}
+#bilingvo-site .how-screen h3{font-size:18px}
+#bilingvo-site .how-screen>p{font-size:15px;line-height:1.4;margin-top:22px}
+#bilingvo-site .demo-qr{width:100px;height:100px;margin-bottom:25px}
+#bilingvo-site .how-screen .room-code-example{font-size:14px;margin-top:25px}
+#bilingvo-site .how-screen>.button{font-size:14px;min-height:49px}
+#bilingvo-site .hall-option{padding:19px}
+#bilingvo-site .hall-option b{font-size:16px}
+#bilingvo-site .hall-option small{font-size:12px}
+#bilingvo-site .audiences{padding-top:59px}
+#bilingvo-site .audiences h2,#bilingvo-site .devices h2,#bilingvo-site .universities h2,#bilingvo-site .reviews h2,#bilingvo-site .features h2,#bilingvo-site .benefits h2,#bilingvo-site .data-section h2,#bilingvo-site .faq h2,#bilingvo-site .next-step h2{font-size:33px;line-height:1.2}
+#bilingvo-site .audiences>p{margin-top:24px;font-size:16px;line-height:1.4}
+#bilingvo-site .audience-grid{grid-template-columns:1fr}
+#bilingvo-site .audience-cards article{min-height:0}
+#bilingvo-site .audience-photo-card{height:380px}
+#bilingvo-site .audience-photo-card h3{font-size:26px}
+#bilingvo-site .audience-photo-card p{font-size:16px}
+#bilingvo-site .devices{padding-top:65px;padding-bottom:65px;gap:34px}
+#bilingvo-site .devices h2{margin-top:23px}
+#bilingvo-site .devices p{font-size:16px;line-height:1.4;margin-top:24px}
+#bilingvo-site .language-demo{padding:22px 18px;margin-top:28px}
+#bilingvo-site .language-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#bilingvo-site .language-options button{font-size:13px;padding:13px 12px;gap:14px}
+#bilingvo-site .language-demo>.button{margin-top:19px;font-size:14px}
+#bilingvo-site .devices-stage{width:100%;height:355px}
+#bilingvo-site .devices-stage>.phone{transform:scale(.42);top:87px;right:7px}
+#bilingvo-site .tablet-captions{gap:4px;top:26%;height:57%}
+#bilingvo-site .tablet-captions .caption-card{padding:6px 8px;border-radius:4px}
+#bilingvo-site .tablet-captions .source-caption{font-size:5.8px;margin-bottom:5px}
+#bilingvo-site .tablet-captions .target-caption{font-size:7px;line-height:1.25}
+#bilingvo-site .tablet-captions .target-caption[lang=ar]{font-size:9px}
+#bilingvo-site .tablet-captions time{font-size:5px;right:6px;top:5px}
+#bilingvo-site .evidence-section{padding:60px 0}
+#bilingvo-site .universities{gap:27px}
+#bilingvo-site .universities h2{margin-top:27px}
+#bilingvo-site .universities p{font-size:16px;line-height:1.4;margin-top:26px}
+#bilingvo-site .universities p+p{margin-top:19px}
+#bilingvo-site .gallery-controls{margin-top:30px;gap:11px}
+#bilingvo-site .gallery-controls button{width:48px;height:48px;font-size:23px}
+#bilingvo-site .photo-carousel{height:350px;border-radius:20px}
+#bilingvo-site .photo-slide{gap:10px}
+#bilingvo-site .photo-slide>div{gap:10px}
+#bilingvo-site .photo-slide img{border-radius:18px}
+#bilingvo-site .reviews{margin-top:60px}
+#bilingvo-site .reviews h2{margin-top:23px}
+#bilingvo-site .reviews>p{font-size:16px;line-height:1.4;margin-top:20px}
+#bilingvo-site .review-collage{display:flex;flex-wrap:wrap;margin-top:33px;gap:12px;padding:0}
+#bilingvo-site .review-card{width:100%;order:-1}
+#bilingvo-site .review-side{width:calc(50% - 6px);height:320px;margin:0;gap:10px;border-radius:16px}
+#bilingvo-site .review-small-photos{height:120px;gap:8px}
+#bilingvo-site .review-small-photos>img,#bilingvo-site .event-video-tile{border-radius:14px}
+#bilingvo-site .review-copy h3{font-size:25px;line-height:1.28}
+#bilingvo-site .review-copy p{font-size:16px;line-height:1.4;margin-top:23px}
+#bilingvo-site .review-copy p:last-child{margin-top:27px;font-size:14px}
+#bilingvo-site .video-play{width:55px;height:55px;font-size:23px}
+#bilingvo-site .small-video-play{width:34px;height:34px;left:10px;bottom:10px;font-size:13px}
+#bilingvo-site .demo-panel{margin-top:60px;padding:33px 24px 36px}
+#bilingvo-site .demo-panel h2,#bilingvo-site .second-demo h2{font-size:31px;line-height:1.25}
+#bilingvo-site .demo-panel>p{font-size:15px;line-height:1.4;margin-top:22px}
+#bilingvo-site .demo-panel form{margin-top:28px}
+#bilingvo-site .demo-fields{display:flex}
+#bilingvo-site .demo-panel .consent{font-size:12px}
+#bilingvo-site .features{margin-top:66px}
+#bilingvo-site .features-heading{display:flex;gap:24px}
+#bilingvo-site .feature-grid{margin-top:30px}
+#bilingvo-site .feature-grid article{min-height:335px}
+#bilingvo-site .feature-grid p{font-size:14px;line-height:1.4}
+#bilingvo-site .benefits{margin-top:66px}
+#bilingvo-site .benefits>p{margin-top:24px;font-size:16px}
+#bilingvo-site .benefit-list{margin-top:32px}
+#bilingvo-site .benefit-list li{grid-template-columns:33px 1fr;gap:12px 14px;padding:22px 18px}
+#bilingvo-site .benefit-list h3{font-size:24px}
+#bilingvo-site .benefit-list p{grid-column:2;font-size:15px;line-height:1.4}
+#bilingvo-site .data-section{margin-top:65px}
+#bilingvo-site .data-section>p{font-size:16px;line-height:1.4}
+#bilingvo-site .data-grid{grid-template-columns:1fr;margin-top:32px}
+#bilingvo-site .data-grid article{min-height:0;padding:26px}
+#bilingvo-site .data-grid h3{font-size:25px;margin-top:28px}
+#bilingvo-site .data-grid p{font-size:16px;margin-top:18px}
+#bilingvo-site .second-demo{margin-top:60px}
+#bilingvo-site .faq{margin-top:65px}
+#bilingvo-site .faq-list{margin-top:33px}
+#bilingvo-site .faq summary{font-size:22px;padding:23px 0;line-height:1.25}
+#bilingvo-site .faq details p{font-size:15px;line-height:1.4}
+#bilingvo-site .next-step{margin-top:65px;margin-bottom:65px;min-height:0;padding:32px 23px}
+#bilingvo-site .next-intro{margin-top:25px;margin-bottom:24px}
+#bilingvo-site .next-intro>p{font-size:16px;line-height:1.4}
+#bilingvo-site .next-intro>h3{font-size:24px;margin-top:35px}
+#bilingvo-site .next-list{grid-template-columns:1fr;gap:0;padding:0}
+#bilingvo-site .next-list p{font-size:15px;line-height:1.4;padding:15px 0}
+#bilingvo-site .next-actions{margin-top:35px}
+#bilingvo-site .bilingvo-dialog{width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:42px 24px 28px;border-radius:21px}
+#bilingvo-site .bilingvo-dialog h2{font-size:31px;line-height:1.2}
+#bilingvo-site .bilingvo-dialog>p{font-size:16px;line-height:1.4;margin-top:22px}
+#bilingvo-site .bilingvo-dialog form{margin-top:27px}
+#bilingvo-site .project-fields,#bilingvo-site .sample-fields{grid-template-columns:1fr;gap:12px}
+#bilingvo-site .project-fields input:nth-of-type(3){grid-column:auto}
+#bilingvo-site .project-fields textarea{min-height:130px}
+#bilingvo-site .bilingvo-dialog input:not([type=checkbox]),#bilingvo-site .bilingvo-dialog textarea{font-size:15px;padding:15px 18px}
+#bilingvo-site .bilingvo-dialog .consent{font-size:12px;line-height:1.4;margin-top:22px}
+#bilingvo-site .bilingvo-dialog .button[type=submit]{margin-top:25px;font-size:14px}
+#bilingvo-site .sample-note{font-size:13px}
+#bilingvo-site .success-dialog h2{font-size:28px;gap:12px}
+#bilingvo-site .video-dialog{padding:48px 8px 8px}
+#bilingvo-site .video-dialog video{border-radius:14px}
+#bilingvo-site .form-status{font-size:13px}}
+@media (prefers-reduced-motion:reduce){#bilingvo-site *,#bilingvo-site *:before,#bilingvo-site *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+#bilingvo-site .globe-world{will-change:auto}
+#bilingvo-site .photo-track{will-change:auto}}
+#bilingvo-site .phone .phone-live{font-size:10px;line-height:1.3;margin:0 0 5px}
+#bilingvo-site .phone .caption-card p,#bilingvo-site .tablet .caption-card p{margin:0;line-height:1.27}
+#bilingvo-site .phone .caption-card .source-caption{margin-bottom:7px}
+#bilingvo-site .tablet .caption-card .source-caption{margin-bottom:10px}
+@media (max-width:1100px){#bilingvo-site .tablet .caption-card .source-caption{margin-bottom:6px}}
+@media (max-width:600px){#bilingvo-site .tablet .caption-card .source-caption{margin-bottom:5px}}
+
+#bilingvo-site{font:300 20px/1.3 Geologica,Arial,sans-serif;margin:0;width:100%;max-width:none;box-sizing:border-box}#bilingvo-site a{color:inherit}#bilingvo-site .button{color:white}#bilingvo-site .outline,#bilingvo-site .light{color:var(--night)}#bilingvo-site .next-actions .outline{color:white}
+@media(max-width:600px){#bilingvo-site{font-size:16px}}
+</style>
+<div data-asset-base="../assets/" id="bilingvo-site">
+<header class="site-header wrap">
+<a aria-label="Билингво, начало страницы" class="brand" href="#"><img alt="" height="47" src="../assets/logo.webp" width="65"/><strong>Билингво</strong></a>
+<nav aria-label="Основная навигация"><a href="#bl-how">Как это работает</a><a href="#bl-features">Что входит</a><a href="#bl-materials">Материалы</a><a href="#bl-faq">Вопросы</a></nav>
+<div class="header-actions"><button class="language-button outline" data-open="language" type="button"><img alt="" class="globe" height="26" src="../assets/icon-language.webp" width="25"/> Выбрать язык <span aria-hidden="true">⌄</span></button><a class="button" data-open="project" href="#bilingvo-project">Показать демо</a></div>
+</header>
+<main>
+<section aria-labelledby="bl-hero-title" class="hero wrap" data-section="hero">
+<div class="hero-copy">
+<h1 id="bl-hero-title">Билингво: синхронный перевод для любой аудитории — в реальном времени</h1>
+<p>Участники слушают перевод, читают субтитры и смотрят материалы выступления на своем языке</p>
+<p>Все, что нужно, — отсканировать QR-код или ввести код комнаты в браузере. Не требуется установка приложений или специализированного оборудования</p>
+<div class="hero-actions"><a class="button" data-open="sample" href="#bilingvo-sample">Посмотреть пример перевода (15 минут)</a><a class="button outline" data-open="project" href="#bilingvo-project">Обсудить проект</a></div>
+</div>
+<div aria-label="Интерактивная карта языков перевода" class="globe-demo">
+<div aria-label="Карта языков. Перетащите для поворота, клавиши стрелок также вращают карту." class="globe-world" role="img" tabindex="0">
+<img alt="Карта мира" class="globe-map" height="460" src="../assets/globe-map.svg" width="460"/>
+<canvas aria-hidden="true" class="globe-connections" height="920" width="920"></canvas>
+<div aria-hidden="true" class="globe-points"></div>
+</div>
+<button aria-pressed="true" class="globe-language globe-en" data-lang="EN" type="button"><small>EN</small><span>English</span><i aria-hidden="true" class="mini-levels"><b></b><b></b><b></b><b></b><b></b></i></button>
+<button aria-pressed="false" class="globe-language globe-ar" data-lang="AR" type="button"><small>AR</small><span lang="ar">العربية</span><i aria-hidden="true" class="mini-levels"><b></b><b></b><b></b><b></b><b></b></i></button>
+<button aria-pressed="false" class="globe-language globe-zh" data-lang="ZH" type="button"><small>ZH</small><span lang="zh">中文</span><i aria-hidden="true" class="mini-levels"><b></b><b></b><b></b><b></b><b></b></i></button>
+<button aria-pressed="false" class="globe-language globe-fr" data-lang="FR" type="button"><small>FR</small><span>Français</span><i aria-hidden="true" class="mini-levels"><b></b><b></b><b></b><b></b><b></b></i></button>
+</div>
+</section>
+<section aria-label="Подключение слушателя" class="room-strip wrap">
+<div><h2>У вас есть код комнаты?</h2><p>Присоединяйтесь в качестве слушателя</p></div>
+<form class="room-form" data-kind="room"><label class="sr-only" for="bl-room-code">Код комнаты</label><input autocomplete="off" id="bl-room-code" placeholder="Код комнаты" required=""/><button class="button outline" type="submit">Присоединиться</button></form>
+</section>
+<section class="participant wrap" id="bilingvo-interactive">
+<div class="phone-stage" id="bilingvo-phone"><div class="phone interactive-phone" data-phone="main">
+<img alt="" aria-hidden="true" class="phone-shell" height="2242" src="../assets/phone-frame.webp" width="1132"/>
+<div class="phone-display">
+<div class="phone-status"><time>9:41</time><div><img alt="" height="8" src="../assets/cellular.svg" width="12"/><img alt="" height="8" src="../assets/wifi.svg" width="11"/><img alt="" height="8" src="../assets/battery.svg" width="17"/></div></div>
+<div class="phone-brand"><img alt="" class="phone-back" height="17" src="../assets/back.svg" width="16"/><img alt="" class="phone-logo" height="25" src="../assets/logo.webp" width="35"/><span>Билингво</span></div>
+<p class="phone-live"><i aria-hidden="true"></i><span>Перевод идет · Русский</span></p>
+<div aria-label="Пример перевода выступления" class="caption-feed"><article class="caption-card" data-caption="0"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">Мы переходим к следующей части доклада.</p><p class="target-caption" lang="en">We are moving to the next part of the presentation.</p><time>10:20</time></article><article class="caption-card" data-caption="1"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">На экране показаны результаты первого этапа.</p><p class="target-caption" lang="en">The screen shows the results of the first stage.</p><time>10:21</time></article><article class="caption-card" data-caption="2"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">После сессии можно оценить качество перевода.</p><p class="target-caption" lang="en">After the session, you can rate the translation quality.</p><time>10:22</time></article></div>
+<div class="phone-controls"><label><span>Выберите язык</span><select aria-label="Язык перевода в телефоне" data-language-select=""><option value="EN">English</option><option value="FR">Français</option><option value="AR">العربية</option><option value="ZH">中文</option></select></label><button aria-label="Послушать перевод в телефоне" aria-pressed="false" class="phone-audio" data-audio-toggle="" type="button"><img alt="" height="18" src="../assets/speaker.svg" width="20"/><span aria-hidden="true" class="pause-bars"></span></button></div>
+<div aria-hidden="true" class="phone-home"></div>
+</div><img alt="" aria-hidden="true" class="phone-island" height="126" src="../assets/phone-island.webp" width="352"/></div><div class="phone-hints"><span>Интерактивное демо</span><span>Выберите язык и<br/>нажмите на иконку</span></div></div>
+<div class="participant-copy"><h2>Каждый участник слышит выступление на своем языке</h2><p>Речь и материалы выступления на одном экране. Слушайте перевод и следите за докладом на своем языке.</p>
+<form class="compact-form" data-lead-form="project"><div class="compact-fields"><label class="sr-only" for="bl-company-top">Компания или площадка</label><input id="bl-company-top" name="company" placeholder="Компания или площадка" required=""/><label class="sr-only" for="bl-contact-top">Email или телефон</label><input id="bl-contact-top" name="contact" placeholder="Email или телефон" required=""/><button class="button" type="submit">Записаться на демо</button></div><label class="consent"><input name="consent" required="" type="checkbox" value="accepted"/><span>Я согласен(а) с <button class="text-link" data-legal="privacy" type="button">политикой конфиденциальности</button> и обработкой персональных данных.</span></label></form>
+</div>
+</section>
+<div class="proof-strip wrap"><div><strong>100+</strong><span>языков перевода</span></div><div><strong>Синхронный перевод</strong><span>во время выступления</span></div><div><strong>Российская разработка</strong><span>в реестре отечественного ПО</span></div></div>
+<section class="how white-section" data-section="how" id="bl-how"><div class="wrap two-columns"><div><span class="eyebrow">Для слушателей</span><h2>Как подключиться к переводу</h2><p>Откройте Билингво на телефоне и слушайте выступление на своем языке. Устанавливать приложение не нужно.</p><div aria-label="Как подключиться к переводу" class="steps" role="tablist"><button aria-controls="bl-how-panel" aria-selected="true" data-how="0" id="bl-how-tab-0" role="tab" type="button">Отсканируйте QR-код</button><button aria-controls="bl-how-panel" aria-selected="false" data-how="1" id="bl-how-tab-1" role="tab" tabindex="-1" type="button">Выберите зал</button><button aria-controls="bl-how-panel" aria-selected="false" data-how="2" id="bl-how-tab-2" role="tab" tabindex="-1" type="button">Включите перевод</button></div></div>
+<div aria-labelledby="bl-how-tab-0" class="how-panel" id="bl-how-panel" role="tabpanel"><div class="how-screen" data-how-screen="0"><img alt="QR-код для открытия демонстрации Билингво" class="demo-qr" height="129" src="../assets/demo-qr.png" width="129"/><h3>Присоединиться к комнате</h3><div class="room-code-example">Код комнаты</div><button class="button" data-how-next="1" type="button">Подключиться</button><p>Зал входит по QR или ссылке.<br/>Хватает браузера на телефоне, планшете или ноутбуке.</p></div>
+<div class="how-screen" data-how-screen="1" hidden=""><span class="how-step-number">02</span><h3>Выберите зал</h3><p>Откройте комнату нужного выступления.</p><button class="hall-option" data-how-next="2" type="button"><span><b>Главный зал</b><small>Пример выступления</small></span><span aria-hidden="true">→</span></button><button class="hall-option" data-how-next="2" type="button"><span><b>Лекционный зал</b><small>Пример занятия</small></span><span aria-hidden="true">→</span></button></div>
+<div class="how-screen" data-how-screen="2" hidden=""><span class="how-step-number">03</span><h3>Включите перевод</h3><p>Выберите язык и послушайте пример.</p><div class="how-languages"><button aria-pressed="true" data-lang="EN" type="button">English</button><button aria-pressed="false" data-lang="FR" type="button">Français</button><button aria-pressed="false" data-lang="AR" type="button">العربية</button><button aria-pressed="false" data-lang="ZH" type="button">中文</button></div><button aria-pressed="false" class="button how-play" data-audio-toggle="" type="button"><span data-audio-label="">Послушать перевод</span></button><p class="demo-note">Демонстрация интерфейса</p></div></div></div></section>
+<section class="audiences wrap"><span class="eyebrow">Для кого</span><h2>Для лекций, деловых встреч и конференций</h2><p>Приглашайте участников из разных стран. Билингво переведет выступления и материалы на все языки.</p>
+<div class="audience-grid"><div class="audience-cards"><article><span class="check">✓</span><h3>Образование</h3><p>Перевод лекций и учебных материалов для иностранных студентов.</p></article><article><span class="check">✓</span><h3>Мероприятия</h3><p>Перевод выступлений для участников в зале и зрителей трансляции.</p></article><article><span class="check">✓</span><h3>Бизнес</h3><p>Совещания с зарубежными коллегами и встречи с иностранными клиентами.</p></article><article><span class="check">✓</span><h3>Госучреждения</h3><p>Мероприятия с иностранными участниками. Систему можно разместить у заказчика.</p></article><article><span class="check">✓</span><h3>Ассоциации</h3><p>Съезды, форумы и рабочие встречи с участием иностранных делегаций.</p></article></div><figure class="audience-photo-card"><img alt="Участники международной конференции" height="900" loading="lazy" src="../assets/event-hall.webp" width="540"/><figcaption><h3>Все сценарии</h3><p>От небольшой встречи<br/>до большой конференции</p></figcaption></figure></div>
+</section>
+<section class="devices wrap two-columns" id="bilingvo-listen"><div><span class="eyebrow">На телефоне, планшете и ноутбуке</span><h2>Слушайте перевод или читайте на экране</h2><p>Откройте Билингво в браузере и выберите свой язык. Послушайте пример ниже, чтобы узнать, как звучит перевод.</p><div aria-label="Послушайте перевод на выбранном языке" class="language-demo"><div class="language-options"><button aria-pressed="true" data-lang="EN" type="button"><small>EN</small> English</button><button aria-pressed="false" data-lang="FR" type="button"><small>FR</small> Français</button><button aria-pressed="false" data-lang="AR" type="button"><small>AR</small> العربية</button><button aria-pressed="false" data-lang="ZH" type="button"><small>ZH</small> 中文</button></div><button aria-pressed="false" class="button" data-audio-toggle="" type="button"><span data-audio-label="">Послушать перевод</span><span aria-hidden="true" class="playback-levels"><i></i><i></i><i></i><i></i></span></button><p aria-live="polite" class="audio-status" role="status"></p></div></div><div class="devices-stage"><div class="tablet"><img alt="Перевод на планшете" height="1100" loading="lazy" src="../assets/tablet-frame.webp" width="1429"/><div class="tablet-captions"><article class="caption-card" data-caption="0"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">Мы переходим к следующей части доклада.</p><p class="target-caption" lang="en">We are moving to the next part of the presentation.</p><time>10:20</time></article><article class="caption-card" data-caption="1"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">На экране показаны результаты первого этапа.</p><p class="target-caption" lang="en">The screen shows the results of the first stage.</p><time>10:21</time></article><article class="caption-card" data-caption="2"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">После сессии можно оценить качество перевода.</p><p class="target-caption" lang="en">After the session, you can rate the translation quality.</p><time>10:22</time></article></div></div><div class="phone interactive-phone" data-phone="small">
+<img alt="" aria-hidden="true" class="phone-shell" height="2242" src="../assets/phone-frame.webp" width="1132"/>
+<div class="phone-display">
+<div class="phone-status"><time>9:41</time><div><img alt="" height="8" src="../assets/cellular.svg" width="12"/><img alt="" height="8" src="../assets/wifi.svg" width="11"/><img alt="" height="8" src="../assets/battery.svg" width="17"/></div></div>
+<div class="phone-brand"><img alt="" class="phone-back" height="17" src="../assets/back.svg" width="16"/><img alt="" class="phone-logo" height="25" src="../assets/logo.webp" width="35"/><span>Билингво</span></div>
+<p class="phone-live"><i aria-hidden="true"></i><span>Перевод идет · Русский</span></p>
+<div aria-label="Пример перевода выступления" class="caption-feed"><article class="caption-card" data-caption="0"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">Мы переходим к следующей части доклада.</p><p class="target-caption" lang="en">We are moving to the next part of the presentation.</p><time>10:20</time></article><article class="caption-card" data-caption="1"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">На экране показаны результаты первого этапа.</p><p class="target-caption" lang="en">The screen shows the results of the first stage.</p><time>10:21</time></article><article class="caption-card" data-caption="2"><small>ORIGINAL · TRANSLATION</small><p class="source-caption">После сессии можно оценить качество перевода.</p><p class="target-caption" lang="en">After the session, you can rate the translation quality.</p><time>10:22</time></article></div>
+<div class="phone-controls"><label><span>Выберите язык</span><select aria-label="Язык перевода в телефоне" data-language-select=""><option value="EN">English</option><option value="FR">Français</option><option value="AR">العربية</option><option value="ZH">中文</option></select></label><button aria-label="Послушать перевод в телефоне" aria-pressed="false" class="phone-audio" data-audio-toggle="" type="button"><img alt="" height="18" src="../assets/speaker.svg" width="20"/><span aria-hidden="true" class="pause-bars"></span></button></div>
+<div aria-hidden="true" class="phone-home"></div>
+</div><img alt="" aria-hidden="true" class="phone-island" height="126" src="../assets/phone-island.webp" width="352"/></div></div></section>
+<div class="white-section evidence-section">
+<section class="universities wrap" id="bl-materials"><div><span class="eyebrow">Билингво на занятиях</span><h2>Перевод лекций для иностранных студентов</h2><p>Билингво использовали в РГАУ-МСХА имени К. А. Тимирязева и Государственном университете по землеустройству.</p><p>Студенты получали перевод речи и учебных материалов на своих телефонах.</p><div class="gallery-controls"><button aria-label="Предыдущие фотографии" data-gallery-prev="" type="button">←</button><button aria-label="Следующие фотографии" data-gallery-next="" type="button">→</button><button aria-label="Приостановить автопрокрутку фотографий" aria-pressed="false" class="gallery-pause" data-gallery-pause="" type="button">Ⅱ</button></div></div><div aria-label="Билингво на занятиях" aria-roledescription="карусель" class="photo-carousel"><div class="photo-track"><div aria-label="1 из 3" aria-roledescription="слайд" class="photo-slide" role="group"><div><img alt="Перевод учебных материалов на телефоне" height="320" loading="lazy" src="../assets/lecture-phone.webp" width="370"/><img alt="Перевод материалов лекции на английский" height="264" loading="lazy" src="../assets/lecture-material.webp" width="370"/></div><img alt="Студент слушает перевод лекции" height="602" loading="lazy" src="../assets/lecture-student.webp" width="370"/></div><div aria-label="2 из 3" aria-roledescription="слайд" class="photo-slide" role="group"><img alt="Билингво в лекционной аудитории" height="602" loading="lazy" src="../assets/lecture-student.webp" width="370"/><div><img alt="Учебные материалы на языке студента" height="320" loading="lazy" src="../assets/lecture-material.webp" width="370"/><img alt="Материалы на личном телефоне" height="264" loading="lazy" src="../assets/lecture-phone.webp" width="370"/></div></div><div aria-label="3 из 3" aria-roledescription="слайд" class="photo-slide" role="group"><img alt="Текст перевода крупным планом" height="602" loading="lazy" src="../assets/lecture-phone.webp" width="370"/><div><img alt="Перевод выступления во время занятия" height="320" loading="lazy" src="../assets/lecture-student.webp" width="370"/><img alt="Перевод учебных материалов" height="264" loading="lazy" src="../assets/lecture-material.webp" width="370"/></div></div></div></div></section>
+<section class="reviews wrap" id="bilingvo-reviews"><span class="eyebrow">Отзывы участников</span><h2>Билингво на мероприятиях</h2><p>Посмотрите, как участники пользуются переводом и что рассказывают о своем опыте.</p><div class="review-collage"><div class="review-side review-left"><button aria-label="Смотреть видео Билингво на мероприятии" class="event-video-tile" data-open-video="event" type="button"><img alt="Международная конференция" height="330" loading="lazy" src="../assets/event-hall.webp" width="387"/><span aria-hidden="true" class="small-video-play">▶</span></button><div class="review-small-photos"><img alt="Обсуждение с участником конференции" height="210" loading="lazy" src="../assets/event-interview.webp" width="200"/><img alt="Подключение на телефоне" height="210" loading="lazy" src="../assets/event-qr.webp" width="180"/></div></div><article class="review-card"><div class="review-cover"><video aria-label="Видеоотзыв Жиляля Абдерразека" controls="" id="bl-review-video" playsinline="" poster="../assets/jilal-poster.webp" preload="none"><source src="../assets/video/jilal.mp4" type="video/mp4"/></video><button aria-label="Смотреть видеоотзыв Жиляля Абдерразека" class="video-play" data-play-video="bl-review-video" type="button"><span aria-hidden="true">▶</span></button></div><div class="review-copy"><h3>Перевод помог следить за выступлениями весь день</h3><p>Жилаль Абдерразек делится впечатлениями о переводе на арабский и объясняет, почему удобно слушать и читать одновременно.</p><p>Жилаль Абдерразек · INRA, Марокко</p></div></article><div class="review-side review-right"><div class="review-small-photos"><img alt="Вход в комнату перевода" height="210" loading="lazy" src="../assets/event-qr.webp" width="170"/><img alt="Участники международного мероприятия" height="210" loading="lazy" src="../assets/event-audience.webp" width="190"/></div><button aria-label="Посмотреть работу Билингво на площадке" class="event-video-tile" data-open-video="event" type="button"><img alt="Подключение участника по QR-коду" height="330" loading="lazy" src="../assets/event-qr.webp" width="354"/><span aria-hidden="true" class="small-video-play">▶</span></button></div></div></section>
+</div>
+<section class="demo-panel wrap" id="bl-demo"><h2>Посмотрите, как Билингво переведет ваше выступление</h2><p>Покажем перевод на ваших материалах и нужных вам языках. Оставьте контакт, чтобы согласовать время.</p><form data-lead-form="project"><div class="demo-fields"><label class="sr-only" for="bl-name-one">Ваше имя</label><input autocomplete="name" id="bl-name-one" name="name" placeholder="Ваше имя" required=""/><label class="sr-only" for="bl-email-one">Ваш email</label><input autocomplete="email" id="bl-email-one" name="email" placeholder="Ваш email" required="" type="email"/><button class="button light" type="submit">Записаться на демо</button><label class="sr-only" for="bl-company-one">Компания, площадка или университет</label><input class="full-width" id="bl-company-one" name="company" placeholder="Компания, площадка или университет"/></div><label class="consent"><input name="consent" required="" type="checkbox" value="accepted"/><span>Я согласен(а) с <button class="text-link" data-legal="privacy" type="button">политикой конфиденциальности</button> и обработкой персональных данных.</span></label></form></section>
+<section class="features wrap" id="bl-features"><div class="features-heading"><h2>Перевод речи и материалов в одном месте</h2><div><span class="eyebrow">Что входит в перевод</span><p>Слушайте выступление, читайте перевод и следите за материалами на своем языке.</p></div></div><div class="feature-grid"><article><img alt="" class="feature-icon" height="51" src="../assets/icon-speech.webp" width="51"/><span class="feature-tag">Во время выступления</span><h3>Речь</h3><p>Билингво переводит слова спикера по ходу выступления.</p></article><article><img alt="" class="feature-icon" height="51" src="../assets/icon-materials.webp" width="51"/><span class="feature-tag">На том же языке</span><h3>Материалы</h3><p>Переведенные материалы открываются на экране участника и меняются по ходу доклада.</p></article><article><img alt="" class="feature-icon" height="51" src="../assets/icon-text.webp" width="51"/><span class="feature-tag">Текстовый перевод</span><h3>Субтитры</h3><p>Перевод речи появляется на экране. Можно следить за выступлением без звука.</p></article><article><img alt="" class="feature-icon" height="51" src="../assets/icon-audio.webp" width="51"/><span class="feature-tag">Голос</span><h3>Озвучка</h3><p>Слушайте перевод на выбранном языке со своего телефона, планшета или ноутбука.</p></article></div></section>
+<section class="benefits wrap"><span class="eyebrow">Для организатора</span><h2>Почему выбирают Билингво</h2><p>Проводите мероприятия на нескольких языках с меньшими затратами на перевод.</p><ol class="benefit-list"><li><h3>Меньше расходов на перевод</h3><p>Не нужно арендовать кабины и приемники или привлекать переводчиков для каждого языка.</p></li><li><h3>Речь и материалы вместе</h3><p>Участники слушают перевод и видят материалы доклада на своем языке.</p></li><li><h3>Более 100 языков</h3><p>Каждый участник выбирает язык, на котором ему удобно слушать выступление.</p></li><li><h3>Дообучение под вашу отрасль</h3><p>Дообучаем Билингво на отраслевой терминологии, чтобы точнее переводить специальные термины.</p></li><li><h3>Российская разработка</h3><p>Продукт АО "Агропромцифра" включен в реестр российского ПО.</p></li><li><h3>Размещение у заказчика</h3><p>При необходимости Билингво можно установить на серверах вашей организации.</p></li></ol></section>
+<section class="data-section wrap"><span class="eyebrow">Для закупки и IT</span><h2>Билингво можно установить на ваших серверах</h2><p>До запуска согласуем с вашей ИТ-службой подключение системы, доступ и хранение данных.</p><div class="data-grid"><article><span class="check">✓</span><h3>Установка у вас</h3><p>Если облачный сервис не подходит, разместим Билингво на серверах вашей организации.</p></article><article><span class="check">✓</span><h3>Подготовка к запуску</h3><p>Вместе с площадкой определим, как подключить звук и предоставить участникам доступ к переводу.</p></article><article><span class="check">✓</span><h3>Поддержка разработчика</h3><p>АО "Агропромцифра" разрабатывает Билингво и сопровождает систему после установки.</p></article></div></section>
+<section class="demo-panel wrap second-demo"><h2>Попробуйте Билингво на ваших материалах</h2><p>Покажем перевод на нужных вам языках и обсудим подключение к вашей площадке.</p><form data-lead-form="project"><div class="demo-fields"><label class="sr-only" for="bl-name-two">Ваше имя</label><input autocomplete="name" id="bl-name-two" name="name" placeholder="Ваше имя" required=""/><label class="sr-only" for="bl-email-two">Ваш email</label><input autocomplete="email" id="bl-email-two" name="email" placeholder="Ваш email" required="" type="email"/><button class="button light" type="submit">Записаться на демо</button><label class="sr-only" for="bl-company-two">Компания, площадка или университет</label><input class="full-width" id="bl-company-two" name="company" placeholder="Компания, площадка или университет"/></div><label class="consent"><input name="consent" required="" type="checkbox" value="accepted"/><span>Я согласен(а) с <button class="text-link" data-legal="privacy" type="button">политикой конфиденциальности</button> и обработкой персональных данных.</span></label></form></section>
+<section class="faq wrap" id="bl-faq"><span class="eyebrow">Вопросы и ответы</span><h2>Что нужно знать перед подключением</h2><p>Цена, форматы, языки, точность, звук и данные.</p><div class="faq-list"><details open=""><summary>Сколько стоит Билингво?</summary><p>Стоимость зависит от языков перевода, длительности мероприятия, условий площадки и установки системы в облаке или на ваших серверах. Покажем Билингво на ваших материалах и подготовим расчет для вашего мероприятия.</p></details><details><summary>Для каких мероприятий подходит Билингво?</summary><p>Для совещаний, лекций, конференций, трансляций и смешанного зала.</p></details><details><summary>Как слушателю подключиться к переводу?</summary><p>Сканирует QR-код или вводит код комнаты в браузере. Приложение устанавливать не нужно.</p></details><details><summary>На какие языки переводит Билингво?</summary><p>Более 100 языков. Языковые пары и термины вашей программы проверяем на показе.</p></details><details><summary>Как проверить точность перевода?</summary><p>Перевод и термины проверяем на отрывке вашего выступления до запуска.</p></details><details><summary>Что потребуется для работы Билингво?</summary><p>Слушатель открывает перевод в браузере на своем устройстве. Кабины и установка приложения не нужны.</p></details><details><summary>Можно ли установить Билингво на наших серверах?</summary><p>Место обработки речи, материалов и перевода согласуем с IT до запуска. Возможно размещение у заказчика.</p></details><details><summary>Как использовать Билингво на занятиях, если студенты учат русский?</summary><p>Этот вопрос можно обсудить на демонстрации для вашей образовательной программы.</p></details><details><summary>Что произойдет после заявки?</summary><p>Уточним языки, материалы, дату показа, площадку и звук. Проведем показ на отрывке вашего выступления.</p></details><details><summary>У меня другой вопрос</summary><p>Напишите на <a href="mailto:sales@agropromcifra.ru">sales@agropromcifra.ru</a> или позвоните <a href="tel:+74952601416">+7 (495) 260-14-16</a>.</p></details></div></section>
+<section class="next-step wrap"><span class="eyebrow">Демонстрация Билингво</span><h2>Оцените перевод на ваших материалах</h2><div class="next-intro"><p>Покажем, как Билингво переводит речь и материалы на нужные вам языки. Обсудим подключение к вашей площадке.</p><h3>Что покажем и обсудим</h3></div><div class="next-list"><div><p>Перевод речи и материалов</p><p>Подключение слушателя в браузере</p><p>Перевод терминов вашей отрасли</p></div><div><p>Подключение звука на площадке</p><p>Установку на ваших серверах, если она нужна</p><p>Подготовку к запуску</p></div></div><div class="next-actions"><a class="button light" data-open="project" href="#bilingvo-project">Записаться на демо</a><a class="button outline" href="tel:+74952601416">+7 (495) 260-14-16</a></div></section>
+</main>
+<footer><div class="footer-top wrap"><a class="brand" href="#"><img alt="" height="47" loading="lazy" src="../assets/logo.webp" width="65"/><strong>Билингво</strong></a><div><button class="footer-link" data-legal="company">Реквизиты</button><button class="footer-link" data-legal="privacy">Согласие на обработку персональных данных</button></div><div><button class="footer-link" data-legal="privacy">Политика конфиденциальности</button><a href="#bl-faq">Вопросы</a></div><div><a href="#bl-how">Как это работает</a><a href="#bl-features">Что входит</a></div></div><div class="footer-bottom wrap"><span>Продукт АО «Агропромцифра» · 2026</span><a href="mailto:sales@agropromcifra.ru">sales@agropromcifra.ru</a><a href="tel:+74952601416">+7 (495) 260-14-16</a><a href="https://agropromcifra.ru" rel="noopener noreferrer" target="_blank">agropromcifra.ru ↗</a></div></footer>
+<dialog aria-labelledby="bl-project-title" class="bilingvo-dialog project-dialog" id="bilingvo-project"><button aria-label="Закрыть" class="dialog-close" data-close="" type="button">×</button><h2 id="bl-project-title">Запланировать демонстрацию</h2><p>Покажем Билингво на нужных вам языках и ответим на вопросы.<br/>Оставьте контакт, чтобы согласовать удобное время.</p><form data-lead-form="project"><div class="project-fields"><label class="sr-only" for="bl-project-name">Ваше имя</label><input autocomplete="name" id="bl-project-name" name="name" placeholder="Ваше имя" required=""/><label class="sr-only" for="bl-project-contact">Email или телефон</label><input autocomplete="email" id="bl-project-contact" name="contact" placeholder="Email или телефон" required=""/><label class="sr-only" for="bl-project-org">Организация</label><input id="bl-project-org" name="company" placeholder="Организация"/><label class="sr-only" for="bl-project-message">Что хотите обсудить?</label><textarea id="bl-project-message" name="message" placeholder="Что хотите обсудить? Например, перевод лекций на английский и китайский" rows="4"></textarea></div><label class="consent"><input name="consent" required="" type="checkbox" value="accepted"/><span>Я согласен(а) с <button class="text-link" data-legal="privacy" type="button">политикой конфиденциальности</button> и обработкой персональных данных.</span></label><p class="form-status" role="status"></p><button class="button" type="submit">Отправить заявку</button></form></dialog>
+<dialog aria-labelledby="bl-sample-title" class="bilingvo-dialog sample-dialog" id="bilingvo-sample"><button aria-label="Закрыть" class="dialog-close" data-close="" type="button">×</button><h2 id="bl-sample-title">Оставьте email</h2><p>Отправим 15-минутную запись репетиции</p><form data-lead-form="sample"><div class="sample-fields"><label class="sr-only" for="bl-sample-name">Ваше имя</label><input autocomplete="name" id="bl-sample-name" name="name" placeholder="Ваше имя" required=""/><label class="sr-only" for="bl-sample-email">Ваш email</label><input autocomplete="email" id="bl-sample-email" name="email" placeholder="Ваш email" required="" type="email"/></div><p class="sample-note">Вы получите ссылку на видео.</p><label class="consent"><input name="consent" required="" type="checkbox" value="accepted"/><span>Я согласен(а) с <button class="text-link" data-legal="privacy" type="button">политикой конфиденциальности</button> и обработкой персональных данных.</span></label><p class="form-status" role="status"></p><button class="button" type="submit">Отправить и получить видео</button></form></dialog>
+<dialog aria-labelledby="bl-success-title" class="bilingvo-dialog success-dialog" id="bilingvo-success"><button aria-label="Закрыть" class="dialog-close" data-close="" type="button">×</button><h2 id="bl-success-title"><span aria-hidden="true" class="check">✓</span> Заявка отправлена</h2><p>Свяжемся с вами, чтобы согласовать время демонстрации.</p><button class="button" data-close="" type="button">Закрыть</button></dialog>
+<dialog aria-label="Билингво на мероприятиях" class="bilingvo-dialog video-dialog" id="bilingvo-video"><button aria-label="Закрыть видео" class="dialog-close" data-close="" type="button">×</button><video controls="" id="bl-event-video" playsinline="" poster="../assets/event-poster.webp" preload="none"><source src="../assets/video/event.mp4" type="video/mp4"/></video></dialog>
+<dialog aria-labelledby="bl-info-title" class="bilingvo-dialog info-dialog" id="bilingvo-info"><button aria-label="Закрыть" class="dialog-close" data-close="" type="button">×</button><h2 id="bl-info-title">Билингво</h2><p data-info-message=""></p><button class="button" data-close="" type="button">Понятно</button></dialog>
+<p aria-live="polite" class="global-audio-status sr-only" role="status"></p>
+<audio id="bilingvo-audio" preload="none"></audio></div>
+<script>
+/* Bilingvo interactions: vanilla JS, scoped for GitHub Pages and Tilda T123. */
+(() => {
+  'use strict';
+  const root = document.getElementById('bilingvo-site');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
+  const $ = selector => root.querySelector(selector);
+  const $$ = selector => [...root.querySelectorAll(selector)];
+  const config = window.BilingvoConfig || {};
+  const assetBase = new URL(config.assetBase || root.dataset.assetBase || './assets/', document.baseURI);
+  const asset = path => new URL(path, assetBase).href;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const languages = {
+    EN: { name: 'English', locale: 'en', dir: 'ltr', lines: ['We are moving to the next part of the presentation.', 'The screen shows the results of the first stage.', 'After the session, you can rate the translation quality.'] },
+    FR: { name: 'Français', locale: 'fr', dir: 'ltr', lines: ['Nous passons à la partie suivante de la présentation.', 'L’écran affiche les résultats de la première étape.', 'Après la session, vous pourrez évaluer la qualité de la traduction.'] },
+    AR: { name: 'العربية', locale: 'ar', dir: 'rtl', lines: ['ننتقل إلى الجزء التالي من العرض التقديمي.', 'تُعرض على الشاشة نتائج المرحلة الأولى.', 'بعد الجلسة، يمكنكم تقييم جودة الترجمة.'] },
+    ZH: { name: '中文', locale: 'zh', dir: 'ltr', lines: ['我们进入报告的下一部分。', '屏幕上显示了第一阶段的结果。', '会后可以评估翻译质量。'] }
+  };
+  let language = 'EN';
+  const audio = $('#bilingvo-audio');
+  let playing = false, clip = 0, audioGeneration = 0, typeFrame = 0, previewTimer = 0, clipTimer = 0;
+  let phoneVisible = false;
+  let globalAnimationPaused = document.hidden;
+  function setStatus(text) { $$('.audio-status, .global-audio-status').forEach(el => { el.textContent = text; }); }
+  function renderCaptions() {
+    const meta = languages[language];
+    $$('[data-lang]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.lang === language)));
+    $$('[data-language-select]').forEach(el => { el.value = language; });
+    $$('.caption-card').forEach(card => {
+      const target = card.querySelector('.target-caption');
+      target.textContent = meta.lines[Number(card.dataset.caption)];
+      target.lang = meta.locale; target.dir = meta.dir;
+      card.classList.remove('is-current', 'is-typing');
+    });
+    root.dataset.language = language;
+  }
+  function renderPlayback() {
+    root.classList.toggle('is-audio-playing', playing);
+    $$('[data-audio-toggle]').forEach(button => {
+      button.setAttribute('aria-pressed', String(playing));
+      button.setAttribute('aria-label', `${playing ? 'Остановить' : 'Послушать'} перевод: ${languages[language].name}`);
+    });
+    $$('[data-audio-label]').forEach(el => { el.textContent = playing ? 'Остановить перевод' : 'Послушать перевод'; });
+  }
+  function animateCaption(index, duration = 2400) {
+    cancelAnimationFrame(typeFrame);
+    const value = languages[language].lines[index];
+    const letters = Array.from(value);
+    const cards = $$(`.caption-card[data-caption="${index}"]`);
+    $$('.caption-card').forEach(card => card.classList.toggle('is-current', Number(card.dataset.caption) === index));
+    if (reducedMotion.matches) { cards.forEach(card => { card.querySelector('.target-caption').textContent = value; }); return; }
+    const start = performance.now();
+    cards.forEach(card => card.classList.add('is-typing'));
+    function tick(time) {
+      const progress = Math.min(1, (time - start) / duration);
+      const str = letters.slice(0, Math.max(1, Math.ceil(letters.length * progress))).join('');
+      cards.forEach(card => { card.querySelector('.target-caption').textContent = str; });
+      if (progress < 1 && !globalAnimationPaused) typeFrame = requestAnimationFrame(tick);
+      else cards.forEach(card => { card.querySelector('.target-caption').textContent = value; card.classList.remove('is-typing'); });
+    }
+    typeFrame = requestAnimationFrame(tick);
+  }
+  function stopAudio({ restore = true } = {}) {
+    ++audioGeneration; clearTimeout(clipTimer); playing = false; audio.pause(); cancelAnimationFrame(typeFrame);
+    renderPlayback(); if (restore) renderCaptions();
+  }
+  async function playClip(index) {
+    const generation = ++audioGeneration; clip = index;
+    audio.pause(); audio.src = asset(`audio/${language.toLowerCase()}-${1020 + index}.mp3`); audio.load();
+    try {
+      await audio.play();
+      if (generation !== audioGeneration) return;
+      playing = true; renderPlayback(); setStatus('');
+      animateCaption(index, Math.max(1900, Number.isFinite(audio.duration) ? audio.duration * 900 : 3300));
+    } catch (error) {
+      if (generation !== audioGeneration || error.name === 'AbortError') return;
+      stopAudio(); setStatus('Не удалось включить звук. Нажмите «Послушать перевод» еще раз.');
+    }
+  }
+  function toggleAudio() {
+    if (playing || !audio.paused) { stopAudio(); return; }
+    $$('video').forEach(video => video.pause()); playing = true; renderPlayback(); playClip(0);
+  }
+  audio.addEventListener('ended', () => {
+    if (!playing) return;
+    if (clip < 2) clipTimer = setTimeout(() => { if (playing) playClip(clip + 1); }, 500);
+    else { stopAudio(); setStatus('Пример завершен. Выберите другой язык или послушайте еще раз.'); }
+  });
+  audio.addEventListener('error', () => { if (playing) { stopAudio(); setStatus('Аудиозапись временно недоступна. Попробуйте еще раз.'); } });
+  function selectLanguage(code) {
+    if (!languages[code]) return;
+    const resume = playing;
+    stopAudio(); language = code; renderCaptions(); renderPlayback(); setStatus('');
+    if (resume) { playing = true; renderPlayback(); playClip(0); } else animateCaption(0);
+  }
+  $$('[data-lang]').forEach(button => button.addEventListener('click', () => selectLanguage(button.dataset.lang)));
+  $$('[data-language-select]').forEach(select => select.addEventListener('change', () => selectLanguage(select.value)));
+  $$('[data-audio-toggle]').forEach(button => button.addEventListener('click', toggleAudio));
+  renderCaptions(); renderPlayback();
+
+  // Silent captions preview. Audio always requires a click.
+  let previewIndex = 0;
+  function scheduleCaptionPreview() {
+    clearTimeout(previewTimer);
+    if (!phoneVisible || document.hidden || reducedMotion.matches) return;
+    previewTimer = setTimeout(() => {
+      if (!playing && !document.hidden && phoneVisible) { animateCaption(previewIndex); previewIndex = (previewIndex + 1) % 3; }
+      scheduleCaptionPreview();
+    }, 6200);
+  }
+  new IntersectionObserver(entries => { phoneVisible = entries[0].isIntersecting; scheduleCaptionPreview(); }, { threshold: .2 }).observe($('.phone-stage'));
+
+  // Exact map artwork and point positions exported from the current Figma frame.
+  const world = $('.globe-world');
+  const canvas = $('.globe-connections');
+  const ctx = canvas.getContext('2d');
+  const pointContainer = $('.globe-points');
+  let globeVisible = true, globeFrame = 0, globeStart = performance.now(), drag = null, dragOffset = 0;
+  const routes = [[[.22,.26],[.60,.01],[.85,.42]], [[.20,.30],[.33,.49],[.02,.45]], [[.31,.27],[.62,.18],[.64,.68]]];
+  fetch(asset('globe-points.json')).then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(points => {
+    points.forEach((point, i) => {
+      const dot = document.createElement('i'); dot.className = 'globe-point';
+      dot.style.setProperty('--point-x', `${point[0] * 100}%`); dot.style.setProperty('--point-y', `${point[1] * 100}%`);
+      dot.style.setProperty('--point-delay', `${-(i % 23) / 5}s`); pointContainer.appendChild(dot);
+    });
+  }).catch(() => {});
+  function drawGlobe(time) {
+    globeFrame = 0;
+    const elapsed = (time - globeStart) / 1000, size = canvas.width;
+    ctx.clearRect(0, 0, size, size); ctx.save(); ctx.scale(size, size);
+    routes.forEach((p, i) => {
+      ctx.beginPath(); ctx.moveTo(...p[0]); ctx.quadraticCurveTo(...p[1], ...p[2]);
+      ctx.strokeStyle = i === 0 ? '#218b64b3' : '#518f7773'; ctx.lineWidth = .0025;
+      ctx.setLineDash([.004,.010]); ctx.lineDashOffset = reducedMotion.matches ? 0 : -elapsed * .023; ctx.stroke();
+      const t = reducedMotion.matches ? .45 : (elapsed * .12 + i / 3) % 1;
+      const x = (1-t)**2*p[0][0]+2*(1-t)*t*p[1][0]+t*t*p[2][0], y = (1-t)**2*p[0][1]+2*(1-t)*t*p[1][1]+t*t*p[2][1];
+      ctx.setLineDash([]); ctx.beginPath(); ctx.arc(x,y,.007,0,Math.PI*2); ctx.fillStyle='#248661'; ctx.fill();
+    });
+    ctx.restore();
+    if (!drag) {
+      world.style.setProperty('--globe-y', `${dragOffset + (reducedMotion.matches ? 0 : Math.sin(elapsed / 7) * 8)}deg`);
+      world.style.setProperty('--globe-x', `${reducedMotion.matches ? 0 : Math.sin(elapsed / 11) * 4}deg`);
+    }
+    if (globeVisible && !document.hidden && !reducedMotion.matches) globeFrame = requestAnimationFrame(drawGlobe);
+  }
+  function startGlobe() { if (!globeFrame && globeVisible && !document.hidden) globeFrame = requestAnimationFrame(drawGlobe); }
+  new IntersectionObserver(entries => {
+    globeVisible = entries[0].isIntersecting;
+    if (globeVisible) startGlobe(); else { cancelAnimationFrame(globeFrame); globeFrame=0; }
+  }, { threshold: .05 }).observe(world);
+  world.addEventListener('pointerdown', event => {
+    if (event.button !== 0) return;
+    drag = { x:event.clientX, y:event.clientY, initial:dragOffset }; world.setPointerCapture(event.pointerId); world.classList.add('is-dragging');
+  });
+  world.addEventListener('pointermove', event => {
+    if (!drag) return;
+    dragOffset = Math.max(-35,Math.min(35,drag.initial+(event.clientX-drag.x)*.14));
+    world.style.setProperty('--globe-y', `${dragOffset}deg`); world.style.setProperty('--globe-x', `${Math.max(-15,Math.min(15,-(event.clientY-drag.y)*.08))}deg`);
+  });
+  const stopDrag = () => { drag=null; world.classList.remove('is-dragging'); };
+  world.addEventListener('pointerup',stopDrag); world.addEventListener('pointercancel',stopDrag);
+  world.addEventListener('keydown', event => {
+    if (!['ArrowLeft','ArrowRight','Home'].includes(event.key)) return;
+    event.preventDefault(); dragOffset=event.key==='Home'?0:Math.max(-35,Math.min(35,dragOffset+(event.key==='ArrowLeft'?-8:8)));
+    world.style.setProperty('--globe-y',`${dragOffset}deg`); if(reducedMotion.matches)drawGlobe(performance.now());
+  });
+
+  // How-to tabs with automatic progression and keyboard navigation.
+  const howTabs = $$('[data-how]');
+  let howIndex = 0, howTimer = 0, howManual = false, howVisible = false;
+  function setHow(index, manual = false) {
+    howIndex = (index + howTabs.length) % howTabs.length; howManual = howManual || manual;
+    howTabs.forEach((tab,i) => { tab.setAttribute('aria-selected',String(i===howIndex)); tab.tabIndex=i===howIndex?0:-1; });
+    $$('[data-how-screen]').forEach(panel=>{panel.hidden=Number(panel.dataset.howScreen)!==howIndex;});
+    $('#bl-how-panel').setAttribute('aria-labelledby',howTabs[howIndex].id); scheduleHow();
+  }
+  function scheduleHow() {
+    clearTimeout(howTimer);
+    if (!howVisible || howManual || document.hidden || reducedMotion.matches) return;
+    howTimer = setTimeout(()=>setHow(howIndex+1),8000);
+  }
+  howTabs.forEach((tab,i)=>{
+    tab.addEventListener('click',()=>setHow(i,true));
+    tab.addEventListener('keydown',event=>{
+      if(!['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'].includes(event.key))return; event.preventDefault();
+      const next=event.key==='Home'?0:event.key==='End'?2:(i+(['ArrowDown','ArrowRight'].includes(event.key)?1:2))%3;
+      setHow(next,true); howTabs[next].focus();
+    });
+  });
+  $$('[data-how-next]').forEach(button=>button.addEventListener('click',()=>setHow(Number(button.dataset.howNext),true)));
+  new IntersectionObserver(entries=>{howVisible=entries[0].isIntersecting; scheduleHow();},{threshold:.25}).observe($('#bl-how'));
+
+  // Gallery: autoplay, previous/next, swipe, and explicit pause.
+  const carousel = $('.photo-carousel'), track = $('.photo-track'), slides = $$('.photo-slide'), pauseGallery = $('[data-gallery-pause]');
+  let galleryIndex=0, galleryTimer=0, galleryPaused=false, galleryHovered=false, galleryFocused=false, galleryVisible=false, swipe=null;
+  function showSlide(index) {
+    galleryIndex=(index+slides.length)%slides.length; track.style.transform=`translateX(${-galleryIndex*100}%)`;
+    slides.forEach((slide,i)=>slide.setAttribute('aria-hidden',String(i!==galleryIndex))); scheduleGallery();
+  }
+  function scheduleGallery() {
+    clearTimeout(galleryTimer);
+    if(galleryPaused||galleryHovered||galleryFocused||!galleryVisible||document.hidden||reducedMotion.matches)return;
+    galleryTimer=setTimeout(()=>showSlide(galleryIndex+1),5200);
+  }
+  $('[data-gallery-prev]').addEventListener('click',()=>showSlide(galleryIndex-1));
+  $('[data-gallery-next]').addEventListener('click',()=>showSlide(galleryIndex+1));
+  pauseGallery.addEventListener('click',()=>{
+    galleryPaused=!galleryPaused; pauseGallery.setAttribute('aria-pressed',String(galleryPaused));
+    pauseGallery.setAttribute('aria-label',galleryPaused?'Продолжить автопрокрутку фотографий':'Приостановить автопрокрутку фотографий');
+    pauseGallery.textContent=galleryPaused?'▶':'Ⅱ'; scheduleGallery();
+  });
+  carousel.addEventListener('mouseenter',()=>{galleryHovered=true; scheduleGallery();});
+  carousel.addEventListener('mouseleave',()=>{galleryHovered=false; scheduleGallery();});
+  $('.universities').addEventListener('focusin',()=>{galleryFocused=true; scheduleGallery();});
+  $('.universities').addEventListener('focusout',event=>{if(!$('.universities').contains(event.relatedTarget)){galleryFocused=false; scheduleGallery();}});
+  carousel.addEventListener('pointerdown',event=>{swipe={x:event.clientX,y:event.clientY};});
+  carousel.addEventListener('pointerup',event=>{if(!swipe)return;const dx=event.clientX-swipe.x,dy=event.clientY-swipe.y;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))showSlide(galleryIndex+(dx<0?1:-1));swipe=null;});
+  carousel.addEventListener('pointercancel',()=>{swipe=null;});
+  new IntersectionObserver(entries=>{galleryVisible=entries[0].isIntersecting;scheduleGallery();},{threshold:.2}).observe(carousel);
+  showSlide(0);
+
+  // Native dialogs contain focus and close with Escape.
+  let dialogOpener=null;
+  function openDialog(id, opener) {
+    const dialog=$(`#bilingvo-${id}`); if(!dialog)return;
+    $$('.bilingvo-dialog[open]').forEach(el=>el.close()); dialogOpener=opener||document.activeElement; dialog.showModal();
+  }
+  function info(title,message,opener) {
+    $('#bilingvo-info h2').textContent=title; $('[data-info-message]').textContent=message; openDialog('info',opener);
+  }
+  $$('[data-open]').forEach(button=>button.addEventListener('click',event=>{
+    event.preventDefault(); const kind=button.dataset.open;
+    const tildaPopup=kind==='project'?config.tildaProjectPopup:kind==='sample'?config.tildaSamplePopup:null;
+    if(tildaPopup){const link=document.createElement('a');link.href=tildaPopup;root.appendChild(link);link.click();link.remove();return;}
+    if(kind==='language'){info('Язык перевода','Выберите язык на глобусе, в телефоне или в блоке прослушивания. Страница сайта сейчас доступна на русском.',button);return;}
+    openDialog(kind,button);
+  }));
+  $$('.bilingvo-dialog').forEach(dialog=>{
+    dialog.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>dialog.close()));
+    dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
+    dialog.addEventListener('close',()=>{dialog.querySelectorAll('video').forEach(video=>video.pause());if(!$('.bilingvo-dialog[open]')&&dialogOpener instanceof HTMLElement&&document.contains(dialogOpener))dialogOpener.focus({preventScroll:true});});
+  });
+  $$('[data-play-video]').forEach(button=>button.addEventListener('click',()=>{
+    const video=$(`#${button.dataset.playVideo}`);stopAudio();video.play().catch(()=>{video.controls=true;button.hidden=true;});
+  }));
+  $$('[data-open-video]').forEach(button=>button.addEventListener('click',()=>{stopAudio();openDialog('video',button);$('#bl-event-video').play().catch(()=>{});}));
+  $$('video').forEach(video=>{
+    video.addEventListener('play',()=>{
+      stopAudio();$$('video').filter(v=>v!==video).forEach(v=>v.pause());video.classList.add('is-playing');
+      const button=$(`[data-play-video="${video.id}"]`);if(button)button.hidden=true;
+    });
+    video.addEventListener('ended',()=>{video.classList.remove('is-playing');const button=$(`[data-play-video="${video.id}"]`);if(button)button.hidden=false;});
+  });
+
+  // Optional endpoint / native Tilda popup integration. No fake successful submissions.
+  $$('[data-lead-form]').forEach(form=>form.addEventListener('submit',async event=>{
+    event.preventDefault(); if(!form.reportValidity())return;
+    let status=form.querySelector('.form-status');
+    if(!status){status=document.createElement('p');status.className='form-status';status.setAttribute('role','status');form.appendChild(status);}
+    if(!config.formEndpoint){status.textContent='Отправка заявок будет подключена при переносе в Tilda. Сейчас форма ничего не отправляет. Связаться с нами: sales@agropromcifra.ru, +7 (495) 260-14-16.';return;}
+    const button=form.querySelector('[type=submit]');button.disabled=true;status.textContent='Отправляем заявку…';
+    const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),15000);
+    try{
+      const fields=Object.fromEntries(new FormData(form));
+      const response=await fetch(config.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...fields,form:form.dataset.leadForm}),signal:controller.signal});
+      if(!response.ok)throw new Error('Submission failed');
+      status.textContent='';form.reset();openDialog('success',button);
+    }catch{status.textContent='Не удалось отправить заявку. Попробуйте еще раз или напишите на sales@agropromcifra.ru.';}
+    finally{clearTimeout(timeout);button.disabled=false;}
+  }));
+  $$('form[data-kind=room]').forEach(form=>form.addEventListener('submit',event=>{
+    event.preventDefault();const code=form.querySelector('input').value.trim();
+    if(config.roomUrl){const target=new URL(config.roomUrl);target.searchParams.set(config.roomCodeParameter||'room',code);window.location.assign(target.href);return;}
+    info('Подключение к комнате','Здесь можно посмотреть демонстрацию интерфейса. Для входа в реальную комнату используйте QR-код или ссылку организатора мероприятия.',form.querySelector('button'));
+  }));
+  $$('[data-legal]').forEach(button=>button.addEventListener('click',()=>{
+    const url=button.dataset.legal==='company'?config.companyUrl:config.privacyUrl;
+    if(url){window.open(url,'_blank','noopener,noreferrer');return;}
+    info(button.dataset.legal==='company'?'Реквизиты':'Политика конфиденциальности','Документ будет подключен вместе с формами на Tilda. До подключения формы не передают и не сохраняют введенные данные.',button);
+  }));
+  document.addEventListener('visibilitychange',()=>{
+    globalAnimationPaused=document.hidden;
+    if(document.hidden){stopAudio();$$('video').forEach(v=>v.pause());cancelAnimationFrame(globeFrame);globeFrame=0;clearTimeout(previewTimer);clearTimeout(galleryTimer);clearTimeout(howTimer);}
+    else{startGlobe();scheduleCaptionPreview();scheduleGallery();scheduleHow();}
+  });
+  reducedMotion.addEventListener('change',()=>{cancelAnimationFrame(globeFrame);globeFrame=0;startGlobe();scheduleCaptionPreview();scheduleGallery();scheduleHow();});
+})();
+
+</script>
+</div><div id="host-footer" style="padding:20px">Тестовый нижний блок</div></body></html>

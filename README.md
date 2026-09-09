@@ -1,20 +1,31 @@
-# Bilingvo landing prototype
+# Билингво: интерактивный лендинг
 
-Static HTML/CSS prototype based on the supplied `Bilingvo Landing_main page.pdf` and the updated hero screenshot supplied on September 4, 2026.
+[Открыть сайт](https://nbnandreu-svg.github.io/bilingvo-landing-prototype/)
 
-## Preview
+Страница обновлена по основному макету Figma `Main_web` (`233:63`, файл `IvTsB1fuQqMqu6hBbDDYDZ`) и предоставленным материалам. Реализованы анимация глобуса, общий выбор языка, интерактивные телефоны, готовые аудиопримеры, автопрокрутка фотографий, два видео, переключение шагов, FAQ и модальные окна.
 
-Open `index.html` directly, or run `python -m http.server 5188` from this directory.
+Обычные HTML/CSS/JavaScript, без фреймворка и внешнего JavaScript. Видео загружаются по запросу. Шрифты, изображения и аудио лежат в репозитории. Учитывается `prefers-reduced-motion`, звук запускается только по нажатию.
 
-The page contains no animations and no live translation. Phone and tablet illustrations are static. Forms do not submit or store data. The demo dialogs explicitly explain this. Phone and email links work through the visitor's installed applications. FAQ expands without animations.
+## Перенос в Tilda
 
-Images are extracted from the supplied PDF. Fonts are stored locally. No external JavaScript, analytics, API keys, or backend services are used. The prototype asks search engines not to index it.
+Готовая вставка: `tilda/T123-full.html`.
 
-## Files
+[Инструкция и параметры подключения](tilda/README.md)
 
-- `index.html`: page structure and copy.
-- `styles.css`: desktop and mobile layouts.
-- `app.js`: demonstration form messages.
-- `assets/`: reference images and local font files.
+## Запуск локально
 
-The existing Bilingvo websites and repositories are not modified.
+```powershell
+python -m http.server 8000
+```
+
+Откройте `http://localhost:8000/`. Для корректной загрузки данных глобуса используйте локальный HTTP-сервер.
+
+## Изменения
+
+- `index.html` — контент и разметка.
+- `styles.css` — базовый дизайн.
+- `motion.css` — актуальная версия и интерактивные элементы.
+- `app.js` — логика интерактивов.
+- `scripts/build_tilda.py` — сборка изолированной вставки для T123.
+
+Формы приема заявок, реальная комната перевода и юридические документы подключаются при переносе в Tilda. Прототип не передает и не сохраняет данные форм. Автоматическая выдача запрашиваемой 15-минутной записи требует отдельной записи и настроенного обработчика.
