@@ -108,14 +108,14 @@
     let shown=0;
     sorted.forEach(label=>{
       const p=projected[label.index],show=p[2]>.1;
-      label.anchor.hidden=true;label.button.tabIndex=-1;if(!show||shown>=maxCount)return;
+      if(!show||shown>=maxCount){label.anchor.hidden=true;label.button.tabIndex=-1;return;}
       const x=(cx+p[0]*radius)*scale,y=(cy-p[1]*radius)*scale,w=label.width,h=label.height;
       const defaultSlots=[{dx:9,dy:-h-9},{dx:-w-9,dy:-h-9},{dx:9,dy:9},{dx:-w-9,dy:9}];
       const slots=label.slot?[label.slot,...defaultSlots.filter(s=>s.dx!==label.slot.dx||s.dy!==label.slot.dy)]:defaultSlots;
       let chosen=null;
       for(const slot of slots){const rect={x:x+slot.dx,y:y+slot.dy,w,h};if(rect.x< -5||rect.x+w>world.clientWidth+5||rect.y< -5||rect.y+h>world.clientWidth+5)continue;if(occupied.some(r=>rect.x<r.x+r.w+4&&rect.x+w+4>r.x&&rect.y<r.y+r.h+4&&rect.y+h+4>r.y))continue;chosen={slot,rect};break;}
       if(!chosen&&label.index===selected){chosen={slot:{dx:10,dy:-h-10},rect:{x:x+10,y:y-h-10,w,h}};}
-      if(!chosen)return;
+      if(!chosen){label.anchor.hidden=true;label.button.tabIndex=-1;return;}
       shown++;occupied.push(chosen.rect);label.slot=chosen.slot;
       label.anchor.hidden=false;label.button.tabIndex=0;
       label.anchor.style.left=`${(cx+p[0]*radius)/size*100}%`;label.anchor.style.top=`${(cy-p[1]*radius)/size*100}%`;
