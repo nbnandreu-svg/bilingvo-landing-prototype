@@ -8,7 +8,9 @@
 
 ## Перенос в Tilda
 
-Готовая вставка: `tilda/T123-full.html`.
+Готовая защищенная вставка: `tilda/T123-compact.html`.
+
+Выпуск: `python scripts/build_release.py NEW-RELEASE-ID`. Изменения на Tilda требуют установки новой вставки с актуальными хешами.
 
 [Инструкция и параметры подключения](tilda/README.md)
 
