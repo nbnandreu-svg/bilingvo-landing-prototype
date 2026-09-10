@@ -26,6 +26,21 @@
   world.style.transform='none';world.style.transition='none';world.setAttribute('role','application');world.setAttribute('aria-label','Объемный глобус. Вращайте перетаскиванием или стрелками. Нажмите город или подпись языка, чтобы перейти к нему.');
   const tooltip=document.createElement('span');tooltip.className='globe-city-tooltip';tooltip.hidden=true;world.appendChild(tooltip);
   const cityStatus=document.createElement('span');cityStatus.className='globe-city-status';cityStatus.setAttribute('aria-live','polite');root.querySelector('.globe-demo').appendChild(cityStatus);
+  // Labels share the exact projected city coordinates, not fixed overlay positions.
+  const labels=[...root.querySelectorAll('.globe-language')].map(button=>{
+    const cityIndex=destination[button.dataset.lang],anchor=document.createElement('div');
+    anchor.className='globe-geographic-label';
+    Object.assign(anchor.style,{position:'absolute',width:'0',height:'0',pointerEvents:'none'});
+    const left=button.dataset.lang==='EN',below=button.dataset.lang==='FR';
+    Object.assign(button.style,{left:'0',top:'0',right:'auto',bottom:'auto',marginLeft:left?'-10px':'10px',marginTop:below?'10px':'-10px',transform:`translate(${left?'-100%':'0'},${below?'0':'-100%'})`,translate:'none',animation:'none',transition:'background .2s, border-color .2s',pointerEvents:'auto'});
+    button.title=cities[cityIndex].name;
+    button.addEventListener('pointerdown',event=>event.stopPropagation());
+    button.addEventListener('pointerup',event=>event.stopPropagation());
+    button.addEventListener('pointermove',event=>event.stopPropagation());
+    button.addEventListener('keydown',event=>event.stopPropagation());
+    anchor.appendChild(button);world.appendChild(anchor);
+    return {anchor,button,cityIndex,left,below};
+  });
   function project(v){
     const a=longitude*rad,b=latitude*rad,ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b);
     const x=v[0]*ca-v[2]*sa,z0=v[0]*sa+v[2]*ca;
@@ -77,6 +92,19 @@
         ctx.shadowColor='#e9b345';ctx.shadowBlur=12+6*pulse;ctx.beginPath();ctx.arc(x,y,5+flash,0,Math.PI*2);ctx.fillStyle='#dca334';ctx.fill();ctx.shadowBlur=0;
         ctx.beginPath();ctx.arc(x-.7,y-.7,2.2,0,Math.PI*2);ctx.fillStyle='#fff2c3';ctx.fill();
       }else{ctx.beginPath();ctx.arc(x,y,2.2,0,Math.PI*2);ctx.fillStyle='#25895c';ctx.fill();}
+    });
+    labels.forEach(({anchor,button,cityIndex,left,below})=>{
+      const p=project(cities[cityIndex].v),show=p[2]>.07;
+      anchor.hidden=!show;button.tabIndex=show?0:-1;
+      if(!show)return;
+      const x=cx+p[0]*radius,y=cy-p[1]*radius;
+      anchor.style.left=`${x/size*100}%`;anchor.style.top=`${y/size*100}%`;
+      anchor.style.opacity=String(Math.min(1,(p[2]-.07)/.15));
+      anchor.style.zIndex=String(3+Math.round(p[2]*10));
+      anchor.dataset.city=cities[cityIndex].name;
+      button.classList.toggle('globe-destination',hasSelection&&cityIndex===selected);
+      ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+(left?-8:8),y+(below?10:-10));
+      ctx.strokeStyle=hasSelection&&cityIndex===selected?'#c1943eaa':'#739a8588';ctx.lineWidth=.9;ctx.stroke();
     });
     if(!reduce.matches||flight||drag)frame=requestAnimationFrame(draw);
   }
