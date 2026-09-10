@@ -10,10 +10,10 @@
     },
     {
       "source": "app.js",
-      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/app.f701d3c7f845d908.js",
-      "path": "releases/2026-09-11-security-v1/app.f701d3c7f845d908.js",
-      "integrity": "sha384-6GBd9QTBR7MG2lB0CfT00HlwJv2wPZyJWvlKN/S5vSrLWVVS6oDrSTo8dnu/H+6f",
-      "sha256": "f701d3c7f845d9089b200919fb863667426d7b5b71d4d59a9cb348e7708001c1"
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/app.b6b686aa053db686.js",
+      "path": "releases/2026-09-11-security-v1/app.b6b686aa053db686.js",
+      "integrity": "sha384-9C7InBUwK1aeMuDntLa5ZLzJJ1SJdS707muQGuabUkRZPVbw1WaVxT/Q8sPGjd1C",
+      "sha256": "b6b686aa053db686fb30b6b55ec7889de77d55cc405f271137b45a593b58068e"
     },
     {
       "source": "globe.js",

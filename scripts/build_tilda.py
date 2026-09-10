@@ -61,12 +61,13 @@ for file in ['assets/fonts.css','styles.css','motion.css']:
 # An explicit root baseline avoids depending on the Tilda body's font/margins.
 css+='\n#bilingvo-site{font:300 20px/1.3 Geologica,Arial,sans-serif;margin:0;width:100%;max-width:none;box-sizing:border-box}#bilingvo-site a{color:inherit}#bilingvo-site .button{color:white}#bilingvo-site .outline,#bilingvo-site .light{color:var(--night)}#bilingvo-site .next-actions .outline{color:white}\n'
 css+='@media(max-width:600px){#bilingvo-site{font-size:16px}}'
-js=(ROOT/'app.js').read_text(encoding='utf-8')+'\n'+(ROOT/'globe.js').read_text(encoding='utf-8')
+js='\n'.join((ROOT/name).read_text(encoding='utf-8') for name in ['security.js','app.js','globe.js'])
 fragment='<!-- Bilingvo: paste this entire fragment into one Tilda T123 block. -->\n<style>\n'+css+'\n</style>\n'+str(site)+'\n<script>\n'+js+'\n</script>\n'
 (OUT/'T123-full.html').write_text(fragment,encoding='utf-8')
 (OUT/'bilingvo-scoped.css').write_text(css,encoding='utf-8')
 # Realistic host-page fixture: Tilda-like global styles outside the embedded section.
 fixture='''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Проверка встраивания Билингво</title><style>body{margin:0;font:16px Arial;background:#fafafa}#host-sentinel{padding:20px;background:#234;color:#fff}a{color:orange}button{font-family:Arial}h2{font-size:17px}.t-rec{width:100%}</style></head><body><div id="host-sentinel">Тестовый блок вне Билингво. Его оформление не должно меняться.</div><div class="t-rec">'''
 local=fragment.replace(PUBLIC,'../')
-(OUT/'preview.html').write_text(fixture+local+'</div><div id="host-footer" style="padding:20px">Тестовый нижний блок</div></body></html>',encoding='utf-8')
+(ROOT/'tmp').mkdir(exist_ok=True)
+(ROOT/'tmp/tilda-preview.html').write_text(fixture+local+'</div><div id="host-footer" style="padding:20px">Тестовый нижний блок</div></body></html>',encoding='utf-8')
 print('Built T123-full.html:',len(fragment.encode('utf-8')),'bytes')
