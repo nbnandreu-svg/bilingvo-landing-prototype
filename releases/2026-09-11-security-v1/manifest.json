@@ -1,0 +1,33 @@
+{
+  "release": "2026-09-11-security-v1",
+  "files": [
+    {
+      "source": "security.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/security.1003adbd9e9b93d7.js",
+      "path": "releases/2026-09-11-security-v1/security.1003adbd9e9b93d7.js",
+      "integrity": "sha384-7Og5j1ZBu30yR1zvlSvo0RHHPeP0V8BJM6j8iIJlovbi8ayjhIpkSH0dMSh9gYWT",
+      "sha256": "1003adbd9e9b93d766bf96d34cfcb80d1efdcb8d968d1de38294f6b6963e02fd"
+    },
+    {
+      "source": "app.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/app.f701d3c7f845d908.js",
+      "path": "releases/2026-09-11-security-v1/app.f701d3c7f845d908.js",
+      "integrity": "sha384-6GBd9QTBR7MG2lB0CfT00HlwJv2wPZyJWvlKN/S5vSrLWVVS6oDrSTo8dnu/H+6f",
+      "sha256": "f701d3c7f845d9089b200919fb863667426d7b5b71d4d59a9cb348e7708001c1"
+    },
+    {
+      "source": "globe.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/globe.48744e7e268ccf4f.js",
+      "path": "releases/2026-09-11-security-v1/globe.48744e7e268ccf4f.js",
+      "integrity": "sha384-H1liWg6224oQeAMja4sm9pkjnhuEkb5L6UKa4jgQvK6KisYDPP4a9sz/evy9JRPd",
+      "sha256": "48744e7e268ccf4fcacdca133cd51e1edf0d2fdc412e71b0a0d813de0713157f"
+    },
+    {
+      "source": "tilda/bilingvo-scoped.css",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/bilingvo-scoped.35dd04b395d01026.css",
+      "path": "releases/2026-09-11-security-v1/bilingvo-scoped.35dd04b395d01026.css",
+      "integrity": "sha384-s0/YbLYi/pdSc4EUeJerqfrOvHMWTfd+ypMjZ47O9DmZO7RzmmAt1Kn99oTouJYX",
+      "sha256": "35dd04b395d010268ad9bc36682ee0677146eebf5dd7cbcca9d5dfb0c027816c"
+    }
+  ]
+}
