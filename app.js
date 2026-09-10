@@ -91,6 +91,7 @@
     if (!languages[code]) return;
     const resume = playing;
     stopAudio(); language = code; renderCaptions(); renderPlayback(); setStatus('');
+    root.dispatchEvent(new CustomEvent('bilingvo:languagechange', { detail: code }));
     if (resume) { playing = true; renderPlayback(); playClip(0); } else animateCaption(0);
   }
   $$('[data-lang]').forEach(button => button.addEventListener('click', () => selectLanguage(button.dataset.lang)));
@@ -110,60 +111,8 @@
   }
   new IntersectionObserver(entries => { phoneVisible = entries[0].isIntersecting; scheduleCaptionPreview(); }, { threshold: .2 }).observe($('.phone-stage'));
 
-  // Exact map artwork and point positions exported from the current Figma frame.
-  const world = $('.globe-world');
-  const canvas = $('.globe-connections');
-  const ctx = canvas.getContext('2d');
-  const pointContainer = $('.globe-points');
-  let globeVisible = true, globeFrame = 0, globeStart = performance.now(), drag = null, dragOffset = 0;
-  const routes = [[[.22,.26],[.60,.01],[.85,.42]], [[.20,.30],[.33,.49],[.02,.45]], [[.31,.27],[.62,.18],[.64,.68]]];
-  fetch(asset('globe-points.json')).then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(points => {
-    points.forEach((point, i) => {
-      const dot = document.createElement('i'); dot.className = 'globe-point';
-      dot.style.setProperty('--point-x', `${point[0] * 100}%`); dot.style.setProperty('--point-y', `${point[1] * 100}%`);
-      dot.style.setProperty('--point-delay', `${-(i % 23) / 5}s`); pointContainer.appendChild(dot);
-    });
-  }).catch(() => {});
-  function drawGlobe(time) {
-    globeFrame = 0;
-    const elapsed = (time - globeStart) / 1000, size = canvas.width;
-    ctx.clearRect(0, 0, size, size); ctx.save(); ctx.scale(size, size);
-    routes.forEach((p, i) => {
-      ctx.beginPath(); ctx.moveTo(...p[0]); ctx.quadraticCurveTo(...p[1], ...p[2]);
-      ctx.strokeStyle = i === 0 ? '#218b64b3' : '#518f7773'; ctx.lineWidth = .0025;
-      ctx.setLineDash([.004,.010]); ctx.lineDashOffset = reducedMotion.matches ? 0 : -elapsed * .023; ctx.stroke();
-      const t = reducedMotion.matches ? .45 : (elapsed * .12 + i / 3) % 1;
-      const x = (1-t)**2*p[0][0]+2*(1-t)*t*p[1][0]+t*t*p[2][0], y = (1-t)**2*p[0][1]+2*(1-t)*t*p[1][1]+t*t*p[2][1];
-      ctx.setLineDash([]); ctx.beginPath(); ctx.arc(x,y,.007,0,Math.PI*2); ctx.fillStyle='#248661'; ctx.fill();
-    });
-    ctx.restore();
-    if (!drag) {
-      world.style.setProperty('--globe-y', `${dragOffset + (reducedMotion.matches ? 0 : Math.sin(elapsed / 7) * 8)}deg`);
-      world.style.setProperty('--globe-x', `${reducedMotion.matches ? 0 : Math.sin(elapsed / 11) * 4}deg`);
-    }
-    if (globeVisible && !document.hidden && !reducedMotion.matches) globeFrame = requestAnimationFrame(drawGlobe);
-  }
-  function startGlobe() { if (!globeFrame && globeVisible && !document.hidden) globeFrame = requestAnimationFrame(drawGlobe); }
-  new IntersectionObserver(entries => {
-    globeVisible = entries[0].isIntersecting;
-    if (globeVisible) startGlobe(); else { cancelAnimationFrame(globeFrame); globeFrame=0; }
-  }, { threshold: .05 }).observe(world);
-  world.addEventListener('pointerdown', event => {
-    if (event.button !== 0) return;
-    drag = { x:event.clientX, y:event.clientY, initial:dragOffset }; world.setPointerCapture(event.pointerId); world.classList.add('is-dragging');
-  });
-  world.addEventListener('pointermove', event => {
-    if (!drag) return;
-    dragOffset = Math.max(-35,Math.min(35,drag.initial+(event.clientX-drag.x)*.14));
-    world.style.setProperty('--globe-y', `${dragOffset}deg`); world.style.setProperty('--globe-x', `${Math.max(-15,Math.min(15,-(event.clientY-drag.y)*.08))}deg`);
-  });
-  const stopDrag = () => { drag=null; world.classList.remove('is-dragging'); };
-  world.addEventListener('pointerup',stopDrag); world.addEventListener('pointercancel',stopDrag);
-  world.addEventListener('keydown', event => {
-    if (!['ArrowLeft','ArrowRight','Home'].includes(event.key)) return;
-    event.preventDefault(); dragOffset=event.key==='Home'?0:Math.max(-35,Math.min(35,dragOffset+(event.key==='ArrowLeft'?-8:8)));
-    world.style.setProperty('--globe-y',`${dragOffset}deg`); if(reducedMotion.matches)drawGlobe(performance.now());
-  });
+  let globeFrame = 0;
+  function startGlobe() { root.dispatchEvent(new Event('bilingvo:resume-globe')); }
 
   // How-to tabs with automatic progression and keyboard navigation.
   const howTabs = $$('[data-how]');
