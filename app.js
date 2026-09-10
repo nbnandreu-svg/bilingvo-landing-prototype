@@ -96,6 +96,7 @@
   }
   $$('[data-lang]').forEach(button => button.addEventListener('click', () => selectLanguage(button.dataset.lang)));
   $$('[data-language-select]').forEach(select => select.addEventListener('change', () => selectLanguage(select.value)));
+  root.addEventListener('bilingvo:city-selected',event=>{if(languages[event.detail.language])selectLanguage(event.detail.language);});
   $$('[data-audio-toggle]').forEach(button => button.addEventListener('click', toggleAudio));
   renderCaptions(); renderPlayback();
 
