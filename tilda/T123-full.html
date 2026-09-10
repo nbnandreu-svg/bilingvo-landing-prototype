@@ -1410,7 +1410,8 @@
   ].map(([name,lat,lon,lang])=>({name,lat,lon,lang,v:[Math.cos(lat*rad)*Math.sin(lon*rad),Math.sin(lat*rad),Math.cos(lat*rad)*Math.cos(lon*rad)]}));
   const destination={EN:0,FR:1,ZH:2,AR:3};
   let land=[],longitude=30,latitude=22,selected=0,flight=null,drag=null,inertia=0,visible=true,frame=0,last=0,lastInteraction=performance.now(),hits=[];
-  const size=500,radius=222,cx=250,cy=250;
+  const size=500,cx=250,cy=250;
+  let radius=222,hasSelection=false,arrivedAt=-Infinity;
   const dpr=Math.min(devicePixelRatio||1,2);canvas.width=size*dpr;canvas.height=size*dpr;
   world.style.transform='none';world.style.transition='none';world.setAttribute('role','application');world.setAttribute('aria-label','Объемный глобус. Вращайте перетаскиванием или стрелками. Нажмите город или подпись языка, чтобы перейти к нему.');
   const tooltip=document.createElement('span');tooltip.className='globe-city-tooltip';tooltip.hidden=true;world.appendChild(tooltip);
@@ -1421,10 +1422,10 @@
     return [x,v[1]*cb-z0*sb,v[1]*sb+z0*cb];
   }
   function center(city){
-    selected=cities.indexOf(city);lastInteraction=performance.now();inertia=0;
+    selected=cities.indexOf(city);lastInteraction=performance.now();inertia=0;hasSelection=true;arrivedAt=-Infinity;
     const delta=((city.lon-longitude+540)%360)-180;
-    flight={fromLon:longitude,fromLat:latitude,toLon:longitude+delta,toLat:city.lat,start:performance.now(),duration:reduce.matches?0:1250};
-    cityStatus.textContent=city.name;cityStatus.dataset.city=city.name;
+    flight={fromLon:longitude,fromLat:latitude,fromRadius:radius,toLon:longitude+delta,toLat:city.lat,start:performance.now(),duration:reduce.matches?0:1450};
+    cityStatus.textContent=city.name;cityStatus.dataset.city=city.name;cityStatus.style.color='#a0782d';
     root.querySelectorAll('.globe-language').forEach(b=>{b.classList.toggle('globe-destination',b.dataset.lang===city.lang);});
     schedule();
   }
@@ -1436,8 +1437,9 @@
   function draw(now){
     frame=0;if(!visible||document.hidden)return;
     const dt=Math.min(50,now-(last||now));last=now;
-    if(flight){const t=flight.duration?Math.min(1,(now-flight.start)/flight.duration):1,k=t*t*(3-2*t);longitude=flight.fromLon+(flight.toLon-flight.fromLon)*k;latitude=flight.fromLat+(flight.toLat-flight.fromLat)*k;if(t===1)flight=null;}
-    else if(!drag&&!reduce.matches){if(Math.abs(inertia)>.001){longitude+=inertia*dt;inertia*=.94;}else if(now-lastInteraction>6000)longitude+=dt*.0015;}
+    if(flight){const t=flight.duration?Math.min(1,(now-flight.start)/flight.duration):1,k=t*t*t*(t*(t*6-15)+10);longitude=flight.fromLon+(flight.toLon-flight.fromLon)*k;latitude=flight.fromLat+(flight.toLat-flight.fromLat)*k;radius=flight.fromRadius+(230-flight.fromRadius)*k;if(t===1){flight=null;arrivedAt=now;}}
+    else if(!drag&&!reduce.matches){if(Math.abs(inertia)>.001){longitude+=inertia*dt;inertia*=.94;}else if(now-lastInteraction>12000)longitude+=dt*.0015;}
+    world.dataset.beacon=hasSelection?(flight?'approaching':'gold'):'none';
     world.dataset.longitude=longitude.toFixed(2);world.dataset.latitude=latitude.toFixed(2);
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);
     const surface=ctx.createRadialGradient(180,145,12,250,250,radius);surface.addColorStop(0,'#ffffff');surface.addColorStop(.66,'#f7f8f7');surface.addColorStop(.92,'#e9eeeb');surface.addColorStop(1,'#d7e0db');
@@ -1448,13 +1450,23 @@
     buckets.forEach((points,i)=>{ctx.beginPath();for(const p of points){const s=.60+.34*p[2];ctx.moveTo(cx+p[0]*radius+s,cy-p[1]*radius);ctx.arc(cx+p[0]*radius,cy-p[1]*radius,s,0,Math.PI*2);}ctx.fillStyle=['#c5d0c9','#c2cec7','#bfccc4','#bbc9c1','#b8c7be','#b5c5bb','#b0c2b8'][i];ctx.fill();});
     // Routes are also on the sphere, and disappear behind the horizon.
     const home=cities[29].v;
-    [0,1,2,3].forEach((id,j)=>{const target=cities[id].v;let started=false;ctx.beginPath();for(let i=0;i<=80;i++){const t=i/80;let v=home.map((n,k)=>n*(1-t)+target[k]*t);const length=Math.hypot(...v);v=v.map(n=>n/length);const p=project(v);if(p[2]>0){const x=cx+p[0]*radius,y=cy-p[1]*radius;if(!started){ctx.moveTo(x,y);started=true;}else ctx.lineTo(x,y);}else started=false;}ctx.strokeStyle=id===selected?'#2b8a65aa':'#508d7355';ctx.lineWidth=1.1;ctx.setLineDash([2,5]);ctx.lineDashOffset=reduce.matches?0:-now/150;ctx.stroke();ctx.setLineDash([]);});
+    [...new Set([0,1,2,3,selected])].forEach(id=>{const target=cities[id].v;let started=false;ctx.beginPath();for(let i=0;i<=80;i++){const t=i/80;let v=home.map((n,k)=>n*(1-t)+target[k]*t);const length=Math.hypot(...v);v=v.map(n=>n/length);const p=project(v);if(p[2]>0){const x=cx+p[0]*radius,y=cy-p[1]*radius;if(!started){ctx.moveTo(x,y);started=true;}else ctx.lineTo(x,y);}else started=false;}ctx.strokeStyle=id===selected&&hasSelection?'#c1943eaa':'#508d7355';ctx.lineWidth=id===selected&&hasSelection?1.5:1.1;ctx.setLineDash([2,5]);ctx.lineDashOffset=reduce.matches?0:-now/150;ctx.stroke();ctx.setLineDash([]);});
     hits=[];
     cities.map((city,index)=>({city,index,p:project(city.v)})).filter(o=>o.p[2]>.03).sort((a,b)=>a.p[2]-b.p[2]).forEach(({city,index,p})=>{
       const x=cx+p[0]*radius,y=cy-p[1]*radius,s=4+2*p[2];hits.push({city,x,y});
       ctx.shadowColor='#16413226';ctx.shadowBlur=5;ctx.shadowOffsetY=2;ctx.beginPath();ctx.arc(x,y,s,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.shadowBlur=0;ctx.shadowOffsetY=0;
-      ctx.beginPath();ctx.arc(x,y,index===selected?3:2.2,0,Math.PI*2);ctx.fillStyle=index===selected?'#075b3c':'#25895c';ctx.fill();
-      if(index===selected){ctx.beginPath();ctx.arc(x,y,s+4+(reduce.matches?0:Math.sin(now/350)*1.5),0,Math.PI*2);ctx.strokeStyle='#318b6566';ctx.lineWidth=1.1;ctx.stroke();}
+      if(index===selected&&hasSelection){
+        const pulse=reduce.matches?0:(Math.sin(now/460)+1)/2;
+        const flash=reduce.matches?0:Math.max(0,1-(now-arrivedAt)/1200);
+        const glowRadius=21+3*pulse+12*flash;
+        const glow=ctx.createRadialGradient(x,y,2,x,y,glowRadius);
+        glow.addColorStop(0,'rgba(255,207,101,.82)');glow.addColorStop(.35,'rgba(236,175,54,.36)');glow.addColorStop(1,'rgba(222,159,36,0)');
+        ctx.beginPath();ctx.arc(x,y,glowRadius,0,Math.PI*2);ctx.fillStyle=glow;ctx.fill();
+        if(flash>0){ctx.beginPath();ctx.arc(x,y,8+(1-flash)*28,0,Math.PI*2);ctx.strokeStyle=`rgba(217,160,46,${flash*.7})`;ctx.lineWidth=1.2;ctx.stroke();}
+        ctx.beginPath();ctx.arc(x,y,11+pulse*2,0,Math.PI*2);ctx.strokeStyle='rgba(204,150,39,.35)';ctx.lineWidth=.9;ctx.stroke();
+        ctx.shadowColor='#e9b345';ctx.shadowBlur=12+6*pulse;ctx.beginPath();ctx.arc(x,y,5+flash,0,Math.PI*2);ctx.fillStyle='#dca334';ctx.fill();ctx.shadowBlur=0;
+        ctx.beginPath();ctx.arc(x-.7,y-.7,2.2,0,Math.PI*2);ctx.fillStyle='#fff2c3';ctx.fill();
+      }else{ctx.beginPath();ctx.arc(x,y,2.2,0,Math.PI*2);ctx.fillStyle='#25895c';ctx.fill();}
     });
     if(!reduce.matches||flight||drag)frame=requestAnimationFrame(draw);
   }
