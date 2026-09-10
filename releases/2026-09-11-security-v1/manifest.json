@@ -17,10 +17,10 @@
     },
     {
       "source": "globe.js",
-      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/globe.48744e7e268ccf4f.js",
-      "path": "releases/2026-09-11-security-v1/globe.48744e7e268ccf4f.js",
-      "integrity": "sha384-H1liWg6224oQeAMja4sm9pkjnhuEkb5L6UKa4jgQvK6KisYDPP4a9sz/evy9JRPd",
-      "sha256": "48744e7e268ccf4fcacdca133cd51e1edf0d2fdc412e71b0a0d813de0713157f"
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-security-v1/globe.eba745663a1a9c33.js",
+      "path": "releases/2026-09-11-security-v1/globe.eba745663a1a9c33.js",
+      "integrity": "sha384-ldd4uByipmRQUXwRrlHw5vV55m5ya5Kd3ngneQIoWmeiAP1mrdl3RLZykxrr/cRO",
+      "sha256": "eba745663a1a9c3375a7ed552a84547cb789b8fbda5d41e796e729deea06fcb2"
     },
     {
       "source": "tilda/bilingvo-scoped.css",
