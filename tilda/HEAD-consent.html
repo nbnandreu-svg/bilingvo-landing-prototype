@@ -1,6 +1,11 @@
 <!-- Applies only to /bilingvo. Automatic platform statistics are excluded. -->
 <script>
 if (location.pathname.replace(/\/$/, '') === '/bilingvo') {
+  document.addEventListener('securitypolicyviolation', function (event) {
+    if (/\/tilda-stat-/.test(event.blockedURI)) {
+      document.documentElement.setAttribute('data-bilingvo-statistics-blocked', 'true');
+    }
+  });
   var blPolicy = document.createElement('meta');
   blPolicy.httpEquiv = 'Content-Security-Policy';
   blPolicy.content = "script-src 'self' 'unsafe-inline' https://nbnandreu-svg.github.io/bilingvo-landing-prototype/ https://neo.tildacdn.com/js/tilda-fallback-1.0.min.js https://static.tildacdn.com/js/tilda-polyfill-1.0.min.js https://static.tildacdn.com/js/tilda-scripts-3.0.min.js https://static.tildacdn.com/ws/project31251709/ https://static.tildacdn.com/js/tilda-lazyload-1.0.min.js https://static.tildacdn.com/js/tilda-events-1.0.min.js https://static.tildacdn.com/js/tilda-forms-1.0.min.js https://static.tildacdn.com/js/tilda-animation-2.0.min.js https://static.tildacdn.com/js/tilda-captcha-1.0.min.js; connect-src 'self' https://nbnandreu-svg.github.io https://forms.tildaapi.com https://forms.tildaapi.ru https://forms.tildacdn.com https://forms2.tildacdn.com";
