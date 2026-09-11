@@ -61,7 +61,9 @@ for file in ['assets/fonts.css','styles.css','motion.css']:
 # An explicit root baseline avoids depending on the Tilda body's font/margins.
 css+='\n#bilingvo-site{font:300 20px/1.3 Geologica,Arial,sans-serif;margin:0;width:100%;max-width:none;box-sizing:border-box}#bilingvo-site a{color:inherit}#bilingvo-site .button{color:white}#bilingvo-site .outline,#bilingvo-site .light{color:var(--night)}#bilingvo-site .next-actions .outline{color:white}\n'
 css+='@media(max-width:600px){#bilingvo-site{font-size:16px}}'
-js='\n'.join((ROOT/name).read_text(encoding='utf-8') for name in ['security.js','app.js','globe.js'])
+# One specific native form is used as an SDK transport, never as visible content.
+css+='\n#rec3791816301{display:none!important}'
+js='\n'.join((ROOT/name).read_text(encoding='utf-8') for name in ['security.js','i18n.js','consent.js','tilda-forms.js','app.js','globe.js'])
 fragment='<!-- Bilingvo: paste this entire fragment into one Tilda T123 block. -->\n<style>\n'+css+'\n</style>\n'+str(site)+'\n<script>\n'+js+'\n</script>\n'
 (OUT/'T123-full.html').write_text(fragment,encoding='utf-8')
 (OUT/'bilingvo-scoped.css').write_text(css,encoding='utf-8')

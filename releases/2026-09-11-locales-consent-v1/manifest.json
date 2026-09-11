@@ -1,0 +1,54 @@
+{
+  "release": "2026-09-11-locales-consent-v1",
+  "files": [
+    {
+      "source": "security.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-locales-consent-v1/security.1003adbd9e9b93d7.js",
+      "path": "releases/2026-09-11-locales-consent-v1/security.1003adbd9e9b93d7.js",
+      "integrity": "sha384-7Og5j1ZBu30yR1zvlSvo0RHHPeP0V8BJM6j8iIJlovbi8ayjhIpkSH0dMSh9gYWT",
+      "sha256": "1003adbd9e9b93d766bf96d34cfcb80d1efdcb8d968d1de38294f6b6963e02fd"
+    },
+    {
+      "source": "i18n.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-locales-consent-v1/i18n.01e73dcf75a5d1a0.js",
+      "path": "releases/2026-09-11-locales-consent-v1/i18n.01e73dcf75a5d1a0.js",
+      "integrity": "sha384-Eiw9G2aTrYX5dmbklZ27eOB9rr0LcB9tHORt2CT8xgS3WX1T2aQuZ/mSw3wcqilT",
+      "sha256": "01e73dcf75a5d1a008179039c8d8dfda8a85bd182b8944abfe3936910b4ee8e5"
+    },
+    {
+      "source": "consent.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-locales-consent-v1/consent.11c64c5cf7f91a61.js",
+      "path": "releases/2026-09-11-locales-consent-v1/consent.11c64c5cf7f91a61.js",
+      "integrity": "sha384-noVcwP4vgxvyGO72Lo2dsE8s5d5FCCYWgQTk8UHQfTrpQlWuZLTwpSsAFpbn4kIH",
+      "sha256": "11c64c5cf7f91a61dbaef117c61ffb71ad702dabf5f875accf2a05e4cdaafd1a"
+    },
+    {
+      "source": "tilda-forms.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-locales-consent-v1/tilda-forms.151ace65d168405b.js",
+      "path": "releases/2026-09-11-locales-consent-v1/tilda-forms.151ace65d168405b.js",
+      "integrity": "sha384-Js6W7zWQgFh0ufFKT+2sYvsSpcd8spXBeWmbNIgFKS/QII7DenqgCBNoAMsZzSl2",
+      "sha256": "151ace65d168405b1aad50bc7f4a0e724e539fd90b6b30615152e4943c3e4ba5"
+    },
+    {
+      "source": "app.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-locales-consent-v1/app.a975bd574eff72ac.js",
+      "path": "releases/2026-09-11-locales-consent-v1/app.a975bd574eff72ac.js",
+      "integrity": "sha384-mMhJAfVj1dclIjwek998X0JOtDFrp322T+wfqE/ejx3QfYXRLZjGOgTqXOq5GWIn",
+      "sha256": "a975bd574eff72ac520d1a8355d47232d9b3f928cb9c492d197ce6cc5717fa91"
+    },
+    {
+      "source": "globe.js",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-locales-consent-v1/globe.1d746171e9fed6e6.js",
+      "path": "releases/2026-09-11-locales-consent-v1/globe.1d746171e9fed6e6.js",
+      "integrity": "sha384-1Cd2Q0YYJ7SHmFIunaSk3DFE5BjGDtaFq0eo0RdjfhXwwdAVYMTlFsrRsh/TLv7E",
+      "sha256": "1d746171e9fed6e624cee96a72153ef436fa6add3310b53612bd6afd952b62b0"
+    },
+    {
+      "source": "tilda/bilingvo-scoped.css",
+      "url": "https://nbnandreu-svg.github.io/bilingvo-landing-prototype/releases/2026-09-11-locales-consent-v1/bilingvo-scoped.9182e71d1c3c0e3d.css",
+      "path": "releases/2026-09-11-locales-consent-v1/bilingvo-scoped.9182e71d1c3c0e3d.css",
+      "integrity": "sha384-r0XrzhAM+LlT3B2f4kkQhhYLTy7Y6VNtSy/ShOaNBW/wNZv2sAGqpFklOZfzO/+B",
+      "sha256": "9182e71d1c3c0e3d706c136b1cc92b40172d8e74f269750dda1c26f1f5bcc682"
+    }
+  ]
+}

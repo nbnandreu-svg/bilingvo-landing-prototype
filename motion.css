@@ -83,7 +83,7 @@
 #bilingvo-site .phone-island{position:absolute;top:5.55%;left:34.3%;width:31.1%;height:auto;pointer-events:none}
 #bilingvo-site .phone-home{position:absolute;bottom:9px;left:35%;width:30%;height:3px;border-radius:3px;background:#202a37}
 #bilingvo-site .phone-hints{position:absolute;left:278px;bottom:90px;display:grid;gap:13px;font-size:14px;font-weight:300;width:184px}
-#bilingvo-site .phone-hints span{border:1px solid #e8eceb;border-radius:26px;padding:15px;background:#fff;box-shadow:0 5px 18px #173d3b06}
+#bilingvo-site .phone-hints button{border:1px solid #a8c4b7;border-radius:26px;padding:15px;background:#f4fae9;color:#073f3b;box-shadow:0 7px 22px #173d3b12;font:inherit;line-height:1.4;text-align:start;cursor:pointer;transition:box-shadow .2s,background .2s}
 #bilingvo-site .how{padding:59px 0 115px}
 #bilingvo-site .how h2{max-width:500px;font-size:52px;line-height:1.28;margin-top:19px}
 #bilingvo-site .how p{font-size:20px;line-height:1.3;margin-top:22px}
@@ -311,3 +311,63 @@
 #bilingvo-site .globe-city-status{position:absolute;bottom:-6px;left:0;width:100%;text-align:center;font:300 11px Geologica,Arial,sans-serif;color:#6c8879;pointer-events:none}
 #bilingvo-site .globe-city-tooltip{position:absolute;transform:translate(-50%,-145%);background:#073f3b;color:white;padding:7px 10px;border-radius:12px;font:300 12px Geologica,Arial,sans-serif;white-space:nowrap;pointer-events:none;z-index:4}
 #bilingvo-site .bl-form-fields{display:contents;border:0;padding:0;margin:0;min-width:0}
+
+/* Site language switcher, subtle interactive cues and first-visit consent. */
+#bilingvo-site .site-header{position:relative;z-index:40}
+#bilingvo-site .site-language{position:relative;flex-shrink:0}
+#bilingvo-site .language-button{display:flex;align-items:center;gap:9px;white-space:nowrap;min-height:46px}
+#bilingvo-site .site-language-menu{position:absolute;inset-inline-end:0;top:calc(100% + 10px);min-width:195px;background:white;border:1px solid #dce5df;border-radius:18px;box-shadow:0 15px 45px #073f3b24;padding:8px;z-index:100}
+#bilingvo-site .site-language-menu button{display:block;width:100%;padding:12px 17px;text-align:start;border:0;border-radius:10px;color:#073f3b;background:white;font:400 16px/1.4 var(--sans);cursor:pointer}
+#bilingvo-site .site-language-menu button[aria-checked=true]{background:#e7f0da}
+#bilingvo-site .site-language-menu button:hover{background:#f1f5ea}
+#bilingvo-site .site-language-menu[hidden],#bilingvo-site .cookie-dialog [hidden]{display:none!important}
+#bilingvo-site .phone-stage:before{content:'';position:absolute;left:-24px;top:45px;width:365px;height:530px;max-width:110%;background:radial-gradient(ellipse,#d9e9bd90 0%,#dbece45c 40%,transparent 70%);filter:blur(13px);pointer-events:none;opacity:.9}
+#bilingvo-site .phone-stage>.phone{filter:drop-shadow(0 18px 17px #174b3b16);transition:filter .3s}
+#bilingvo-site .phone-stage:hover>.phone,#bilingvo-site .phone-stage:focus-within>.phone{filter:drop-shadow(0 20px 20px #174b3b29)}
+#bilingvo-site .phone-stage .phone-audio{border-color:#a3c3ad;background:#eaf4d8;box-shadow:0 0 0 4px #e6eecd60}
+#bilingvo-site .phone-hints{z-index:3}
+#bilingvo-site .phone-hints button:first-child:before{content:'';display:inline-block;width:7px;height:7px;background:#76a34b;border-radius:50%;margin-inline-end:7px;box-shadow:0 0 0 4px #81a25517}
+#bilingvo-site .phone-hints button:hover{background:#e9f3d6;box-shadow:0 9px 22px #173d3b20}
+#bilingvo-site .phone-stage.is-visible:not(.is-engaged) .phone-hints button{animation:bl-hint-float 4.4s ease-in-out 3}
+#bilingvo-site .phone-stage.is-visible:not(.is-engaged) .phone-hints button:nth-child(2){animation-delay:.7s}
+#bilingvo-site .phone-stage.is-visible:not(.is-engaged) .phone-audio{animation:bl-audio-invite 3s ease-in-out 4}
+@keyframes bl-hint-float{0%,65%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-5px) rotate(-1deg)}40%{transform:translateY(-3px) rotate(.4deg)}}
+@keyframes bl-audio-invite{0%,100%{box-shadow:0 0 0 3px #d4e6b544}45%{box-shadow:0 0 0 8px #d4e6b500}}
+#bilingvo-site .cookie-dialog{position:fixed;inset:auto 0 24px;width:min(1080px,calc(100% - 40px));max-height:calc(100dvh - 40px);overflow:auto;margin:auto;padding:38px 44px;border:0;border-radius:26px;color:#193f3b;background:#fff;box-shadow:0 15px 70px #073f3b25;font-family:var(--sans)}
+#bilingvo-site .cookie-dialog::backdrop{background:#142e2a40}
+#bilingvo-site .cookie-dialog h2{font:500 30px/1.25 var(--sans);margin:0}
+#bilingvo-site .cookie-dialog p{font:300 17px/1.5 var(--sans);color:#617775;margin:20px 0 0}
+#bilingvo-site .cookie-policy-link{font:300 16px/1.4 var(--sans);color:#617775;margin-top:19px;cursor:pointer}
+#bilingvo-site .cookie-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:25px}
+#bilingvo-site .cookie-actions .button{font:400 15px/1.3 var(--sans);border-radius:35px;min-height:49px;padding:13px 27px}
+#bilingvo-site .cookie-customize{font:400 15px/1.3 var(--sans);border:0;padding:14px;background:transparent;color:#193f3b;cursor:pointer}
+#bilingvo-site .cookie-options{margin-top:24px;display:grid;gap:15px}
+#bilingvo-site .cookie-options label{display:flex;gap:14px;align-items:start;font-size:15px}
+#bilingvo-site .cookie-options input{width:20px;height:20px;accent-color:#1a5044;flex-shrink:0;margin-top:2px}
+#bilingvo-site .cookie-options small{display:block;font-size:13px;line-height:1.5;color:#617775;margin-top:4px}
+#bilingvo-site[dir=rtl] .footer-link,#bilingvo-site[dir=rtl] .steps>button{text-align:right}
+#bilingvo-site[dir=rtl] .phone-stage,#bilingvo-site[dir=rtl] .devices-stage,#bilingvo-site[dir=rtl] .photo-carousel,#bilingvo-site[dir=rtl] .globe-demo{direction:ltr}
+#bilingvo-site[dir=rtl] .phone-hints,#bilingvo-site[dir=rtl] .phone-controls,#bilingvo-site[dir=rtl] .phone-live{direction:rtl}
+#bilingvo-site[dir=rtl] input[type=email],#bilingvo-site[dir=rtl] a[href^="tel:"],#bilingvo-site[dir=rtl] a[href^="mailto:"]{direction:ltr;unicode-bidi:isolate}
+#bilingvo-site[lang=ar]{font-family:Tahoma,Arial,sans-serif;line-height:1.6}
+#bilingvo-site[lang=ar] h1,#bilingvo-site[lang=ar] h2,#bilingvo-site[lang=ar] h3{font-family:Tahoma,Arial,sans-serif;line-height:1.4}
+#bilingvo-site[lang=zh] h1,#bilingvo-site[lang=zh] h2,#bilingvo-site[lang=zh] h3{line-height:1.4}
+#bilingvo-site .site-header nav{flex-wrap:wrap}
+@media(max-width:1200px){#bilingvo-site .site-header nav{display:none}}
+@media(max-width:600px){
+ #bilingvo-site .site-header{gap:6px;padding-inline:10px}
+ #bilingvo-site .site-header .brand{font-size:16px}
+ #bilingvo-site .site-header .brand img{width:34px;height:auto}
+ #bilingvo-site .header-actions{gap:7px}
+ #bilingvo-site .language-button{display:flex!important;min-height:40px;padding:8px;font-size:11px;gap:4px;border-radius:12px}
+ #bilingvo-site .language-button .globe{width:17px;height:17px}
+ #bilingvo-site .header-actions>.button{font-size:11px;padding:9px 10px}
+ #bilingvo-site .phone-hints button{padding:12px;border-radius:18px;flex:1}
+ #bilingvo-site .cookie-dialog{inset:auto 0 12px;width:calc(100% - 24px);max-height:calc(100dvh - 24px);padding:25px 23px;border-radius:22px}
+ #bilingvo-site .cookie-dialog h2{font-size:24px}
+ #bilingvo-site .cookie-dialog p{font-size:14px;margin-top:15px}
+ #bilingvo-site .cookie-actions{gap:10px;margin-top:21px}
+ #bilingvo-site .cookie-actions .button{flex:1;min-width:115px;font-size:13px;padding-inline:15px}
+ #bilingvo-site .cookie-customize{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){#bilingvo-site .phone-stage .phone-hints button,#bilingvo-site .phone-stage .phone-audio{animation:none!important}}
