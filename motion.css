@@ -320,7 +320,6 @@
 #bilingvo-site .site-language-menu button{display:block;width:100%;padding:12px 17px;text-align:start;border:0;border-radius:10px;color:#073f3b;background:white;font:400 16px/1.4 var(--sans);cursor:pointer}
 #bilingvo-site .site-language-menu button[aria-checked=true]{background:#e7f0da}
 #bilingvo-site .site-language-menu button:hover{background:#f1f5ea}
-#bilingvo-site .site-language-menu[hidden],#bilingvo-site .cookie-dialog [hidden]{display:none!important}
 #bilingvo-site .phone-stage:before{content:'';position:absolute;left:-24px;top:45px;width:365px;height:530px;max-width:110%;background:radial-gradient(ellipse,#d9e9bd90 0%,#dbece45c 40%,transparent 70%);filter:blur(13px);pointer-events:none;opacity:.9}
 #bilingvo-site .phone-stage>.phone{filter:drop-shadow(0 18px 17px #174b3b16);transition:filter .3s}
 #bilingvo-site .phone-stage:hover>.phone,#bilingvo-site .phone-stage:focus-within>.phone{filter:drop-shadow(0 20px 20px #174b3b29)}
@@ -333,18 +332,6 @@
 #bilingvo-site .phone-stage.is-visible:not(.is-engaged) .phone-audio{animation:bl-audio-invite 3s ease-in-out 4}
 @keyframes bl-hint-float{0%,65%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-5px) rotate(-1deg)}40%{transform:translateY(-3px) rotate(.4deg)}}
 @keyframes bl-audio-invite{0%,100%{box-shadow:0 0 0 3px #d4e6b544}45%{box-shadow:0 0 0 8px #d4e6b500}}
-#bilingvo-site .cookie-dialog{position:fixed;inset:auto 0 24px;width:min(1080px,calc(100% - 40px));max-height:calc(100dvh - 40px);overflow:auto;margin:auto;padding:38px 44px;border:0;border-radius:26px;color:#193f3b;background:#fff;box-shadow:0 15px 70px #073f3b25;font-family:var(--sans)}
-#bilingvo-site .cookie-dialog::backdrop{background:#142e2a40}
-#bilingvo-site .cookie-dialog h2{font:500 30px/1.25 var(--sans);margin:0}
-#bilingvo-site .cookie-dialog p{font:300 17px/1.5 var(--sans);color:#617775;margin:20px 0 0}
-#bilingvo-site .cookie-policy-link{font:300 16px/1.4 var(--sans);color:#617775;margin-top:19px;cursor:pointer}
-#bilingvo-site .cookie-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:25px}
-#bilingvo-site .cookie-actions .button{font:400 15px/1.3 var(--sans);border-radius:35px;min-height:49px;padding:13px 27px}
-#bilingvo-site .cookie-customize{font:400 15px/1.3 var(--sans);border:0;padding:14px;background:transparent;color:#193f3b;cursor:pointer}
-#bilingvo-site .cookie-options{margin-top:24px;display:grid;gap:15px}
-#bilingvo-site .cookie-options label{display:flex;gap:14px;align-items:start;font-size:15px}
-#bilingvo-site .cookie-options input{width:20px;height:20px;accent-color:#1a5044;flex-shrink:0;margin-top:2px}
-#bilingvo-site .cookie-options small{display:block;font-size:13px;line-height:1.5;color:#617775;margin-top:4px}
 #bilingvo-site[dir=rtl] .footer-link,#bilingvo-site[dir=rtl] .steps>button{text-align:right}
 #bilingvo-site[dir=rtl] .phone-stage,#bilingvo-site[dir=rtl] .devices-stage,#bilingvo-site[dir=rtl] .photo-carousel,#bilingvo-site[dir=rtl] .globe-demo{direction:ltr}
 #bilingvo-site[dir=rtl] .phone-hints,#bilingvo-site[dir=rtl] .phone-controls,#bilingvo-site[dir=rtl] .phone-live{direction:rtl}
@@ -363,11 +350,17 @@
  #bilingvo-site .language-button .globe{width:17px;height:17px}
  #bilingvo-site .header-actions>.button{font-size:11px;padding:9px 10px}
  #bilingvo-site .phone-hints button{padding:12px;border-radius:18px;flex:1}
- #bilingvo-site .cookie-dialog{inset:auto 0 12px;width:calc(100% - 24px);max-height:calc(100dvh - 24px);padding:25px 23px;border-radius:22px}
- #bilingvo-site .cookie-dialog h2{font-size:24px}
- #bilingvo-site .cookie-dialog p{font-size:14px;margin-top:15px}
- #bilingvo-site .cookie-actions{gap:10px;margin-top:21px}
- #bilingvo-site .cookie-actions .button{flex:1;min-width:115px;font-size:13px;padding-inline:15px}
- #bilingvo-site .cookie-customize{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){#bilingvo-site .phone-stage .phone-hints button,#bilingvo-site .phone-stage .phone-audio{animation:none!important}}
+
+#bilingvo-site .site-language-menu[hidden],#bilingvo-site .cookie-notice[hidden]{display:none!important}
+#bilingvo-site .cookie-notice{position:fixed;inset:auto 0 24px;z-index:150;width:min(1100px,calc(100% - 48px));box-sizing:border-box;margin:auto;padding:30px 36px;display:flex;align-items:center;gap:32px;border:1px solid #edf0ef;border-radius:30px;background:#fff;color:#193f3b;box-shadow:0 12px 55px #163e3a1c}
+#bilingvo-site .cookie-notice p{margin:0;flex:1;font:300 20px/1.5 var(--sans)}
+#bilingvo-site .cookie-notice p span{color:#617775}
+#bilingvo-site .cookie-notice>.button{flex:0 0 86px;min-height:70px;border-radius:22px;font:500 22px/1 var(--sans);padding:20px}
+@media(max-width:600px){
+ #bilingvo-site .cookie-notice{inset:auto 0 12px;width:calc(100% - 24px);padding:20px;gap:15px;border-radius:23px}
+ #bilingvo-site .cookie-notice p{font-size:13px;line-height:1.45}
+ #bilingvo-site .cookie-notice>.button{flex-basis:56px;min-height:56px;padding:10px;border-radius:16px;font-size:17px}
+}
+

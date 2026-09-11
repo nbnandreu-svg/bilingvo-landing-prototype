@@ -6,18 +6,20 @@ parameter. Demo speech and its original Russian captions remain independent.
 Translation sources are in `scripts/locale-*.tsv` and `locale-source.json`.
 Run `python scripts/build_locales.py` before generating a new release.
 
-The first-visit cookie dialog offers accept, reject and granular settings.
-Analytics is off by default. A versioned choice expires after 180 days and can
-be changed using the footer button. Marketing trackers are not installed.
-No Yandex Metrica counter is currently configured (`metricaId=0`). Do not add a
-counter in Tilda's automatic Analytics settings: that bypasses this consent gate.
+The first-visit cookie notice has one OK button. It is an informational notice,
+not an analytics consent form. OK stores only an acknowledgement for 180 days.
+The footer can reopen it. Earlier optional-cookie choices are discarded.
+Analytics and marketing remain disabled. There is no analytics loader in
+`consent.js`. The notice contains no third-party policy link or claim that
+continued browsing accepts a personal-data policy. The owner's policy is pending.
 
 `HEAD-consent.html` is installed in the project HEAD, with an exact `/bilingvo`
 path guard. Its CSP allows functional scripts and form endpoints and excludes
 Tilda's automatic statistics script. It leaves the other project page alone.
-If adding an analytics counter later, update both this policy and the consent
-loader, and verify no analytics request is made before acceptance or after
-rejection. Keep the standard Tilda statistics setting in simplified mode.
+If adding analytics later, implement a separate explicit consent mechanism,
+update this policy and verify that tracking cannot start without permission.
+Do not connect counters through Tilda's automatic Analytics settings.
+Keep the standard Tilda statistics setting in simplified mode.
 
 Native form block `rec3791816301` is a hidden transport for the five custom lead
 forms. `tilda-forms.js` uses the official form SDK, preserving its receiver and
@@ -34,7 +36,7 @@ been received in that inbox. The existing Tilda CRM connection was inherited
 from the project, not added for this release.
 
 Verification: all six page locales and Arabic RTL checked in the browser;
-390px French and Arabic layouts inspected; cookie decision and expiry tests;
+390px French and Arabic layouts inspected; acknowledgement and expiry tests;
 form success and error UI checked with a local receiver; the real Tilda SDK was
 tested against a local HTTP response fixture without sending any email. Existing
 configuration and release integrity tests remain in place. This extends the

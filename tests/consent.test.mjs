@@ -2,27 +2,24 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-const source=readFileSync(new URL('../consent.js',import.meta.url),'utf8').replace('const metricaId=0;','const metricaId=12345;');
-function setup(saved=null){
-  const elements=new Map(),scripts=[],store=new Map(saved?[['bilingvo-consent-v1',saved]]:[]);
-  class El extends EventTarget{constructor(){super();this.dataset={};this.hidden=false;this.checked=false;this.open=false;}querySelector(s){if(!elements.has(s))elements.set(s,new El());return elements.get(s);}querySelectorAll(){return [this.querySelector('[data-cookie-open]')];}showModal(){this.open=true;}close(){this.open=false;}focus(){}}
-  const root=new El(),dialog=root.querySelector('#bilingvo-cookies');let reloads=0;
-  const document={getElementById:()=>root,activeElement:null,body:{},createElement:()=>({}),head:{append:s=>scripts.push(s)}};
-  const window={};
-  vm.runInNewContext(source,{document,window,HTMLElement:El,localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v)},location:{reload:()=>reloads++},Date,JSON,Number});
-  return {root,dialog,scripts,store,window,click:selector=>dialog.querySelector(selector).dispatchEvent(new Event('click')),reopen:()=>root.querySelector('[data-cookie-open]').dispatchEvent(new Event('click')),reloads:()=>reloads};
+const source=readFileSync(new URL('../consent.js',import.meta.url),'utf8');
+function setup(saved=null,legacy=null){
+  const elements=new Map(),store=new Map();
+  if(saved)store.set('bilingvo-cookie-notice-v2',saved);
+  if(legacy)store.set('bilingvo-consent-v1',legacy);
+  class El extends EventTarget{constructor(){super();this.dataset={};this.hidden=true;}querySelector(s){if(!elements.has(s))elements.set(s,new El());return elements.get(s);}querySelectorAll(){return [this.querySelector('[data-cookie-open]')];}}
+  const root=new El(),notice=root.querySelector('#bilingvo-cookies');
+  // Any attempt to create a tracking element or issue a request fails the test.
+  const document={getElementById:()=>root,createElement:()=>{throw Error('Unexpected script');}};
+  vm.runInNewContext(source,{document,localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)},Date,JSON,Number});
+  return {root,notice,store,click:()=>notice.querySelector('[data-cookie-ok]').dispatchEvent(new Event('click')),reopen:()=>root.querySelector('[data-cookie-open]').dispatchEvent(new Event('click'))};
 }
-test('first visit loads no optional script before a decision; reject loads none',()=>{
-  const s=setup();assert.equal(s.dialog.open,true);assert.equal(s.scripts.length,0);s.click('[data-cookie-reject]');assert.equal(s.scripts.length,0);assert.equal(s.dialog.open,false);assert.equal(s.root.dataset.analyticsConsent,'denied');
+test('OK only hides the notice and never grants analytics permission',()=>{
+  const s=setup();assert.equal(s.notice.hidden,false);s.click();assert.equal(s.notice.hidden,true);assert.equal(s.root.dataset.analyticsConsent,'denied');const saved=JSON.parse(s.store.get('bilingvo-cookie-notice-v2'));assert.equal(saved.acknowledged,true);assert.equal(saved.analytics,undefined);s.reopen();assert.equal(s.notice.hidden,false);
 });
-test('accept loads configured analytics exactly once and saves the choice',()=>{
-  const s=setup();s.click('[data-cookie-accept]');assert.equal(s.scripts.length,1);assert.equal(s.scripts[0].src,'https://mc.yandex.ru/metrika/tag.js');s.reopen();s.click('[data-cookie-accept]');assert.equal(s.scripts.length,1);assert.equal(JSON.parse(s.store.get('bilingvo-consent-v1')).analytics,true);
+test('acknowledgement is remembered and old optional consent is discarded',()=>{
+  const s=setup(JSON.stringify({version:2,acknowledged:true,time:Date.now()}),JSON.stringify({version:1,analytics:true,time:Date.now()}));assert.equal(s.notice.hidden,true);assert.equal(s.store.has('bilingvo-consent-v1'),false);assert.equal(s.root.dataset.analyticsConsent,'denied');
 });
-test('custom settings are off by default, and revocation stops the running page',()=>{
-  const s=setup();s.click('[data-cookie-customize]');assert.equal(s.dialog.querySelector('[data-cookie-analytics]').checked,false);s.click('[data-cookie-save]');assert.equal(s.scripts.length,0);s.reopen();s.click('[data-cookie-accept]');s.reopen();s.click('[data-cookie-reject]');assert.equal(s.reloads(),1);
+test('invalid, expired and future acknowledgements do not hide the notice',()=>{
+  for(const value of ['invalid',JSON.stringify({version:2,acknowledged:true,time:1}),JSON.stringify({version:2,acknowledged:true,time:Date.now()+86400000})])assert.equal(setup(value).notice.hidden,false);
 });
-test('remembered rejection stays rejected; invalid, expired and future consent cannot start analytics',()=>{
-  const saved=JSON.stringify({version:1,analytics:false,time:Date.now()});const remembered=setup(saved);assert.equal(remembered.dialog.open,false);assert.equal(remembered.scripts.length,0);
-  for(const value of ['invalid',JSON.stringify({version:1,analytics:'true',time:Date.now()}),JSON.stringify({version:1,analytics:true,time:1}),JSON.stringify({version:1,analytics:true,time:Date.now()+86400000})]){const s=setup(value);assert.equal(s.scripts.length,0);assert.equal(s.dialog.open,true);}
-});
-
