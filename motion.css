@@ -367,3 +367,8 @@
 #bilingvo-site .site-language-flag{display:inline-block;width:22px;height:14px;object-fit:cover;flex:0 0 22px;border-radius:2px;box-shadow:0 0 0 1px #143b3920}
 @media(max-width:600px){#bilingvo-site .language-button .site-language-flag{width:18px;height:12px;flex-basis:18px}}
 
+
+#bilingvo-site .site-language{direction:ltr}
+#bilingvo-site .site-language .site-language-menu button{direction:ltr;text-align:left;white-space:nowrap}
+#bilingvo-site .language-chevron{display:block;flex:0 0 12px;width:12px;height:8px;margin-inline-start:3px;align-self:center;transition:transform .16s ease}
+#bilingvo-site .language-button[aria-expanded="true"] .language-chevron{transform:rotate(180deg)}
