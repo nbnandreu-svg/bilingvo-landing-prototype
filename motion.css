@@ -363,4 +363,7 @@
  #bilingvo-site .cookie-notice p{font-size:14px;line-height:1.5}
  #bilingvo-site .cookie-notice>.button{flex-basis:56px;min-height:56px;padding:10px;border-radius:16px;font-size:17px}
 }
+#bilingvo-site .site-language .site-language-menu button{display:flex;align-items:center;gap:10px;justify-content:flex-start}
+#bilingvo-site .site-language-flag{display:inline-block;width:22px;height:14px;object-fit:cover;flex:0 0 22px;border-radius:2px;box-shadow:0 0 0 1px #143b3920}
+@media(max-width:600px){#bilingvo-site .language-button .site-language-flag{width:18px;height:12px;flex-basis:18px}}
 

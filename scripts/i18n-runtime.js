@@ -38,6 +38,9 @@
     document.documentElement.lang=code;
     walk(root);
     trigger.querySelector('[data-site-language-name]').textContent=names[codes.indexOf(code)];
+    const flag=trigger.querySelector('[data-site-language-flag]');
+    const selectedFlag=options.find(button=>button.dataset.siteLanguage===code)?.querySelector('img');
+    if(flag&&selectedFlag)flag.src=selectedFlag.src;
     options.forEach(button=>button.setAttribute('aria-checked',String(button.dataset.siteLanguage===code)));
     document.title=t('Билингво: синхронный перевод для любой аудитории — в реальном времени');
     if(persist){const url=new URL(location.href);url.searchParams.set('lang',code);history.replaceState(null,'',url);}
