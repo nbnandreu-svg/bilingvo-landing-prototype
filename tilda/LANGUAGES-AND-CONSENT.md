@@ -13,7 +13,7 @@ Analytics and marketing remain disabled. There is no analytics loader in
 `consent.js`. The notice uses the exact customer-supplied wording about continued
 browsing and a visually styled placeholder link. This is a presentation mockup:
 the link deliberately does not navigate, and the owner's policy is still pending.
-The desktop panel is 1320px wide and at least 315px high, adapting to smaller screens.
+The desktop panel is 68vw wide, capped at 1000px, with content-driven height and compact spacing. It adapts to smaller screens.
 
 `HEAD-consent.html` is installed in the project HEAD, with an exact `/bilingvo`
 path guard. Its CSP allows functional scripts and form endpoints and excludes
