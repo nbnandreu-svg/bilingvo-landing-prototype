@@ -10,8 +10,10 @@ The first-visit cookie notice has one OK button. It is an informational notice,
 not an analytics consent form. OK stores only an acknowledgement for 180 days.
 The footer can reopen it. Earlier optional-cookie choices are discarded.
 Analytics and marketing remain disabled. There is no analytics loader in
-`consent.js`. The notice contains no third-party policy link or claim that
-continued browsing accepts a personal-data policy. The owner's policy is pending.
+`consent.js`. The notice uses the exact customer-supplied wording about continued
+browsing and a visually styled placeholder link. This is a presentation mockup:
+the link deliberately does not navigate, and the owner's policy is still pending.
+The desktop panel is 1320px wide and at least 315px high, adapting to smaller screens.
 
 `HEAD-consent.html` is installed in the project HEAD, with an exact `/bilingvo`
 path guard. Its CSP allows functional scripts and form endpoints and excludes
