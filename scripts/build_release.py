@@ -13,6 +13,9 @@ def canonical(p):
 def sri(data):return 'sha384-'+base64.b64encode(hashlib.sha384(data).digest()).decode()
 
 doc=BeautifulSoup((ROOT/'index.html').read_text(encoding='utf-8'),'html.parser')
+# Fail closed before scripts run, including when JS is disabled or SRI fails.
+# An inline !important rule also survives missing or late platform stylesheets.
+doc.select_one('#bilingvo-site')['style']='display:none!important'
 for form in doc.select('#bilingvo-site form'):
  if not (form.has_attr('data-lead-form') or form.has_attr('data-kind')):continue
  form['method']='dialog'
@@ -25,7 +28,7 @@ for form in doc.select('#bilingvo-site form'):
   name=control.get('name','')
   control['maxlength']=str({'name':100,'email':254,'contact':120,'company':200,'message':2000}.get(name,32))
 for old in doc.head.select('script[src]'):old.decompose()
-for file in ['security.js','i18n.js','consent.js','tilda-forms.js','app.js','globe.js']:
+for file in ['frame-guard.js','security.js','i18n.js','consent.js','tilda-forms.js','app.js','globe.js']:
  data=canonical(ROOT/file);script=doc.new_tag('script',src=file+'?v='+tag);script['defer']='';script['integrity']=sri(data);script['crossorigin']='anonymous';script['referrerpolicy']='no-referrer';doc.head.append(script)
 policy="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'"
 for key,value in [('referrer','no-referrer')]:
@@ -40,7 +43,7 @@ for link in doc.head.select('link[rel=stylesheet]'):
 (ROOT/'index.html').write_text(str(doc),encoding='utf-8')
 subprocess.run([sys.executable,str(ROOT/'scripts/build_tilda.py')],cwd=ROOT,check=True)
 manifest={'release':tag,'files':[]}
-for src in ['security.js','i18n.js','consent.js','tilda-forms.js','app.js','globe.js','tilda/bilingvo-scoped.css']:
+for src in ['frame-guard.js','security.js','i18n.js','consent.js','tilda-forms.js','app.js','globe.js','tilda/bilingvo-scoped.css']:
  data=canonical(ROOT/src);stem=Path(src).stem;ext=Path(src).suffix;filename=f'{stem}.{hashlib.sha256(data).hexdigest()[:16]}{ext}'
  dest=release/filename
  if dest.exists() and dest.read_bytes()!=data:raise ValueError('Release content collision')

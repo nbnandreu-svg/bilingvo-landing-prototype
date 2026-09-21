@@ -1122,7 +1122,7 @@
 @media(max-width:600px){#bilingvo-site{font-size:16px}}
 #rec3791816301{display:none!important}
 </style>
-<div data-asset-base="https://nbnandreu-svg.github.io/bilingvo-landing-prototype/assets/" id="bilingvo-site" translate="no"><aside aria-label="Уведомление о cookie" class="cookie-notice" hidden="" id="bilingvo-cookies" role="region"><p>Мы используем cookies для быстрой и удобной работы сайта.<br/>Продолжая пользоваться сайтом, вы принимаете <a data-cookie-policy-placeholder="" href="#privacy-policy">условия обработки персональных данных.</a></p><button class="button" data-cookie-ok="" type="button">ОК</button></aside>
+<div data-asset-base="https://nbnandreu-svg.github.io/bilingvo-landing-prototype/assets/" id="bilingvo-site" style="display:none!important" translate="no"><aside aria-label="Уведомление о cookie" class="cookie-notice" hidden="" id="bilingvo-cookies" role="region"><p>Мы используем cookies для быстрой и удобной работы сайта.<br/>Продолжая пользоваться сайтом, вы принимаете <a data-cookie-policy-placeholder="" href="#privacy-policy">условия обработки персональных данных.</a></p><button class="button" data-cookie-ok="" type="button">ОК</button></aside>
 <header class="site-header wrap">
 <a aria-label="Билингво, начало страницы" class="brand" href="#"><img alt="" height="47" src="https://nbnandreu-svg.github.io/bilingvo-landing-prototype/assets/logo.webp" width="65"/><strong>Билингво</strong></a>
 <nav aria-label="Основная навигация"><a href="#bl-how">Как это работает</a><a href="#bl-features">Что входит</a><a href="#bl-materials">Материалы</a><a href="#bl-faq">Вопросы</a></nav>
@@ -1206,6 +1206,23 @@
 <p aria-live="polite" class="global-audio-status sr-only" role="status"></p>
 <audio id="bilingvo-audio" preload="none"></audio></div>
 <script>
+/* Defense in depth only: the host must also send frame-ancestors / X-Frame-Options.
+ * Markup stays hidden if this script is blocked, unavailable or runs in a frame.
+ * No parent-origin/referrer allowlist and no attempt to navigate the parent.
+ * ES5 syntax deliberately supports browsers older than the main application.
+ */
+(function () {
+  'use strict';
+  var site = document.getElementById('bilingvo-site');
+  if (!site) return;
+  try {
+    if (window.self !== window.top) return;
+    site.style.removeProperty('display');
+  } catch (error) {
+    // Leave the initial display:none!important intact on any failure.
+  }
+}());
+
 /* Shared, fail-closed configuration for the static Bilingvo frontend. */
 (() => {
   'use strict';
@@ -1417,7 +1434,8 @@
     ZH: { name: '中文', locale: 'zh', dir: 'ltr', lines: ['我们进入报告的下一部分。', '屏幕上显示了第一阶段的结果。', '会后可以评估翻译质量。'] }
   };
   let language = 'EN';
-  const audio = $('#bilingvo-audio');
+  // Native HTMLAudioElement, not jQuery. load() resets the selected media source.
+  const audio = document.getElementById('bilingvo-audio');
   let playing = false, clip = 0, audioGeneration = 0, typeFrame = 0, previewTimer = 0, clipTimer = 0;
   let phoneVisible = false;
   let globalAnimationPaused = document.hidden;
